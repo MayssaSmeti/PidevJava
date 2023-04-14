@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pidev.Utilis;
+package Pidev.Services;
 
 /**
  *
  * @author Mayssa
  */
-public interface IService  {
+public interface IService {
     
 }
