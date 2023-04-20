@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pidev.Services;
+package edu.esprit.services;
+
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  *
  * @author Mayssa
  */
-public interface IService {
+public interface IService <U> {
+     public void modifier(U p) throws SQLException;
+    public void supprimer(int id) throws SQLException;
+    public List<U> getAll() throws SQLException;
     
 }

@@ -9,6 +9,6 @@ package Pidev.Entities;
  *
  * @author Mayssa
  */
-public class Expert  extends User {
+public class Expert extends User {
     
 }

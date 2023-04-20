@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="418.0" prefWidth="990.0" stylesheets="@design.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AdminController">
+   <children>
+      <Button fx:id="btndeconnexion" cache="true" contentDisplay="CENTER" depthTest="DISABLE" layoutX="832.0" layoutY="12.0" mnemonicParsing="false" onAction="#exit" prefHeight="26.0" prefWidth="107.0" styleClass="exit" stylesheets="@design.css" text="Déconnexion" textFill="WHITE" textOverrun="CLIP">
+         <font>
+            <Font name="Dubai Light" size="14.0" />
+         </font>
+        
+      </Button>
+      <TableView fx:id="tableviewUser" layoutX="9.0" layoutY="59.0" prefHeight="300.0" prefWidth="938.0" stylesheets="@design.css">
+        <columns>
+          <TableColumn fx:id="Nom" prefWidth="83.20001220703125" text="Nom :" />
+            <TableColumn fx:id="prenom" prefWidth="70.4000244140625" text="Prénom :" />
+            <TableColumn fx:id="email" prefWidth="228.80003356933594" text="Email :" />
+            <TableColumn fx:id="cin" prefWidth="107.199951171875" text="CIN :" />
+            <TableColumn fx:id="numtel" prefWidth="128.0" text=" Numéro Tel : " />
+            <TableColumn fx:id="adresse" prefWidth="191.199951171875" text="Adresse : " />
+            <TableColumn fx:id="roles" prefWidth="124.7999267578125" text="Roles : " />
+        </columns>
+      </TableView>
+      <Button fx:id="btnsupprimer" layoutX="839.0" layoutY="372.0" mnemonicParsing="false" onAction="#suprimer" prefHeight="26.0" prefWidth="107.0" styleClass="button-design" stylesheets="@design.css" text="Supprimer " textFill="#e7dfdf">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnmodifier" layoutX="22.0" layoutY="372.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="107.0" styleClass="button-design" stylesheets="@design.css" text="Modifier " textFill="#d4caca">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="actualiser" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#showRec" prefHeight="26.0" prefWidth="130.0" styleClass="button-design" stylesheets="@design.css" text="Actualiser" textAlignment="CENTER" textFill="#f2e0e0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <FontAwesomeIconView fill="#761616" glyphName="USER_PLUS" layoutX="433.0" layoutY="401.0" onMouseClicked="#Ajouter" size="40" wrappingWidth="44.68573760986328" />
+   </children>
+</AnchorPane>

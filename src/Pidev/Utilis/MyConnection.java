@@ -5,8 +5,8 @@
  */
 package Pidev.Utilis;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author Mayssa
  */
 public class MyConnection {
-      public String url="jdbc:mysql://localhost:3306/pidev";
+     public String url="jdbc:mysql://localhost:3306/pidev";
     public String login="root";
     public String pwd="";
     
@@ -40,4 +40,5 @@ public class MyConnection {
         }
         return instance;
     }
+    
 }

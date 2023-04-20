@@ -9,6 +9,6 @@ package Pidev.Entities;
  *
  * @author Mayssa
  */
-public class Admin  extends User {
+public class Admin extends User {
     
 }

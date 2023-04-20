@@ -9,6 +9,6 @@ package Pidev.Entities;
  *
  * @author Mayssa
  */
-public class Assureur extends User  {
+public class Assureur extends User {
     
 }
