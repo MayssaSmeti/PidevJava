@@ -66,7 +66,7 @@ public class UserCrud {
             String requete2 = "INSERT INTO user (`email` ,`password`, `nom` ,`prenom` ,`adresse`  ,`cin` ,`num_tel` ,`roles`)" + " VALUES (?,?,?,?,?,?,?,?) ";
             PreparedStatement pst = cnx2.prepareStatement(requete2); //objet dedie pour les objet dynamique //statement est long  //PreparedStatemt : envoie une requête sans
             //paramètres à la base de données
-
+            
             pst.setString(1, u.getEmail());
             pst.setString(2, u.getPassword());
             pst.setString(3, u.getNom());

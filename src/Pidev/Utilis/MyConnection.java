@@ -19,6 +19,7 @@ public class MyConnection {
     public String pwd="";
     
      Connection cnx;
+     Connection role ; 
     public static MyConnection instance;
     
    private  MyConnection(){
@@ -32,6 +33,9 @@ public class MyConnection {
     
     public Connection getCnx() {
         return cnx;
+    }
+    public Connection getRole(){
+        return role ;
     }
     
     public static MyConnection getInstance(){

@@ -9,6 +9,7 @@ package Pidev.Gui;
 import Pidev.Entities.User;
 import Pidev.Services.UserCrud;
 import Pidev.Utilis.MyConnection;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -20,7 +21,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -118,7 +121,7 @@ public class SignUpController implements Initializable {
     }
 
     @FXML
-    private void Inscription(ActionEvent event) throws SQLException {
+    private void Inscription(ActionEvent event) throws SQLException, IOException {
 
         cnx = MyConnection.getInstance().getCnx();
         String query = "INSERT INTO user (email,password,nom,prenom,adresse,cin,num_tel)"
@@ -156,7 +159,7 @@ public class SignUpController implements Initializable {
                 alert.setContentText("CIN doit etre de 8 chiffres  !!");
                 alert.showAndWait();
 
-            } else if (fxnum.getText().length() < 8) {
+            } else if (fxnum.getText().length() < 11) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("4 Roues Assurrances :: Error Message");
                 alert.setHeaderText(null);
@@ -188,6 +191,8 @@ public class SignUpController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Vous Etes Inscrit !!");
                     alert.showAndWait();
+                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+                     Parent root = loader.load();
 
                 }
 
