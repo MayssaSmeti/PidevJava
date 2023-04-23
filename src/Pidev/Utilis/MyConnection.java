@@ -14,12 +14,12 @@ import java.sql.SQLException;
  * @author Mayssa
  */
 public class MyConnection {
-     public String url="jdbc:mysql://localhost:3306/pidev";
+    public String url="jdbc:mysql://localhost:3306/pidev";
     public String login="root";
     public String pwd="";
     
-     Connection cnx;
-     Connection role ; 
+    Connection cnx;
+    Connection role ; 
     public static MyConnection instance;
     
    private  MyConnection(){

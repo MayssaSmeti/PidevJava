@@ -30,7 +30,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -78,6 +80,8 @@ public class AdminController implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
     User user = null;
+    @FXML
+    private TextField fxRecherche;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -229,4 +233,15 @@ public class AdminController implements Initializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @FXML
+    private void Recherche(KeyEvent event) {
+         UserCrud se = new UserCrud();
+        String chaine = fxRecherche.getText();
+        populateTable(se.chercherUserR(chaine)); 
+    }
+    
+     private void populateTable(ObservableList<User> branlist) {
+        tableviewUser.setItems(branlist);
+
+    }
 }

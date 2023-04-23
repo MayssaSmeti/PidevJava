@@ -6,6 +6,7 @@
 package Pidev.Gui;
 
 
+import API.Mail;
 import Pidev.Entities.User;
 import Pidev.Services.UserCrud;
 import Pidev.Utilis.MyConnection;
@@ -16,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,6 +32,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javax.mail.MessagingException;
 
 /**
  * FXML Controller class
@@ -52,14 +55,17 @@ public class SignUpController implements Initializable {
     private TextField fxnum;
     @FXML
     private TextField fxadresse;
-    @FXML
-    private Button btninscrit;
     private Connection cnx;
     private Statement statement;
     private PreparedStatement prepare;
     private ResultSet result;
     @FXML
     private PasswordField confirmerPassword;
+    private TextField emailField;
+    
+    String activationCode;
+    @FXML
+    private Button btninscrit;
 
     /**
      * Initializes the controller class.
@@ -120,10 +126,55 @@ public class SignUpController implements Initializable {
         }
     }
 
-    @FXML
     private void Inscription(ActionEvent event) throws SQLException, IOException {
 
-        cnx = MyConnection.getInstance().getCnx();
+       
+    }
+
+    private void sendActivation(ActionEvent event) {
+              String email = emailField.getText();
+
+        if (!isValidEmail(email)) {
+            showAlert("Email invalide !");
+            return;
+        }
+
+        // Générer un code d'activation aléatoire
+        Random random = new Random();
+         activationCode = String.format("%04d", random.nextInt(10000));
+
+        // Envoyer l'email d'activation
+        Mail mail = new Mail();        
+        mail.setToEmail(email);
+        mail.setSubject("Activation de votre compte");
+        mail.setMessage("Votre code d'activation est : " + activationCode);
+        try {
+            mail.sendEmail();
+            showAlert("Un email d'activation a été envoyé à votre adresse email.");
+        } catch (MessagingException e) {
+            showAlert("Impossible d'envoyer l'email d'activation !");
+        }
+    }
+
+    private boolean isValidEmail(String email) {
+        // TODO: Ajouter une validation d'email plus avancée
+        return email.matches(".+@.+\\..+");
+    }
+
+    private void showAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    public String getActivationCode() {
+        
+        return activationCode;
+    }
+
+    @FXML
+    private void inscripition(ActionEvent event) throws IOException {
+         cnx = MyConnection.getInstance().getCnx();
         String query = "INSERT INTO user (email,password,nom,prenom,adresse,cin,num_tel)"
                 + "VALUES (?,?,?,?,?,?,?)";
 
@@ -202,4 +253,7 @@ public class SignUpController implements Initializable {
         }
 
     }
-}
+    
+    }
+
+

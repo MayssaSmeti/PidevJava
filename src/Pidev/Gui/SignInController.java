@@ -74,7 +74,30 @@ public class SignInController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
+    
+    
+     public boolean verifierEmailNonDuplique(String email) {
+        String requete = "SELECT * FROM utilisateur WHERE email = ?";
+        PreparedStatement statement;
+        ResultSet resultSet;
+        Connection Ds = MyConnection.getInstance().getCnx();
+        boolean emailExiste = false;
 
+        try {
+            statement = Ds.prepareStatement(requete);
+            statement.setString(1, email);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+
+                emailExiste = true;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return !emailExiste;
+    }
     @FXML
     private void login(ActionEvent event) throws IOException, SQLException {
         if (fxemail.getText().equals("mayssa@gmail.com") && fxpassword.getText().equals("06102020")) {
@@ -153,6 +176,7 @@ public class SignInController implements Initializable {
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
     }
+     
 
     @FXML
     private void ResetPassword(ActionEvent event) throws AddressException, MessagingException {

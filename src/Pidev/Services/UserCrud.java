@@ -7,8 +7,6 @@ package Pidev.Services;
 
 import Pidev.Entities.User;
 import Pidev.Utilis.MyConnection;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +14,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -104,7 +104,6 @@ public class UserCrud {
                 u.setPassword(rs.getString("password"));
                 u.setCin(rs.getInt("cin"));
                 u.setNum_tel(rs.getInt("num_tel"));
-
                 u.setRoles(rs.getString("roles"));
                 u.setAdresse(rs.getString("adresse"));
 
@@ -149,5 +148,53 @@ public class UserCrud {
             System.out.println(ex.getMessage());
         }
     }
+    
+    
+     public int chercherUser (String nom ) throws SQLException{
+         int id=0;
+         String requetee = "SELECT id FROM user where nom ='"+nom+"';";
+            PreparedStatement pst = cnx2.prepareStatement(requetee);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next())
+            {id= rs.getInt("id");
+            }return id;
+     }
+     
+       public ObservableList<User> chercherUserR(String chaine){
+        String sql ="select user.id,user.nom ,user.prenom,user.cin,user.num_tel,user.adresse,user.email,user.roles  from user ";
+            
+             Connection cnx= MyConnection.getInstance().getCnx();
+            String ch=""+chaine+"%";
+         System.out.println(sql);
+            ObservableList<User> myList= FXCollections.observableArrayList();
+        try {
+           
+            Statement ste= cnx.createStatement();
+           // PreparedStatement pst = myCNX.getCnx().prepareStatement(requete6);
+            PreparedStatement stee =cnx.prepareStatement(sql);  
+            stee.setString(1, ch);
+            stee.setString(2, ch);
+
+         System.out.println(stee);
+
+            ResultSet rs = stee.executeQuery();
+            while (rs.next()){
+                 User u= new User();
+                u.setId(rs.getInt("id"));
+                u.setEmail(rs.getString("email"));
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setCin(rs.getInt("cin"));
+                u.setNum_tel(rs.getInt("num_tel"));
+                u.setRoles(rs.getString("roles"));
+                u.setAdresse(rs.getString("adresse"));
+                myList.add(u);
+                System.out.println(" utilisateur  trouvé! ");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return myList;
+      }
 
 }
