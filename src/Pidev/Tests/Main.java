@@ -35,7 +35,8 @@ public class Main {
 
 
         //System.out.println(pcd.afficherUtilisateurs());
-        Mail test = new  Mail(); 
-        test.sendEmail();
+      //  Mail test = new  Mail(); 
+        //test.sendEmail();
     }
+    
 }

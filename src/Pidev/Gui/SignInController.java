@@ -66,6 +66,8 @@ public class SignInController implements Initializable {
     private ResultSet result;
     @FXML
     private Hyperlink mtpoublie;
+    @FXML
+    private AnchorPane fxFront;
 
     /**
      * Initializes the controller class.
@@ -102,20 +104,22 @@ public class SignInController implements Initializable {
     private void login(ActionEvent event) throws IOException, SQLException {
         if (fxemail.getText().equals("mayssa@gmail.com") && fxpassword.getText().equals("06102020")) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("4roues assurrances  :: Success Message");
+            alert.setTitle("4roues assurrances : Success Message");
             alert.setHeaderText(null);
             alert.setContentText("Bienvenu Admin");
             alert.showAndWait();
 
             Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
             Scene scene;
-
             scene = new Scene(root);
             Stage stage = new Stage();
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.setScene(scene);
-
             stage.show();
+              Parent fxml = FXMLLoader.load(getClass().getResource("AdminDasshborad.fxml"));
+            fxFront.getChildren().removeAll();
+            fxFront.getChildren().setAll(fxml);
+            
 
         } else {
 
@@ -138,13 +142,14 @@ public class SignInController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Vous etes connecté");
                 alert.showAndWait();
-
+                
                 Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
                 Scene scene;
                 scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.initStyle(StageStyle.TRANSPARENT);
                 stage.setScene(scene);
+                stage.close(); 
 
                 stage.show();
 
@@ -175,6 +180,7 @@ public class SignInController implements Initializable {
         stage.setScene(new Scene(parent));
         stage.initStyle(StageStyle.UTILITY);
         stage.show();
+        stage.close(); 
     }
      
 

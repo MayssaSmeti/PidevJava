@@ -21,11 +21,19 @@ import javax.mail.internet.MimeMessage;
  * @author Mayssa
  */
 public class Mail {
-    private String fromEmail ="4.roues.assurances@gmail.com";
-    private String password="eauvsyslukyzjceq";
+    private String fromEmail ; 
+    private String password;
     private String toEmail ; 
     private String subject ; 
     private String message ; 
+
+    public Mail(String fromEmail, String password, String toEmail, String subject, String message) {
+        this.fromEmail = fromEmail;
+        this.password = password;
+        this.toEmail = toEmail;
+        this.subject = subject;
+        this.message = message;
+    }
     
     
 
@@ -50,10 +58,10 @@ public class Mail {
         try{
         // Création du message
         Message e_message = new MimeMessage(session);
-        e_message.setFrom(new InternetAddress("4.roues.assurances@gmail.com"));
-        e_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mayssa.smeti@esprit.tn"));
+        e_message.setFrom(new InternetAddress(fromEmail));
+        e_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
         e_message.setSubject(subject);
-        e_message.setText("ceci est un message test ");
+        e_message.setText(this.message);
 
         // Envoi du message
         Transport.send(e_message);

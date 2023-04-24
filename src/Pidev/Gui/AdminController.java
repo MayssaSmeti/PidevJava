@@ -235,13 +235,8 @@ public class AdminController implements Initializable {
 
     @FXML
     private void Recherche(KeyEvent event) {
-         UserCrud se = new UserCrud();
-        String chaine = fxRecherche.getText();
-        populateTable(se.chercherUserR(chaine)); 
+      
     }
     
-     private void populateTable(ObservableList<User> branlist) {
-        tableviewUser.setItems(branlist);
-
-    }
+   
 }

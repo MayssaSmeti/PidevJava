@@ -7,6 +7,7 @@ package Pidev.Gui;
 
 
 import API.Mail;
+
 import Pidev.Entities.User;
 import Pidev.Services.UserCrud;
 import Pidev.Utilis.MyConnection;
@@ -25,13 +26,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.mail.MessagingException;
 
 /**
@@ -72,18 +76,7 @@ public class SignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-
-        // Définir la valeur initiale du champ de texte du code pays
-        fxnum.setText("+216");
-
-        // Ajouter un écouteur pour le champ de texte du numéro de téléphone
-        fxnum.textProperty().addListener((observable, oldValue, newValue) -> {
-            // Si le champ de texte du numéro de téléphone est vide, réinitialiser la valeur du champ de texte du code pays
-            if (newValue.isEmpty()) {
-                fxnum.setText("+216");
-            }
-        });
+     
     }
 
     public boolean verifierEmailNonDuplique(String email) {
@@ -126,34 +119,9 @@ public class SignUpController implements Initializable {
         }
     }
 
-    private void Inscription(ActionEvent event) throws SQLException, IOException {
-
-       
-    }
-
+  
     private void sendActivation(ActionEvent event) {
-              String email = emailField.getText();
-
-        if (!isValidEmail(email)) {
-            showAlert("Email invalide !");
-            return;
-        }
-
-        // Générer un code d'activation aléatoire
-        Random random = new Random();
-         activationCode = String.format("%04d", random.nextInt(10000));
-
-        // Envoyer l'email d'activation
-        Mail mail = new Mail();        
-        mail.setToEmail(email);
-        mail.setSubject("Activation de votre compte");
-        mail.setMessage("Votre code d'activation est : " + activationCode);
-        try {
-            mail.sendEmail();
-            showAlert("Un email d'activation a été envoyé à votre adresse email.");
-        } catch (MessagingException e) {
-            showAlert("Impossible d'envoyer l'email d'activation !");
-        }
+              
     }
 
     private boolean isValidEmail(String email) {
@@ -210,7 +178,7 @@ public class SignUpController implements Initializable {
                 alert.setContentText("CIN doit etre de 8 chiffres  !!");
                 alert.showAndWait();
 
-            } else if (fxnum.getText().length() < 11) {
+            } else if (fxnum.getText().length() < 8) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("4 Roues Assurrances :: Error Message");
                 alert.setHeaderText(null);
@@ -221,29 +189,58 @@ public class SignUpController implements Initializable {
                 String email = fxemail.getText();
                 if (ValidationEmail() || verifierEmailNonDuplique(email) == false) {
                     PreparedStatement smt = cnx.prepareStatement(query);
-
-                    smt.setString(1, fxemail.getText());
-                    smt.setString(2, fxpassword.getText());
-                    smt.setString(3, fxnom.getText());
-                    smt.setString(4, fxprenom.getText());
-                    smt.setString(5, fxadresse.getText());
-                    smt.setString(6, fxcin.getText());
-                    smt.setString(7, fxnum.getText());
-                    smt.executeUpdate();
+                    
+                   String Email= fxemail.getText(); 
+                   String nom=fxnom.getText(); 
+                   String prenom=fxprenom.getText();
+                   String adresse= fxadresse.getText(); 
                     
                     UserCrud us = new UserCrud();
                     Integer cin = Integer.parseInt(fxcin.getText()); //conversion
                     Integer num_tel = Integer.parseInt(fxnum.getText());
-                    User p = new User(fxemail.getText(), fxnom.getText(), fxprenom.getText(), fxpassword.getText(), cin, fxadresse.getText(), num_tel);
+                    User p = new User(Email, nom, prenom, fxpassword.getText(), cin,adresse, num_tel);
                     us.ajouterUtilisateur2(p);
+                     String message = "Bonjour " + nom+ " " + prenom + "\n"
+                    + "Merci de vous être inscrit! Votre code de confirmation est : " ;
+                     
+                      Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", Email, "Confirmation d'inscription", message);
+                   
+            try {
+                emailsend.sendEmail();
+                Alert alerte = new Alert(AlertType.INFORMATION);
+                alerte.setTitle("Confirmation d'inscription");
+                alerte.setHeaderText("Inscription réussie!");
+                alerte.setContentText("Un email de confirmation a été envoyé à l'adresse " + Email + ".");
+                alerte.showAndWait();
+               
+
+            } catch (MessagingException ex) {
+                Alert alerte = new Alert(AlertType.ERROR);
+                alerte.setTitle("Erreur lors de l'envoi de l'email");
+                alerte.setHeaderText("Erreur lors de l'envoi de l'email de confirmation");
+                alerte.setContentText("Veuillez réessayer plus tard.");
+                alerte.showAndWait();
+                System.out.println(ex.getMessage());
+            }
                     System.out.println("ajout avec succee");
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("4 Roues Assurrances :: BIENVENNUE");
                     alert.setHeaderText(null);
                     alert.setContentText("Vous Etes Inscrit !!");
                     alert.showAndWait();
-                     FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-                     Parent root = loader.load();
+                    
+                       Stage home = new Stage();
+
+                    try {
+                        Parent fxml = FXMLLoader.load(getClass().getResource("Home.fxml"));
+                        Scene scene = new Scene(fxml);
+                        home.setScene(scene);
+                        home.show();
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.close();
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
 
                 }
 

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.SignInController">
+<AnchorPane  fx:id="fxFront" id="AnchorPane"  prefHeight="426.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.SignInController">
    <children>
       <Label alignment="CENTER" layoutX="28.0" layoutY="252.0" prefHeight="30.0" prefWidth="246.0" styleClass="hypertext-design" stylesheets="@design.css" text="4 Roues Assurrances" textAlignment="CENTER">
          <opaqueInsets>
