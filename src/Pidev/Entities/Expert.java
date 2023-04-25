@@ -7,8 +7,24 @@ package Pidev.Entities;
 
 /**
  *
- * @author Mayssa
+ * @author SCORPIO-12
  */
-public class Expert  extends User {
+public class Expert extends User {
+ 
+   
+    public Expert(int id) {
+        super(id);
+    }
+
+    public Expert(int id, String nom, String email) {
+        super(id, nom, email);
+    }
+
+  
     
+    
+    
+
+   
+ 
 }
