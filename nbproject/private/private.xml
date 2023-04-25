@@ -3,13 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/SignIn.fxml</file>
-            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/FrontDasshborad.fxml</file>
-            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/SignInController.java</file>
-            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/AdminDashboardControler.java</file>
-            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/SignUpController.java</file>
+            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Tests/Main.java</file>
             <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/Connexion.java</file>
-            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/FrontDashboardControler.java</file>
+            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/SignUpController.java</file>
+            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/VerifEmailController.java</file>
+            <file>file:/C:/Users/Mayssa/Desktop/PidevJava/src/Pidev/Gui/VerifEmail.fxml</file>
         </group>
     </open-files>
 </project-private>

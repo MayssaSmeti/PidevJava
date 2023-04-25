@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javax.management.relation.Role;
+
 
 /**
  *
@@ -28,16 +28,34 @@ public class User {
     private String adresse ; 
     private int num_tel ; 
     private String roles ; 
-   
-    public static User Current_User;
-  
+    private String activation_token ; 
 
     public User() {
-      
-        
+       
     }
 
+    public String getActivation_token() {
+        return activation_token;
+    }
+
+    public void setActivation_token(String activation_token) {
+        this.activation_token = activation_token;
+    }
    
+    public static User Current_User;
+
+    public User( String email, String nom, String prenom, String password, int cin, String adresse, int num_tel,  String activation_token) {
+        
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.cin = cin;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+       
+        this.activation_token = generateCode();
+    }
 
     
     public User(int id, String email, String nom, String prenom, int cin, String adresse, int num_tel, String roles) {
@@ -61,19 +79,6 @@ public class User {
         this.num_tel = num_tel;
     }
     
-    
-    
-
-    public User(String email, String nom, String prenom, String password, int cin, String adresse, int num_tel, String roles) {
-        this.email = email;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.password = hashMotDePasse(password); 
-        this.cin = cin;
-        this.adresse = adresse;
-        this.num_tel = num_tel;
-       // this.roles = roles;
-    }
 
     public User(String email, String nom, String prenom, int cin, String adresse, int num_tel, String roles) {
         this.email = email;
@@ -82,7 +87,7 @@ public class User {
         this.cin = cin;
         this.adresse = adresse;
         this.num_tel = num_tel;
-        //this.roles = roles;
+        this.roles = roles;
     }
 
     
@@ -185,11 +190,26 @@ public class User {
         return "User{" + "id=" + id + ", email=" + email + ", nom=" + nom + ", prenom=" + prenom + ", password=" + password + ", cin=" + cin + ", adresse=" + adresse + ", num_tel=" + num_tel + ", roles=" + roles + '}';
     }
 
-   public enum Role {
-       ADMIN,EXPERT,MECANICIEN,ASSUREUR,UTILISATEUR 
-   }
-
   
+
+     public String generateCode() {
+        
+        Random random = new Random();
+        int codeInt = random.nextInt(1000000);
+        String code = String.format("%06d", codeInt);
+
+    
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        StringBuilder sb = new StringBuilder(code);
+        for (int i = 0; i < 2; i++) {
+            int index = random.nextInt(alphabet.length());
+            sb.insert(random.nextInt(sb.length() + 1), alphabet.charAt(index));
+        }
+        activation_token = sb.toString();
+
+       
+        return activation_token;
+    }
     
         public String hashMotDePasse(String password) {
         try {

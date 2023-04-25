@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,6 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,6 +29,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -131,7 +134,24 @@ public class AdminController implements Initializable {
 
     @FXML
     private void exit(ActionEvent event) {
-        System.exit(0);
+        
+        //Username = null;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Déconnexion");
+        alert.setHeaderText("Confirmation de déconnexion");
+        alert.setContentText("Êtes-vous sûr de vouloir vous déconnecter ?");
+
+        ButtonType buttonTypeYes = new ButtonType("Oui");
+        ButtonType buttonTypeNo = new ButtonType("Non", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeYes) {
+            Stage stage = (Stage) btndeconnexion.getScene().getWindow();
+            stage.close();
+        }
+
     }
 
     @FXML
@@ -171,7 +191,7 @@ public class AdminController implements Initializable {
         stage.show();
         showRec();
     }
-
+    @FXML 
     private void refresh() //mettre a jour du continue du tableView 
     {
         ObservableList<User> list = getUserList();
@@ -187,27 +207,7 @@ public class AdminController implements Initializable {
         tableviewUser.setItems(list);
 
     }
-
-    private void Ajouter(ActionEvent event) {
-
-        FXMLLoader loader = new FXMLLoader();//creation de FXMLLoader 
-        loader.setLocation(getClass().getResource("Ajouter.fxml")); //emplacement du fichier fxml 
-        try {
-            loader.load();
-        } catch (Exception ex) {
-            System.err.println(ex.getMessage());
-        }
-
-        AjouterController muc = loader.getController(); //recuperation deu controller de modification 
-        //mrc.setUpdate(true);
-
-        Parent parent = loader.getRoot();
-        Stage stage = new Stage(); //affichage de la fenetre 
-        stage.setScene(new Scene(parent));
-        stage.initStyle(StageStyle.UTILITY);
-        stage.show();
-        showRec();
-    }
+    
 
     @FXML
     private void Ajouter(MouseEvent event) {

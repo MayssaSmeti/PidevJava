@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" layoutY="10.0" prefHeight="587.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.ModifierUtilisateurController">
+<AnchorPane id="AnchorPane" layoutY="10.0" prefHeight="597.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.ModifierUtilisateurController">
    <children>
       <Label layoutX="142.0" layoutY="115.0" prefHeight="38.0" prefWidth="115.0" styleClass="hypertext-design" stylesheets="@design.css" text="Modifier" textAlignment="CENTER" textFill="#070a38" wrapText="true" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="113.0">
          <font>
@@ -21,7 +21,7 @@
             <Image url="@../img/Logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnModifier" layoutX="123.0" layoutY="525.0" mnemonicParsing="false" onAction="#Modifieruser" prefHeight="30.0" prefWidth="158.0" styleClass="button-design" stylesheets="@design.css" text="Modifier " textFill="#7b756d" />
+      <Button fx:id="btnModifier" layoutX="123.0" layoutY="525.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="30.0" prefWidth="158.0" styleClass="button-design" stylesheets="@design.css" text="Modifier " textFill="#7b756d" />
       <Label contentDisplay="CENTER" layoutX="137.0" layoutY="88.0" text="4 Roues Assurances " textAlignment="CENTER" textFill="#9c802f" underline="true" />
       <TextField fx:id="fxnom" layoutX="88.0" layoutY="201.0" prefHeight="28.0" prefWidth="220.0" promptText="Nom..." styleClass="textfield-design" stylesheets="@design.css">
          <font>

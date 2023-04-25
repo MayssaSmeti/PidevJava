@@ -73,7 +73,7 @@
             <Font name="Script MT Bold" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btninscrit" alignment="CENTER" contentDisplay="CENTER" layoutX="362.0" layoutY="702.0" mnemonicParsing="false" onAction="#inscripition" prefHeight="26.0" prefWidth="147.0" styleClass="button-design" text="S'inscrire ">
+      <Button fx:id="btninscrit" alignment="CENTER" contentDisplay="CENTER" layoutX="362.0" layoutY="702.0" mnemonicParsing="false" onAction="#inscrit" prefHeight="26.0" prefWidth="147.0" styleClass="button-design" text="S'inscrire ">
          <font>
             <Font name="Book Antiqua" size="15.0" />
          </font>

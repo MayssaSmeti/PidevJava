@@ -28,7 +28,11 @@ public class Connexion extends Application {
     public void start(Stage primaryStage) {
         try {
            // Parent root = FXMLLoader.load(getClass().getResource("AdminDasshboard.fxml")) ;
-             Parent root = FXMLLoader.load(getClass().getResource("FrontDasshborad.fxml")) ;
+          //Parent root = FXMLLoader.load(getClass().getResource("FrontDasshborad.fxml")) ;
+          Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml")) ;
+            //Parent root = FXMLLoader.load(getClass().getResource("VerifEmail.fxml")) ;
+
+
             
             Scene scene = new Scene(root);
             

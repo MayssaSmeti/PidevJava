@@ -9,6 +9,6 @@ package Pidev.Entities;
  *
  * @author Mayssa
  */
-public class Mecanicien extends User {
+public class Mecanicien {
     
 }

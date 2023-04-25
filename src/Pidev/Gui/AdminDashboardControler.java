@@ -34,7 +34,7 @@ public class AdminDashboardControler implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       
      
    
       
@@ -48,6 +48,7 @@ public class AdminDashboardControler implements Initializable {
 
     }
 
+    @FXML
     void open_listeOffre(MouseEvent event) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getResource("Admin.fxml"));
         content_area.getChildren().removeAll();
@@ -67,6 +68,14 @@ public class AdminDashboardControler implements Initializable {
         //Parent fxml = FXMLLoader.load(getClass().getResource("AddContrat.fxml"));
         //content_area.getChildren().removeAll();
         //content_area.getChildren().setAll(fxml);
+
+    }
+
+    @FXML
+    private void openListUser(MouseEvent event) throws IOException {
+         Parent fxml = FXMLLoader.load(getClass().getResource("Admin.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
 
     }
 }  

@@ -66,16 +66,7 @@ public class AjouterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-          // Définir la valeur initiale du champ de texte du code pays
-        fxnum.setText("+216");
-
-        // Ajouter un écouteur pour le champ de texte du numéro de téléphone
-        fxnum.textProperty().addListener((observable, oldValue, newValue) -> {
-            // Si le champ de texte du numéro de téléphone est vide, réinitialiser la valeur du champ de texte du code pays
-            if (newValue.isEmpty()) {
-                fxnum.setText("+216");
-            }
-        });
+        
 
     }
 

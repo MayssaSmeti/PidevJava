@@ -5,7 +5,6 @@
  */
 package Pidev.Gui;
 
-
 import API.Mail;
 
 import Pidev.Entities.User;
@@ -13,6 +12,8 @@ import Pidev.Services.UserCrud;
 import Pidev.Utilis.MyConnection;
 import java.io.IOException;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,8 +66,7 @@ public class SignUpController implements Initializable {
     private ResultSet result;
     @FXML
     private PasswordField confirmerPassword;
-    private TextField emailField;
-    
+
     String activationCode;
     @FXML
     private Button btninscrit;
@@ -76,11 +76,11 @@ public class SignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+
     }
 
     public boolean verifierEmailNonDuplique(String email) {
-        String requete = "SELECT * FROM utilisateur WHERE email = ?";
+        String requete = "SELECT * FROM user WHERE email = ?";
         PreparedStatement statement;
         ResultSet resultSet;
         Connection Ds = MyConnection.getInstance().getCnx();
@@ -119,11 +119,6 @@ public class SignUpController implements Initializable {
         }
     }
 
-  
-    private void sendActivation(ActionEvent event) {
-              
-    }
-
     private boolean isValidEmail(String email) {
         // TODO: Ajouter une validation d'email plus avancée
         return email.matches(".+@.+\\..+");
@@ -135,76 +130,85 @@ public class SignUpController implements Initializable {
         alert.showAndWait();
     }
 
-    public String getActivationCode() {
-        
-        return activationCode;
+    public String hashMotDePasse(String motDePasse) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(motDePasse.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
-    private void inscripition(ActionEvent event) throws IOException {
-         cnx = MyConnection.getInstance().getCnx();
-        String query = "INSERT INTO user (email,password,nom,prenom,adresse,cin,num_tel)"
-                + "VALUES (?,?,?,?,?,?,?)";
+    private void inscrit(ActionEvent event) throws IOException {
 
-        try {
+        boolean saisieValide = true;
+        String messageErreur = "";
+        String activation_token = null;
 
-            if (fxemail.getText().isEmpty()
-                    | fxnum.getText().isEmpty()
-                    | fxadresse.getText().isEmpty()
-                    | fxpassword.getText().isEmpty()
-                    | fxcin.getText().isEmpty()
-                    | fxnom.getText().isEmpty()
-                    | confirmerPassword.getText().isEmpty()
-                    | fxprenom.getText().isEmpty()) {
+        String email = fxemail.getText();
+        if (fxemail.getText().isEmpty()
+                | fxnum.getText().isEmpty()
+                | fxadresse.getText().isEmpty()
+                | fxpassword.getText().isEmpty()
+                | fxcin.getText().isEmpty()
+                | fxnom.getText().isEmpty()
+                | confirmerPassword.getText().isEmpty()
+                | fxprenom.getText().isEmpty()) {
 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("4 Roues Assurrances  :: Error Message");
-                alert.setHeaderText(null);
-                alert.setContentText("Remplir tous les champs  !!");
-                alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("4 Roues Assurrances  :: Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Remplir tous les champs  !!");
+            alert.showAndWait();
 
-            } else if (confirmerPassword.getText().length() < 8 | confirmerPassword.getText() == fxpassword.getText()) {
+        } else if (confirmerPassword.getText().length() < 8 | confirmerPassword.getText() == fxpassword.getText()) {
 
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("4 Roues Assurrances :: Error Message");
-                alert.setHeaderText(null);
-                alert.setContentText("Password doit etre sup 8 caractéres !!");
-                alert.showAndWait();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("4 Roues Assurrances :: Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Password doit etre sup 8 caractéres !!");
+            alert.showAndWait();
 
-            } else if (fxcin.getText().length() < 8) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("4 Roues Assurrances :: Error Message");
-                alert.setHeaderText(null);
-                alert.setContentText("CIN doit etre de 8 chiffres  !!");
-                alert.showAndWait();
+        } else if (fxcin.getText().length() < 8) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("4 Roues Assurrances :: Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("CIN doit etre de 8 chiffres  !!");
+            alert.showAndWait();
 
-            } else if (fxnum.getText().length() < 8) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("4 Roues Assurrances :: Error Message");
-                alert.setHeaderText(null);
-                alert.setContentText("Le numero de telephone  doit etre de 8 chiffres  !!");
-                alert.showAndWait();
+        } else if (fxnum.getText().length() < 8) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("4 Roues Assurrances :: Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Le numero de telephone  doit etre de 8 chiffres  !!");
+            alert.showAndWait();
 
-            } else {
-                String email = fxemail.getText();
-                if (ValidationEmail() || verifierEmailNonDuplique(email) == false) {
-                    PreparedStatement smt = cnx.prepareStatement(query);
-                    
-                   String Email= fxemail.getText(); 
-                   String nom=fxnom.getText(); 
-                   String prenom=fxprenom.getText();
-                   String adresse= fxadresse.getText(); 
-                    
-                    UserCrud us = new UserCrud();
-                    Integer cin = Integer.parseInt(fxcin.getText()); //conversion
-                    Integer num_tel = Integer.parseInt(fxnum.getText());
-                    User p = new User(Email, nom, prenom, fxpassword.getText(), cin,adresse, num_tel);
-                    us.ajouterUtilisateur2(p);
-                     String message = "Bonjour " + nom+ " " + prenom + "\n"
-                    + "Merci de vous être inscrit! Votre code de confirmation est : " ;
-                     
-                      Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", Email, "Confirmation d'inscription", message);
-                   
+        } else if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}") || verifierEmailNonDuplique(email) == false) {
+            saisieValide = false;
+            messageErreur += "L'email n'est pas valide.\n";
+        } else {
+
+            String Email = fxemail.getText();
+            String nom = fxnom.getText();
+            String prenom = fxprenom.getText();
+            String adresse = fxadresse.getText();
+
+            UserCrud us = new UserCrud();
+            Integer cin = Integer.parseInt(fxcin.getText()); //conversion
+            Integer num_tel = Integer.parseInt(fxnum.getText());
+            User p = new User(Email, nom, prenom, fxpassword.getText(), cin, adresse, num_tel, activation_token);
+            us.ajouterUtilisateur2(p);
+            String message = "Bonjour " + nom + " " + prenom + "\n"
+                    + "Merci de vous être inscrit! Votre code de confirmation est : " + p.getActivation_token();
+
+            Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", Email, "Confirmation d'inscription", message);
+
             try {
                 emailsend.sendEmail();
                 Alert alerte = new Alert(AlertType.INFORMATION);
@@ -212,8 +216,15 @@ public class SignUpController implements Initializable {
                 alerte.setHeaderText("Inscription réussie!");
                 alerte.setContentText("Un email de confirmation a été envoyé à l'adresse " + Email + ".");
                 alerte.showAndWait();
-               
+                Stage home = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VerifEmail.fxml"));
+                Parent root = loader.load();
+                VerifEmailController cc = loader.getController();
+                cc.setData(email);
+                Scene scene = new Scene(root);
 
+                home.setScene(scene);
+                home.show();
             } catch (MessagingException ex) {
                 Alert alerte = new Alert(AlertType.ERROR);
                 alerte.setTitle("Erreur lors de l'envoi de l'email");
@@ -222,35 +233,28 @@ public class SignUpController implements Initializable {
                 alerte.showAndWait();
                 System.out.println(ex.getMessage());
             }
-                    System.out.println("ajout avec succee");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("4 Roues Assurrances :: BIENVENNUE");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Vous Etes Inscrit !!");
-                    alert.showAndWait();
-                    
-                       Stage home = new Stage();
+            //System.out.println("ajout avec succee");
+            //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            //alert.setTitle("4 Roues Assurrances :: BIENVENNUE");
+            //alert.setHeaderText(null);
+            //alert.setContentText("Vous Etes Inscrit !!");
+            //alert.showAndWait();
 
-                    try {
-                        Parent fxml = FXMLLoader.load(getClass().getResource("Home.fxml"));
-                        Scene scene = new Scene(fxml);
-                        home.setScene(scene);
-                        home.show();
-                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        stage.close();
-                    } catch (IOException ex) {
-                        System.out.println(ex.getMessage());
-                    }
+            //Stage home = new Stage();
 
-                }
+            //try {
+              //  Parent fxml = FXMLLoader.load(getClass().getResource("Home.fxml"));
+                //Scene scene = new Scene(fxml);
+                //home.setScene(scene);
+                //home.show();
+                //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                //stage.close();
+           // } catch (IOException ex) {
+             //   System.out.println(ex.getMessage());
+            //}
 
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
         }
 
     }
-    
-    }
 
-
+}

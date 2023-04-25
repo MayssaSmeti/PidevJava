@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="230.0" prefWidth="418.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.VerifEmailController">
+    <Label alignment="CENTER" contentDisplay="CENTER" styleClass="hypertext-design" stylesheets="@design.css" text="Entrez le code : " textFill="#530b0b">
+      <font>
+         <Font name="Book Antiqua" size="25.0" />
+      </font></Label>
+   <TextField fx:id="Code" alignment="CENTER" prefHeight="27.0" prefWidth="346.0" styleClass="textfield-design" stylesheets="@design.css" />
+   <FontAwesomeIconView fx:id="valider" fill="#bc4b06" glyphName="CHECK" onMouseClicked="#sendActivation" size="40" translateX="10.0" translateY="40.0" />
+    
+</VBox>

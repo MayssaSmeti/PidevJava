@@ -63,7 +63,7 @@ public class UserCrud {
     {
         try //ajout dynamiqque
         {
-            String requete2 = "INSERT INTO user (`email` ,`password`, `nom` ,`prenom` ,`adresse`  ,`cin` ,`num_tel` ,`roles`)" + " VALUES (?,?,?,?,?,?,?,?) ";
+            String requete2 = "INSERT INTO user (`email`,`password`,`nom`,`prenom`,`adresse`,`cin`,`num_tel`,`roles`)" + " VALUES (?,?,?,?,?,?,?,?) ";
             PreparedStatement pst = cnx2.prepareStatement(requete2); //objet dedie pour les objet dynamique //statement est long  //PreparedStatemt : envoie une requête sans
             //paramètres à la base de données
             

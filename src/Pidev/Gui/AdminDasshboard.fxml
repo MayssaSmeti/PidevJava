@@ -40,7 +40,7 @@
                         <Insets left="40.0" />
                      </HBox.margin>
                   </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Gestion Utilisaateurs " translateX="-29.0" />
+                  <Text onMouseClicked="#openListUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Gestion Utilisaateurs " translateX="-29.0" />
                </children>
             </HBox>
          </children></VBox>
