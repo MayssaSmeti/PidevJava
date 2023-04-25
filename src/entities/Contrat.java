@@ -1,6 +1,9 @@
 package entities;
 
+
+
 public class Contrat {
+   
     private int id;
     private String validitedu;
     private String validiteau;
@@ -9,8 +12,11 @@ public class Contrat {
     private String photo_cin;
 
     public static int actionTest;
+    
 
     private static int IdContrat;
+
+    
 
     public static int getIdContrat() {
         return IdContrat;

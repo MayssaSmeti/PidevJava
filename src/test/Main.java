@@ -17,7 +17,7 @@ public class Main extends Application {
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("/gui/AdminDashboard.fxml"));
-            //root = FXMLLoader.load(getClass().getResource("/gui/UserDashboard.fxml"));
+            //root = FXMLLoader.load(getClass().getResource("/gui/ListeOffreFront.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/gui/AdminDashboard.fxml"));
             Scene scene = new Scene(root);
 

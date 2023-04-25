@@ -4,6 +4,7 @@
  */
 package gui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -68,9 +69,20 @@ public class OneOffreListCardControler  {
             // Instancier le service de l'offre
             IOffreService OffreService = new OffreService();
 
-            Image image = new Image(
-                    getClass().getResource("/assets/OffresUploads/" + offre.getImage_offre()).toExternalForm());
-            img.setImage(image);
+           
+            // Image image = new Image(
+            //         getClass().getResource("/assets/OffresUploads/" + offre.getImage_offre()).toExternalForm());
+            // img.setImage(image);
+String s="C:\\Users\\zaghd\\Desktop\\lacrim\\4RouesAssurances\\src\\assets\\OffresUploads\\" + offre.getImage_offre();
+System.out.println(s);
+            File file = new File(s);
+if(file.exists()) {
+    Image image = new Image(file.toURI().toString());
+    img.setImage(image);
+} else {
+    System.out.println("Image file not found!");
+}
+          
     
             OffreName.setText(offre.getTitre());
             // get category Name

@@ -122,12 +122,16 @@ public class AddContratCardControler implements Initializable {
     @FXML
     private Button update_contratBtn;
 
+    @FXML
+    private ComboBox<?> offreinput;
+
     
     
     private File selectedImageFile;
     private String imageName = null;
     private int userId = -1;
     private int matId = -1;
+    private int offreId = -1;
     
  
 
@@ -235,6 +239,31 @@ public class AddContratCardControler implements Initializable {
              System.out.println("Selected option mat: " + selectedOption);
              System.out.println("Selected value mat: " + matId);
         });
+
+         //---------------------------------ajouter à combobox mat
+        // Instancier le service de categorie
+        // IOffreService offreService = new OffreService();
+
+        // // Récupérer toutes les categories
+        // List<Offre> offres = offreService.getAll();
+        
+        // System.out.println("user ");
+        // Map<String, Integer> valuesMap3 = new HashMap<>();
+        // for (Offre offre : offres) {
+        //     System.out.println("Offre"+offre);
+        //     offreinput.getItems().addAll("" + offre.getTitre());
+        //     valuesMap2.put(""+ offre.getTitre(), offre.getId());
+        // }
+
+        // offreinput.setOnAction(event -> {
+        //     String selectedOption = offreinput.getValue();
+        //     int selectedValue = valuesMap3.get(selectedOption);
+        //     offreId = selectedValue;
+            
+        //      System.out.println("Selected option offre: " + selectedOption);
+        //      System.out.println("Selected value offre: " + offreId);
+        // });
+       
 
 }
 @FXML
