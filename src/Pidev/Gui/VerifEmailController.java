@@ -40,7 +40,7 @@ public class VerifEmailController implements Initializable {
     private FontAwesomeIconView valider;
     
     
-     Connection DS;
+    Connection DS;
 
     Statement ste;
     String email;
@@ -81,13 +81,13 @@ public class VerifEmailController implements Initializable {
     @FXML
     private void sendActivation(MouseEvent event) throws SQLException {
         String code = Code.getText();
-        boolean saisieValide = true;
+        boolean verifierCode= true;
         String messageErreur = "";
 
         DS = MyConnection.getInstance().getCnx();
 
         if (code.isEmpty()) {
-            saisieValide = false;
+            verifierCode = false;
             messageErreur += "Le champ code est requis.\n";
         } else {
 
@@ -105,12 +105,12 @@ public class VerifEmailController implements Initializable {
             }
 
             if (!result.next()) {
-                saisieValide = false;
+                verifierCode = false;
                 messageErreur += "Le code saisi est invalide.\n";
             }
         }
 
-        if (!saisieValide) {
+        if (!verifierCode) {
             Alert alerte = new Alert(Alert.AlertType.ERROR);
             alerte.setTitle("Erreur de saisie");
             alerte.setHeaderText("Le code saisi est incorrect");

@@ -60,6 +60,6 @@
             <Font name="Book Antiqua" size="15.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="mtpoublie" alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="311.0" onAction="#ResetPassword" prefHeight="24.0" prefWidth="212.0" text="Mot de Passe oublié ? " textFill="#591111" />
+      <Hyperlink fx:id="mtpoublie" alignment="CENTER" contentDisplay="CENTER" layoutX="305.0" layoutY="311.0" onMouseClicked="#ResetPasswprd" prefHeight="24.0" prefWidth="212.0" text="Mot de Passe oublié ? " textFill="#591111" />
    </children>
 </AnchorPane>

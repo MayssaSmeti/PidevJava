@@ -23,19 +23,19 @@ import javafx.stage.Stage;
  * @author Mayssa
  */
 public class Connexion extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
         try {
-           // Parent root = FXMLLoader.load(getClass().getResource("AdminDasshboard.fxml")) ;
-          //Parent root = FXMLLoader.load(getClass().getResource("FrontDasshborad.fxml")) ;
-          Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml")) ;
+             Parent root = FXMLLoader.load(getClass().getResource("AdminDasshboard.fxml")) ;
+            //Parent root = FXMLLoader.load(getClass().getResource("FrontDasshborad.fxml")) ;
+           //Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("VerifEmail.fxml")) ;
+           // Parent root = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
 
-
-            
             Scene scene = new Scene(root);
-            
+
             primaryStage.setTitle("Connexion !");
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -50,5 +50,5 @@ public class Connexion extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

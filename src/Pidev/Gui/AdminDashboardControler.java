@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 /**
  * FXML Controller class
@@ -27,6 +28,7 @@ public class AdminDashboardControler implements Initializable {
 
     @FXML
     private Pane content_area;
+   
 
 
     /**
@@ -34,19 +36,9 @@ public class AdminDashboardControler implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-     
-   
       
     }
-       
-    void open_addOffreCard(MouseEvent event) throws IOException {
-       // Offre.actionTest = 0;
-       // Parent fxml = FXMLLoader.load(getClass().getResource("AddOffre.fxml"));
-        //content_area.getChildren().removeAll();
-        //content_area.getChildren().setAll(fxml);
-
-    }
+   
 
     @FXML
     void open_listeOffre(MouseEvent event) throws IOException {
@@ -57,20 +49,6 @@ public class AdminDashboardControler implements Initializable {
 
     }
 
-    void open_listeContrat(MouseEvent event) throws IOException {
-        //Parent fxml = FXMLLoader.load(getClass().getResource("ListeContrat.fxml"));
-        //content_area.getChildren().removeAll();
-        //content_area.getChildren().setAll(fxml);
-    }
-
-    void open_addContratCard(MouseEvent event) throws IOException {
-       // Offre.actionTest = 0;
-        //Parent fxml = FXMLLoader.load(getClass().getResource("AddContrat.fxml"));
-        //content_area.getChildren().removeAll();
-        //content_area.getChildren().setAll(fxml);
-
-    }
-
     @FXML
     private void openListUser(MouseEvent event) throws IOException {
          Parent fxml = FXMLLoader.load(getClass().getResource("Admin.fxml"));
@@ -78,4 +56,10 @@ public class AdminDashboardControler implements Initializable {
         content_area.getChildren().setAll(fxml);
 
     }
-}  
+
+  
+
+
+   
+
+}

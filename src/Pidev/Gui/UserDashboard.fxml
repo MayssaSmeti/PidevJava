@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1413.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.UserDashboardControler">
+   <children>
+      <HBox prefHeight="122.0" prefWidth="1413.0" style="-fx-background-color: #ff7c03;" stylesheets="@offreStyle.css">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitleAPP" text="4RouesAssurances" translateX="254.0" translateY="51.0" wrappingWidth="339.8058738708496">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Text>
+         </children></HBox>
+      <VBox alignment="TOP_CENTER" layoutX="-10.0" layoutY="122.0" prefHeight="579.0" prefWidth="274.0" style="-fx-background-color: #fffffff;">
+         <children>
+            <Text fill="#ff7c09" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Mon Profil " translateX="3.0" translateY="100.0">
+               <font>
+                  <Font size="23.0" />
+               </font></Text>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" scaleZ="0.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="227.0">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" translateX="11.0" translateY="2.0">
+                     <image>
+                        <Image url="@../Img/profile.png" />
+                     </image>
+                  </ImageView>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text onMouseClicked="#modifierUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Modifier mon Profil " translateX="-29.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="256.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-33.0">
+                           <image>
+                              <Image url="@../Img/delete.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Text onMouseClicked="#supprimertUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Supprimer mon Profil" translateX="-29.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="300.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-24.0">
+                           <image>
+                              <Image url="@../Img/logout.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <Text fx:id="logout" onMouseClicked="#logouttUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Déconnexion" translateX="-29.0" />
+               </children>
+            </HBox>
+         </children></VBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="122.0" prefWidth="150.0" styleClass="logoContainer" stylesheets="@offreStyle.css" translateX="103.0" translateY="31.0">
+         <children>
+            <ImageView fitHeight="105.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Img/Logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Pane fx:id="content_area" layoutX="191.0" layoutY="22.0" prefHeight="634.0" prefWidth="1043.0" style="-fx-background-color: #fff;" translateX="100.0" translateY="100.0">
+         <children>
+            <TextField fx:id="fxnom" layoutX="263.0" layoutY="69.0" prefHeight="42.0" prefWidth="346.0" promptText="Nom..." styleClass="textfield-design" stylesheets="@design.css" />
+            <TextField fx:id="fxprenom" layoutX="259.0" layoutY="143.0" prefHeight="42.0" prefWidth="354.0" promptText="Prénom..." styleClass="textfield-design" stylesheets="@design.css" />
+            <TextField fx:id="fxemail" layoutX="259.0" layoutY="213.0" prefHeight="42.0" prefWidth="354.0" promptText="Email...." styleClass="textfield-design" stylesheets="@design.css" />
+            <PasswordField fx:id="fxpassword" layoutX="259.0" layoutY="275.0" prefHeight="42.0" prefWidth="354.0" promptText="Mot de Passe ......." styleClass="textfield-design" stylesheets="@design.css" />
+            <PasswordField fx:id="confirmerpassword" layoutX="259.0" layoutY="342.0" prefHeight="42.0" prefWidth="354.0" promptText="Confirmer Mot de Passe ......." styleClass="textfield-design" stylesheets="@design.css" />
+         </children></Pane>
+      <Text fill="WHITE" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coding Squad" translateX="255.0" translateY="90.0" wrappingWidth="339.8058738708496">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css">
+         <children>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-45.0">
+                     <image>
+                        <Image url="@../Img/group.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="291.0">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" translateX="14.0" translateY="2.0">
+               <image>
+                  <Image url="@../Img/info.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+               <HBox.margin>
+                  <Insets left="40.0" />
+               </HBox.margin>
+            </HBox>
+            <Text onMouseClicked="#modifierUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Mes Informations " translateX="-22.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

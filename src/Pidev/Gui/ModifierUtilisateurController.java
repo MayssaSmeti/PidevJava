@@ -141,62 +141,43 @@ public class ModifierUtilisateurController implements Initializable {
 
     @FXML
     private void Modifier(ActionEvent event) {
-        if (fxnom.getText().isEmpty()
-                || fxprenom.getText().isEmpty()
-                || fxemail.getText().isEmpty()
-                || fxcin.getText().isEmpty()
-                || fxnum.getText().isEmpty()
-                || fxadresse.getText().isEmpty()
-                || fxrole.getText().isEmpty()) 
-        {
-            Alert a = new Alert(Alert.AlertType.ERROR, "il faut remplir tous les champs ! ", ButtonType.OK);
-            a.showAndWait();
-        }
-            
-            
-         else if (fxcin.getText().length() < 8) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("4 Roues Assurrances :: Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("CIN doit etre de 8 chiffres  !!");
-            alert.showAndWait();
-            
-        } else if (fxnum.getText().length() < 8) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("4 Roues Assurrances :: Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Le numero de telephone  doit etre de 8 chiffres  !!");
-            alert.showAndWait();
-            
-        } else {
-            String email = fxemail.getText();
-            if (ValidationEmail() || verifierEmailNonDuplique(email) == false)
-            {
-                
-         
-          UserCrud rec= new UserCrud();
-        
-         //Integer id=Integer.parseInt(fxid.getText());
-         Integer cin=Integer.parseInt(fxcin.getText()); //conversion 
-         Integer num_tel=Integer.parseInt(fxnum.getText());
-         String nom= fxnom.getText();
-         String prenom= fxprenom.getText();
-         String roles = fxrole.getText();
-         String adresse= fxadresse.getText();
-      
-         
-         User R;
-          R = new User( email, nom, prenom, cin, adresse, num_tel, roles);
-           rec.modifierUtilisateur(R);
+
+        //if (fxcin.getText().length() <= 8) {
+        //Alert alert = new Alert(Alert.AlertType.ERROR);
+        //alert.setTitle("4 Roues Assurrances :: Error Message");
+        //alert.setHeaderText(null);
+        //alert.setContentText("CIN doit etre de 8 chiffres  !!");
+        //alert.showAndWait();
+        //} else if (fxnum.getText().length() <= 8) {
+        // Alert alert = new Alert(Alert.AlertType.ERROR);
+        //alert.setTitle("4 Roues Assurrances :: Error Message");
+        //alert.setHeaderText(null);
+        //alert.setContentText("Le numero de télephone  doit etre de 8 chiffres  !!");
+        //alert.showAndWait();
+        //} else {
+        String email = fxemail.getText();
+        if (ValidationEmail() || verifierEmailNonDuplique(email) == false) {
+            UserCrud rec = new UserCrud();
+
+            //Integer id=Integer.parseInt(fxid.getText());
+            Integer cin = Integer.parseInt(fxcin.getText()); //conversion 
+            Integer num_tel = Integer.parseInt(fxnum.getText());
+            String nom = fxnom.getText();
+            String prenom = fxprenom.getText();
+            String roles = fxrole.getText();
+            String adresse = fxadresse.getText();
+
+            User R = new User();
+            R = new User(R.getId(), email, nom, prenom, cin, adresse, num_tel, roles);
+            rec.modifierUtilisateur(R);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("4 roues assurances :: Success Message");
-                alert.setHeaderText(null);
-                alert.setContentText("Utilsateur modifié");
-                alert.showAndWait(); 
-          }
-        }     
+            alert.setTitle("4 roues assurances :: Success Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Utilsateur modifié");
+            alert.showAndWait();
+             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+        }
     }
 
-        }
-    
-
+}

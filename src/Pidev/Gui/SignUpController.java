@@ -192,6 +192,12 @@ public class SignUpController implements Initializable {
         } else if (!email.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}") || verifierEmailNonDuplique(email) == false) {
             saisieValide = false;
             messageErreur += "L'email n'est pas valide.\n";
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("4 Roues Assurrances :: Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("EMAIL NON VALIDE  !!");
+            alert.showAndWait();
+            
         } else {
 
             String Email = fxemail.getText();
@@ -205,7 +211,7 @@ public class SignUpController implements Initializable {
             User p = new User(Email, nom, prenom, fxpassword.getText(), cin, adresse, num_tel, activation_token);
             us.ajouterUtilisateur2(p);
             String message = "Bonjour " + nom + " " + prenom + "\n"
-                    + "Merci de vous être inscrit! Votre code de confirmation est : " + p.getActivation_token();
+                    + "Merci de vous être inscrit! Votre code de confirmation est : " +p.getActivation_token();
 
             Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", Email, "Confirmation d'inscription", message);
 

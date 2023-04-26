@@ -7,7 +7,7 @@ package Pidev.Gui;
 
 import Pidev.Entities.User;
 import Pidev.Utilis.MyConnection;
-import edu.esprit.utilis.SessionManager;
+import Pidev.Utilis.SessionManager;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;

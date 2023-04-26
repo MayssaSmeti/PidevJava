@@ -72,8 +72,6 @@ public class AjouterController implements Initializable {
 
     @FXML
     private void ajouter(ActionEvent event) {
-
-         
         if (fxnom.getText().isEmpty()
                 || fxprenom.getText().isEmpty() 
                 || fxemail.getText().isEmpty() 
@@ -105,6 +103,9 @@ public class AjouterController implements Initializable {
             us.ajouterUtilisateur2(p);
             Alert a = new Alert(Alert.AlertType.INFORMATION, "Utilisateur ajouté(e) avec succes !", ButtonType.OK);
             a.showAndWait();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+            
 
         }
     }

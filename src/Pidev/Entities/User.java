@@ -49,7 +49,7 @@ public class User {
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
-        this.password = password;
+        this.password = (hashMotDePasse(password));
         this.cin = cin;
         this.adresse = adresse;
         this.num_tel = num_tel;
@@ -91,11 +91,33 @@ public class User {
     }
 
     
-    public User(TextField fxemail, TextField fxnom, TextField fxprenom, PasswordField fxpassword, Integer cin, TextField fxadresse, Integer num_tel, TextField fxroles) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   
+   public User(TextField fxemail, TextField fxnom, TextField fxprenom, PasswordField fxpassword, Integer cin, TextField fxadresse, Integer num_tel, TextField fxroles) {
+    this.email = fxemail.getText();
+    this.cin = cin; 
+    this.num_tel = num_tel;  
+    this.password=(hashMotDePasse(fxpassword.getText()));
+    this.roles=fxroles.getText(); 
+    this.nom = fxnom.getText();
+    this.prenom = fxprenom.getText();
+    this.adresse = fxadresse.getText();
+    
     }
 
-  
+  public User( TextField email,int cin,int num_tel, TextField role,TextField nom, TextField prenom,  TextField adresse) {
+     
+    this.email = email.getText();
+    this.cin = cin; 
+    this.num_tel = num_tel;  
+    this.roles = role.getText();
+   
+    this.nom = nom.getText();
+    this.prenom = prenom.getText();
+     
+   
+    this.adresse = adresse.getText();
+    
+    }
 
   
     public static User getCurrent_User() {
