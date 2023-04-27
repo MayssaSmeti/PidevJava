@@ -1,9 +1,7 @@
 package Pidev.Gui;
 
-
 import Pidev.Entities.Devis;
 import Pidev.Services.ServiceDevis;
-
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,13 +10,20 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -33,9 +38,36 @@ public class ListeDevisController implements Initializable {
     @FXML
     private GridPane DevisListContainer;
 
+    //@FXML
+    //private TextField searchField;
+    //@FXML
+    //private TextField searchQuery;
+
+    // private ObservableList<Devis> searchedProduits = FXCollections.observableArrayList();
     /**
      * Initializes the controller class.
      */
+    /*@FXML
+    void handleSearchItem(ActionEvent event) {
+        ServiceDevis sd = new ServiceDevis();
+        searchQuery.textProperty().addListener((observable, oldValue, newValue) -> {
+
+            try {
+                searchedProduits.setAll(sd.searchProduit(newValue));
+
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+
+            try {
+
+                updateGrid(searchedProduits);
+            } catch (SQLException | IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+    }*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Instancier le service de produit
@@ -73,6 +105,26 @@ public class ListeDevisController implements Initializable {
             Logger.getLogger(ListeDevisController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        /*searchField.textProperty().addListener((observable, oldValue, newValue) -> {
+            searchDevis(newValue);
+        });*/
     }
 
-}
+    /*private void searchDevis(String searchTerm) {
+        ObservableList<Node> cards = GridPane.getChildren();
+        for (Node card : cards) {
+            if (card instanceof VBox) {
+                VBox vbox = (VBox) card;
+                String devisName = ((Label) vbox.lookup("#devisName")).getText();
+                String clientName = ((Label) vbox.lookup("#clientName")).getText();
+                if (!devisName.toLowerCase().contains(searchTerm.toLowerCase())
+                        && !clientName.toLowerCase().contains(searchTerm.toLowerCase())) {
+                    vbox.setVisible(false);
+                } else {
+                    vbox.setVisible(true);
+                }
+            }
+        }*/
+    }
+
+

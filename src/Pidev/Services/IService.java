@@ -25,5 +25,6 @@ public interface IService <T> {
     public void modifierLocale(Locale p) throws SQLException;
     public void supprimeLocale(int id) throws SQLException;
     public List<Locale> getLocale() throws SQLException;
+     public List<T> searchProduit(String query)throws SQLException;
     
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1413.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminDashboardController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1413.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AdminDashboardController">
    <children>
       <HBox prefHeight="122.0" prefWidth="1413.0" style="-fx-background-color: #ff7c03;" stylesheets="@../assets/style/offreStyle.css">
          <children>
@@ -54,7 +54,7 @@
                         <Insets left="40.0" />
                      </HBox.margin>
                   </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="   Ajouter une Offre" translateX="-22.0" />
+                  <Text onMouseClicked="#open_addOffreCard" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="   Ajouter une Offre" translateX="-22.0" />
                </children>
             </HBox>
             <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Contrat" translateX="-70.0" translateY="120.0" />

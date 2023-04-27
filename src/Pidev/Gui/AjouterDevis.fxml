@@ -10,9 +10,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterDevisController">
+<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AjouterDevisController">
     <children>
         <VBox fx:id="itemsContainer" alignment="CENTER" prefHeight="641.0" prefWidth="725.0" spacing="10">
             <padding>
@@ -48,7 +47,6 @@
             <Button mnemonicParsing="false" onAction="#AddDevis" text="Ajouter" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             </GridPane>
         </VBox>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff9a12" height="51.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" width="748.0" />
-      <Button fx:id="retourButton" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="87.0" text="&lt;Retour" />
+      <Button fx:id="retourButton" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="87.0" text="&lt;Retour" />
     </children>
 </AnchorPane>

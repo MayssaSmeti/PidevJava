@@ -19,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -79,8 +80,8 @@ public class ServiceDevis implements IService<Devis> {
     @Override
     public List<Devis> getAll() throws SQLException {
         List<Devis> lm = new ArrayList<>();
-        Mecanicien l = new Mecanicien(1,"Wadii Sdouga","wadii.sdouga2000@gmail.com");
-        Expert e = new Expert(2,"Akrem Zaghdoudi","akrem.zaghdoudi@esprit.tn");
+        Mecanicien l = new Mecanicien(1, "Wadii Sdouga", "wadii.sdouga2000@gmail.com");
+        Expert e = new Expert(2, "Akrem Zaghdoudi", "akrem.zaghdoudi@esprit.tn");
         try {
             String req = "SELECT * FROM `devis` ";
             Statement ste = cnx.createStatement();
@@ -155,12 +156,37 @@ public class ServiceDevis implements IService<Devis> {
         String req = "DELETE FROM `Locale` WHERE id =" + id;
         Statement st = cnx.createStatement();
         st.executeUpdate(req);
-        
+
     }
 
     @Override
     public List<Locale> getLocale() throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Devis> searchProduit(String query) throws SQLException {
+        Mecanicien l = new Mecanicien(1, "Wadii Sdouga", "wadii.sdouga2000@gmail.com");
+        Expert e = new Expert(2, "Akrem Zaghdoudi", "akrem.zaghdoudi@esprit.tn");
+        List<Devis> lm = new ArrayList<>();
+        String sql = "SELECT * FROM devis WHERE name LIKE ?  ORDER BY date DESC";
+        try (PreparedStatement statement = cnx.prepareStatement(sql)) {
+            statement.setString(1, "%" + query + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+
+                Devis m = new Devis();
+                m.setId(resultSet.getInt("id"));
+                m.setMecanicien((Mecanicien) l);
+                m.setExpert(e);
+                m.setTotal_ht(resultSet.getFloat("total_ht"));
+                m.setDate(resultSet.getDate("date"));
+                lm.add(m);
+
+            }
+        }
+       
+        return lm;
     }
 
 }

@@ -22,7 +22,7 @@ public static Stage stage = null;
     public void start(Stage primaryStage) throws Exception {
          Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("/Pidev.Gui/AdminDashboard.fxml"));
+            root = FXMLLoader.load(getClass().getResource("AdminDashboard.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/gui/UserDashboard.fxml"));
             //root = FXMLLoader.load(getClass().getResource("/gui/AdminDashboard.fxml"));
             Scene scene = new Scene(root);

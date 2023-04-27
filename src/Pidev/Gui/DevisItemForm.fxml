@@ -10,9 +10,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterDevisController">
+<AnchorPane id="AnchorPane" prefHeight="495.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.DevisItemFormController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="7.0" prefHeight="558.0" prefWidth="680.0">
          <children>
@@ -48,12 +47,11 @@
                         <Label text="Quantite" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                         <TextField fx:id="itemQuantiteTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <HBox alignment="CENTER" spacing="10" />
-                        <Button mnemonicParsing="false" onAction="#AddDevis" text="Ajouter" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Button mnemonicParsing="false" onAction="#AddDevisItem" text="Ajouter" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
                </children>
             </VBox>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#606161" height="10.0" layoutX="-328.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" width="1031.0" />
          </children>
       </AnchorPane>
    </children>

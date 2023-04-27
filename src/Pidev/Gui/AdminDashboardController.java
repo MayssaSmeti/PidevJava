@@ -3,6 +3,7 @@ package Pidev.Gui;
 
 
 
+import Pidev.Entities.Devis;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -40,14 +41,14 @@ public class AdminDashboardController implements Initializable {
       
     }
        
-   /* @FXML
+    @FXML
     void open_addOffreCard(MouseEvent event) throws IOException {
-        Devis.actionTest = 0;
-        Parent fxml = FXMLLoader.load(getClass().getResource("AddOffre.fxml"));
+      
+        Parent fxml = FXMLLoader.load(getClass().getResource("AjouterDevis.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 
-    }*/
+    }
 
     @FXML
     void open_listeOffre(MouseEvent event) throws IOException {
