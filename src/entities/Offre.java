@@ -35,7 +35,11 @@ public class Offre {
         this.validite_offre = validite_offre;
         this.image_offre = image_offre;
     }
-
+    public Offre(int id, String description) {
+        this.id = id;
+        this.description = description;
+        
+    }
     public Offre(String description, int prix, String titre, String validite_offre, String image_offre) {
         this.description = description;
         this.prix = prix;

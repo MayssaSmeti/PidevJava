@@ -8,11 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1134.0" styleClass="dash__container-card" stylesheets="@../assets/style/offreStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListeOffreFrontControler">
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="730.0" styleClass="dash__container-card" stylesheets="@../assets/style/offreStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ListeOffreFrontControler">
    <children>
-      <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0" styleClass="offre-card-scrollPane" stylesheets="@../assets/style/offreStyle.css">
+      <ScrollPane layoutX="27.0" layoutY="148.0" prefHeight="609.0" prefWidth="730.0" styleClass="offre-card-scrollPane" stylesheets="@../assets/style/offreStyle.css" translateX="-27.0" translateY="-106.0">
          <content>
             <GridPane fx:id="offreListContainer">
               <rowConstraints>
@@ -23,12 +24,16 @@
       </ScrollPane>
       <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
          <children>
-            <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title" text="Nos Offres" translateX="383.0" />
             <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="-240.0">
                <image>
                   <Image url="@../assets/img/magnifier.png" />
                </image>
             </ImageView>
+            <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" text="Nos Offres" translateX="-14.0" translateY="-30.0">
+               <font>
+                  <Font name="System Bold Italic" size="26.0" />
+               </font>
+            </Text>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="76.0" styleClass="sort-text" stylesheets="@../assets/style/aliStyle.css">
                <opaqueInsets>
                   <Insets />

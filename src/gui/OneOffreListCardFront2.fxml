@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="card_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="325.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="166.0" prefWidth="302.0" styleClass="product__list-imgContainer" translateY="44.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="167.0" fitWidth="302.0" pickOnBounds="true" preserveRatio="true" translateX="34.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+            <HBox fx:id="qrCodeOffre" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="34.0" prefWidth="54.0" styleClass="product__card-btns" stylesheets="@../assets/style/offreStyle.css" translateX="-30.0" translateY="62.0">
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0" translateY="1.0">
+                     <image>
+                        <Image url="@../assets/img/qr-code.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="302.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="102.0" translateY="-2.0">
+               <children>
+                  <Text fx:id="OffreName" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="offre__card-title" text="Name" translateX="5.0">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0" stylesheets="@../assets/style/offreStyle.css">
+               <children>
+                  <HBox fx:id="priceHbox" prefHeight="39.0" prefWidth="72.0" stylesheets="@../assets/style/offreStyle.css" translateX="228.0" translateY="-39.0">
+                     <children>
+                        <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="dt" translateX="52.0" />
+                        <Text fx:id="priceOffre" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="269.0" translateX="-4.0">
+                           <HBox.margin>
+                              <Insets left="4.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets top="5.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="41.0" prefWidth="90.0" translateX="-66.0" translateY="6.0">
+                     <children>
+                        <Label fx:id="validiteOffre" prefHeight="39.0" prefWidth="80.0" style="-fx-font-size: 14px; -fx-font-weight: 800;" styleClass="offre__card-categ" text="aaaaaaaaaaaaaaa" textFill="WHITE" translateX="-2.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="134.0" prefWidth="166.0" translateX="51.0" translateY="-42.0">
+               <children>
+                  <Text fx:id="OffreDescription" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="offre__card-desc" text="test" translateX="-50.0" translateY="119.0" wrappingWidth="45.33662223815918">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

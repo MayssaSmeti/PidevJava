@@ -91,61 +91,7 @@ if(file.exists()) {
             priceOffre.setText("" + offre.getPrix());
 
             // deleteOffre btn click
-            deleteOffre.setId(String.valueOf(offre.getId()));
-
-            deleteOffre.setOnMouseClicked(event -> {
-            System.out.println("ID du offre à supprimer : " + offre.getId());
-            try {
-                OffreService.supprimer(offre.getId());
-               
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-            // supprimer le contenu de la liste et afficher la nouvelle liste(apres
-            // supprimer)
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ListeOffre.fxml"));
-            try {
-                Parent root = loader.load();
-                // Accéder à la pane content_area depuis le controller de
-                // OneProductListCard.fxml
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-
-                // Vider la pane et afficher le contenu de ProductsList.fxml
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            // end
-        });
-        // END deleteProduit btn click
-
-        // editProduit btn click
-        editOffre.setId(String.valueOf(offre.getId()));
-
-        editOffre.setOnMouseClicked(event -> {
-            System.out.println("ID du produit à modifier : " + offre.getId());
-            Offre.setIdOffre(offre.getId());
-
-            Offre.actionTest = 1; // pour afficher le bouton update
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddOffre.fxml"));
-            try {
-                Parent root = loader.load();
-                // Accéder à la pane content_area depuis le controller de
-                // OneProductListCard.fxml
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
-
-                // Vider la pane et afficher le contenu de AddProduct.fxml
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        });
-        // END editProduit btn click
+           
 
 
             

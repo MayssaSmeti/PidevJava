@@ -9,126 +9,140 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="223.0" prefWidth="800.0" styleClass="product-card" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.OneContratListCardControler">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="223.0" prefWidth="758.0" styleClass="product-card" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.OneContratListCardControler">
    <children>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="262.0" styleClass="product__list-imgContainer">
+      <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ImageView fx:id="img" fitHeight="130.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="-3.0">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </ImageView>
-         </children>
-      </HBox>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="599.0" translateY="2.0">
-         <HBox.margin>
-            <Insets left="20.0" />
-         </HBox.margin>
-         <children>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="599.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="306.0" stylesheets="@../assets/style/offreStyle.css" translateX="691.0" translateY="-11.0">
                <children>
-                  <Text fx:id="CName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Nom:" translateX="143.0">
-                     <font>
-                        <Font name="Montserrat ExtraBold" size="19.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="VName" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="veh" translateX="146.0" translateY="72.0">
-                     <font>
-                        <Font name="Montserrat ExtraBold" size="19.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Nom Client:" translateX="-68.0">
-                     <font>
-                        <Font name="Montserrat ExtraBold" size="19.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="CIN:" translateX="-168.0" translateY="35.0">
-                     <font>
-                        <Font name="Montserrat ExtraBold" size="19.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Matricule Vehicule:" translateX="-203.0" translateY="72.0">
-                     <font>
-                        <Font name="Montserrat ExtraBold" size="19.0" />
-                     </font>
-                  </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Date Debut Contrat:" translateX="-363.0" translateY="111.0">
-                     <font>
-                        <Font name="Montserrat ExtraBold" size="19.0" />
-                     </font>
-                  </Text>
+                  <HBox fx:id="editC" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" translateX="5.0" translateY="-76.0">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="1.0" translateY="-1.0">
+                           <image>
+                              <Image url="@../assets/img/edit.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox fx:id="deleteC" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" stylesheets="@../assets/style/offreStyle.css" translateX="-47.0" translateY="-29.0">
+                     <children>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/trash.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <HBox fx:id="ExportrListe" alignment="CENTER" layoutX="270.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#ExportrListe" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" stylesheets="@../assets/style/offreStyle.css" translateX="-91.0" translateY="18.0">
+                     <children>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/img/imprimante.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0" stylesheets="@../assets/style/offreStyle.css" translateX="186.0" translateY="76.0">
+         </children>
+      </HBox>
+      <HBox fx:id="tablec" prefHeight="100.0" prefWidth="200.0" translateX="-140.0">
+         <children>
+            <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="262.0" styleClass="product__list-imgContainer">
                <children>
-                  <Text fx:id="stockProduit" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" translateY="-5.0" />
-                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="6.0">
+                  <ImageView fx:id="img" fitHeight="130.0" fitWidth="210.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="-3.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="118.0" prefWidth="412.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="406.0">
                      <children>
-                        <Text fx:id="datedu" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="13/04/2023" translateY="-5.0">
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </HBox.margin>
+                        <Text fx:id="CName" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Nom:" translateX="143.0">
                            <font>
-                              <Font name="System Bold" size="12.0" />
+                              <Font name="Montserrat ExtraBold" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="VName" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="veh" translateX="146.0" translateY="72.0">
+                           <font>
+                              <Font name="Montserrat ExtraBold" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Nom Client:" translateX="-68.0">
+                           <font>
+                              <Font name="Montserrat ExtraBold" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="CIN:" translateX="-168.0" translateY="35.0">
+                           <font>
+                              <Font name="Montserrat ExtraBold" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Matricule Vehicule:" translateX="-203.0" translateY="72.0">
+                           <font>
+                              <Font name="Montserrat ExtraBold" size="19.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Date Debut Contrat:" translateX="-363.0" translateY="111.0">
+                           <font>
+                              <Font name="Montserrat ExtraBold" size="19.0" />
                            </font>
                         </Text>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="0.0" translateY="-5.0">
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="217.0" stylesheets="@../assets/style/offreStyle.css" translateX="186.0" translateY="76.0">
                      <children>
-                        <Text fx:id="stockProduit11" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="__" />
-                     </children>
-                  </HBox>
-                  <HBox fx:id="priceHbox" prefHeight="39.0" prefWidth="72.0" stylesheets="@../assets/style/offreStyle.css">
-                     <children>
-                        <Text fx:id="dateau" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="18/04/2023">
-                           <HBox.margin>
-                              <Insets left="4.0" />
-                           </HBox.margin>
-                        </Text>
-                     </children>
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
-               <children>
-                  <Label />
-                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="249.0" translateX="-2.0" />
-                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="306.0" stylesheets="@../assets/style/offreStyle.css">
-                     <children>
-                        <HBox fx:id="editC" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" translateX="5.0" translateY="-76.0">
+                        <Text fx:id="stockProduit" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" translateY="-5.0" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="6.0">
                            <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" translateX="1.0" translateY="-1.0">
-                                 <image>
-                                    <Image url="@../assets/img/edit.png" />
-                                 </image>
-                              </ImageView>
+                              <Text fx:id="datedu" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="13/04/2023" translateY="-5.0">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Text>
                            </children>
-                           <HBox.margin>
-                              <Insets left="6.0" />
-                           </HBox.margin>
                         </HBox>
-                        <HBox fx:id="deleteC" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" stylesheets="@../assets/style/offreStyle.css" translateX="-47.0" translateY="-29.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="0.0" translateY="-5.0">
                            <children>
-                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../assets/img/trash.png" />
-                                 </image>
-                              </ImageView>
+                              <Text fx:id="stockProduit11" fill="#43882b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="__" />
                            </children>
-                           <HBox.margin>
-                              <Insets left="6.0" />
-                           </HBox.margin>
+                        </HBox>
+                        <HBox fx:id="priceHbox" prefHeight="39.0" prefWidth="72.0" stylesheets="@../assets/style/offreStyle.css">
+                           <children>
+                              <Text fx:id="dateau" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="18/04/2023">
+                                 <HBox.margin>
+                                    <Insets left="4.0" />
+                                 </HBox.margin>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets top="5.0" />
+                           </padding>
                         </HBox>
                      </children>
                   </HBox>
+                  <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="422.0">
+                     <children>
+                        <Label />
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="249.0" translateX="-2.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
                </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" />
+            </VBox>
          </children>
-      </VBox>
+      </HBox>
    </children>
 </HBox>

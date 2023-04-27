@@ -4,10 +4,21 @@ package gui;
 import entities.Offre;
 import service.IOffreService;
 import service.OffreService;
+import utils.MyConnection;
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -76,6 +87,8 @@ public class FrontControler implements Initializable {
 
     @FXML
     private Button open_listeOffre;
+
+    public ObservableList<Offre> cardListData;
     
 
     /**
@@ -84,38 +97,67 @@ public class FrontControler implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        menuDisplayCard();
+        Label labelVide = new Label("Votre panier est vide");
+
+
+        menu_tableView.setPlaceholder(labelVide);
+        
+
+        //menuDisplayCard();
       
-    }
+   // }
+
+    //public ObservableList<Offre> menuGetData(){
+
+    //     String sql = "SELECT * FROM offre";
+
+    //     ObservableList<Offre> listData =FXCollections.observableArrayList();
+
+    //     Connection cnx = MyConnection.getInstance().getCnx();
+    //     try{
+    //         PreparedStatement ps = cnx.prepareStatement(sql);
+    //         ResultSet result = ps.executeQuery();
+
+    //         Offre o ;
+    //         while (result.next()){
+    //             o = new Offre(result.getInt("id"), result.getString("description"),
+    //             result.getInt("prix"),result.getString("titre"),
+    //              result.getString("validite_offre"), result.getString("image_offre"));
+    //             listData.add(o);
+    //             }
+    //     }catch (Exception e) {e.printStackTrace();}
+        
+    //     return listData;
+    // }
        
-    private void menuDisplayCard() {
-        // cardListData.clear();
-        // cardListData.addALL(menuGetData());
+    // private void menuDisplayCard() {
+    //     cardListData.clear();
+    //     cardListData.setAll(menuGetData());
 
-        // int row = 0;
-        // int column = 0;
+    //     int row = 0;
+    //     int column = 0;
 
-        // menu_gridPane.getRowConstraints().clear();
-        // menu_gridPane.getColumnConstraints().clear();
-        // for (int q = 0; q < cardListData.size(); q++){
-        //     try {
-        //         FXMLLoader load = new FXMLLoader();
-        //         load.getClass().getResource("/gui/AdminDashboard.fxml");
-        //         AnchorPane pane  = load.load();
-        //         OneOffreListCardFrontControler card = load.getController();
-        //         card.setData(cardListData.get(q));
+    //     menu_gridPane.getRowConstraints().clear();
+    //     menu_gridPane.getColumnConstraints().clear();
+    //     for (int q = 0; q < cardListData.size(); q++){
+    //         try {
+    //             FXMLLoader load = new FXMLLoader();
+    //             load.setLocation(getClass().getResource("/gui/OneOffreListCard.fxml"));
+    //             AnchorPane pane  = load.load();
+    //             OneOffreListCardFrontControler card = load.getController();
+    //             card.setOffreData(cardListData.get(q));
 
-        //         if (column == 3) {
-        //             column = 0;
-        //             row += 1;
-        //         }
+    //             if (column == 3) {
+    //                 column = 0;
+    //                 row += 1;
+    //             }
 
-        //         menu_gridPane.add(pane, column++, row);
-        //     } catch (Exception e) {
-        //         e.printStackTrace();
-        //     }
+    //             menu_gridPane.add(pane, column++, row);
+    //         } catch (Exception e) {
+    //             e.printStackTrace();
+    //         }
 
-        // }
+    //     }
     }
 
     @FXML
@@ -124,12 +166,7 @@ public class FrontControler implements Initializable {
 
     }
 
-    @FXML
-    void open_listeOffre(MouseEvent event) throws IOException {
-        
-
-
-    }
+    
 
     @FXML
     void open_listeContrat(MouseEvent event) throws IOException {
@@ -141,9 +178,11 @@ public class FrontControler implements Initializable {
        
 
     }
-
-    @FXML
-    void open_listeOffreFront(MouseEvent event) throws IOException {
-        
+    @FXML 
+    void open_listeOffre (MouseEvent event) throws IOException{
+        Parent fxml = FXMLLoader.load(getClass().getResource("ListeOffreFront.fxml"));
+        menu_gridPane.getChildren().removeAll();
+        menu_gridPane.getChildren().setAll(fxml);
     }
+  
 }  
