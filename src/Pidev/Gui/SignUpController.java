@@ -145,7 +145,7 @@ public class SignUpController implements Initializable {
     }
 
     @FXML
-    private void inscrit(ActionEvent event) throws IOException {
+    private void inscrit(ActionEvent event) throws IOException, MessagingException {
 
         boolean saisieValide = true;
         String messageErreur = "";
@@ -197,7 +197,7 @@ public class SignUpController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("EMAIL NON VALIDE  !!");
             alert.showAndWait();
-            
+
         } else {
 
             String Email = fxemail.getText();
@@ -208,10 +208,10 @@ public class SignUpController implements Initializable {
             UserCrud us = new UserCrud();
             Integer cin = Integer.parseInt(fxcin.getText()); //conversion
             Integer num_tel = Integer.parseInt(fxnum.getText());
-            User p = new User(Email, nom, prenom, fxpassword.getText(), cin, adresse, num_tel, activation_token);
+            User p = new User(Email, nom, prenom, fxpassword.getText(), cin, adresse, num_tel, "user", activation_token,"inactif");
             us.ajouterUtilisateur2(p);
             String message = "Bonjour " + nom + " " + prenom + "\n"
-                    + "Merci de vous être inscrit! Votre code de confirmation est : " +p.getActivation_token();
+                    + "Merci de vous être inscrit! Votre code de confirmation est : " + p.getActivation_token();
 
             Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", Email, "Confirmation d'inscription", message);
 
@@ -228,9 +228,26 @@ public class SignUpController implements Initializable {
                 VerifEmailController cc = loader.getController();
                 cc.setData(email);
                 Scene scene = new Scene(root);
-
                 home.setScene(scene);
                 home.show();
+                System.out.println("ajout avec succee");
+                if (saisieValide = true) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("4 Roues Assurrances :: BIENVENUE");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Vous Etes Inscrit !!");
+                    alert.showAndWait();
+                }
+                try {
+                    Parent fxml = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
+                    home.setScene(scene);
+                    home.show();
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.close();
+                } catch (IOException ex) {
+                    System.out.println(ex.getMessage());
+                }
+
             } catch (MessagingException ex) {
                 Alert alerte = new Alert(AlertType.ERROR);
                 alerte.setTitle("Erreur lors de l'envoi de l'email");
@@ -239,28 +256,8 @@ public class SignUpController implements Initializable {
                 alerte.showAndWait();
                 System.out.println(ex.getMessage());
             }
-            //System.out.println("ajout avec succee");
-            //Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            //alert.setTitle("4 Roues Assurrances :: BIENVENNUE");
-            //alert.setHeaderText(null);
-            //alert.setContentText("Vous Etes Inscrit !!");
-            //alert.showAndWait();
-
-            //Stage home = new Stage();
-
-            //try {
-              //  Parent fxml = FXMLLoader.load(getClass().getResource("Home.fxml"));
-                //Scene scene = new Scene(fxml);
-                //home.setScene(scene);
-                //home.show();
-                //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                //stage.close();
-           // } catch (IOException ex) {
-             //   System.out.println(ex.getMessage());
-            //}
 
         }
-
     }
-
 }
+

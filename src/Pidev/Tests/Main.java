@@ -6,6 +6,7 @@
 package Pidev.Tests;
 
 import API.Mail;
+
 import Pidev.Entities.User;
 import Pidev.Services.UserCrud;
 import Pidev.Utilis.MyConnection;
@@ -25,18 +26,21 @@ public class Main {
         MyConnection mc2 = MyConnection.getInstance() ; 
         System.out.println(mc.hashCode()+"-"+mc2.hashCode());
         UserCrud pcd = new UserCrud () ;
-        User u2 = new User("rrrr@gmail.com", "hh","hhhhh","tttttttttt", 0, "dddd", 0, "expert"); 
+        //User u2 = new User("rrrr@gmail.com", "hh","hhhhh","tttttttttt", 0, "dddd", 0, "expert"); 
        // pcd.ajouterUtilisateur2(u2);
         /// pcd.modifierUtilisateur(u2);
          //pcd.supprimerUtilisateur(u2);
-       User u3 = new User(86,"loul@gmail.com", "loulgggo", "edii",22222, "hjbbfb", 0, "hdfjhj") ; 
+      // User u3 = new User(86,"loul@gmail.com", "loulgggo", "edii",22222, "hjbbfb", 0, "hdfjhj") ; 
 
-        pcd.modifierUtilisateur(u3);
+        //pcd.modifierUtilisateur(u3);
 
 
-        //System.out.println(pcd.afficherUtilisateurs());
+        System.out.println(pcd.afficherUtilisateurs());
       //  Mail test = new  Mail(); 
         //test.sendEmail();
+        //sendSMS test= new sendSMS();
+        //test.sendSms(); 
+        
     }
     
 }

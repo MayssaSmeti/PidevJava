@@ -43,6 +43,7 @@
          </font>
       </Button>
       <FontAwesomeIconView fill="#761616" glyphName="USER_PLUS" layoutX="433.0" layoutY="401.0" onMouseClicked="#Ajouter" size="40" wrappingWidth="44.68573760986328" />
-      <TextField fx:id="fxRecherche" layoutX="606.0" layoutY="17.0" onKeyReleased="#Recherche" prefHeight="27.0" prefWidth="190.0" promptText="Recherche ..........." styleClass="textfield-design" />
+      <TextField fx:id="fxRecherche" layoutX="304.0" layoutY="19.0" prefHeight="27.0" prefWidth="190.0" promptText="Recherche ..........." styleClass="textfield-design" />
+      <FontAwesomeIconView fx:id="Fxrechercher" fill="#994613" glyphName="SEARCH" layoutX="507.0" layoutY="39.0" onMouseClicked="#btnSearch" size="20" />
    </children>
 </AnchorPane>

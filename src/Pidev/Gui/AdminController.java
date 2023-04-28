@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -8,6 +8,7 @@ package Pidev.Gui;
 import Pidev.Entities.User;
 import Pidev.Services.UserCrud;
 import Pidev.Utilis.MyConnection;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -31,6 +32,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -85,12 +87,22 @@ public class AdminController implements Initializable {
     User user = null;
     @FXML
     private TextField fxRecherche;
+    @FXML
+    private FontAwesomeIconView Fxrechercher;
+
+//    @Override
+//    public void initialize(URL url, ResourceBundle rb) {
+//        // TODO
+//        showRec();
+//    }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        showRec();
-    }
+public void initialize(URL url, ResourceBundle rb) {
+    showRec();
+    tableviewUser.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); 
+    tableviewUser.getSelectionModel().setCellSelectionEnabled(true);
+    getUserList("");
+}
 
     @FXML
     public void showRec() //affiche une liste utilisateur fe table view 
@@ -120,7 +132,7 @@ public class AdminController implements Initializable {
             User user;
             ResultSet rs = smt.executeQuery();
             while (rs.next()) { //parcour les enregistrement retoune par la requette sql 
-                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"));
+                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"),rs.getString("status"));
                 UserList.add(user);//ajout utilisateur fe liste 
             }
             System.out.println(UserList);
@@ -134,7 +146,7 @@ public class AdminController implements Initializable {
 
     @FXML
     private void exit(ActionEvent event) {
-        
+
         //Username = null;
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Déconnexion");
@@ -167,6 +179,7 @@ public class AdminController implements Initializable {
         alert.setHeaderText(null);
         alert.setContentText("Utilisateur supprimé");
         alert.showAndWait();
+        
     }
 
     @FXML
@@ -191,7 +204,7 @@ public class AdminController implements Initializable {
         stage.show();
         showRec();
     }
-    @FXML 
+
     private void refresh() //mettre a jour du continue du tableView 
     {
         ObservableList<User> list = getUserList();
@@ -200,14 +213,13 @@ public class AdminController implements Initializable {
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         numtel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
         Nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<>("prennom"));
+        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
         roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
 
         tableviewUser.setItems(list);
 
     }
-    
 
     @FXML
     private void Ajouter(MouseEvent event) {
@@ -226,17 +238,65 @@ public class AdminController implements Initializable {
     }
 
     void setNom(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //To change body of generated methods, choose Tools | Templates.
     }
 
     void setPrenom(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void Recherche(KeyEvent event) {
+        UserCrud se = new UserCrud();
+        String chaine = fxRecherche.getText();
+        populateTable(se.chercherUserR(chaine));
+    }
+
+    private void populateTable(ObservableList<User> branlist) {
+        tableviewUser.setItems(branlist);
+
     }
 
     @FXML
-    private void Recherche(KeyEvent event) {
-      
-    }
-    
-   
+    private void btnSearch(MouseEvent event) {
+      ObservableList<User> list = getUserList(fxRecherche.getText());
+        cin.setCellValueFactory(new PropertyValueFactory<>("CIN"));
+        email.setCellValueFactory(new PropertyValueFactory<>("email"));
+        numtel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
+        Nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
+        roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
+        
+  
+    tableviewUser.setItems(list);
 }
+    
+    
+    
+    public ObservableList<User> getUserList(String search) { // add search parameter
+    Connection conn = MyConnection.getInstance().getCnx();
+    ObservableList<User> UserList = FXCollections.observableArrayList();
+    try {
+        String query2 = "SELECT * FROM user WHERE nom LIKE ? OR prenom LIKE ?"; // modify query
+        PreparedStatement smt = conn.prepareStatement(query2);
+        smt.setString(1, "%" + search + "%"); // set search term
+        smt.setString(2, "%" + search + "%"); // set search term
+        User user;
+        ResultSet rs = smt.executeQuery();
+        while (rs.next()) { //parcour les enregistrement retoune par la requette sql 
+                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"),rs.getString("status"));
+            UserList.add(user);//ajout utilisateur fe liste 
+        }
+        System.out.println(UserList);
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+
+    return UserList;
+
+}
+    }
+
+
+
+

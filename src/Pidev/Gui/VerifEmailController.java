@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -40,7 +41,7 @@ public class VerifEmailController implements Initializable {
     private FontAwesomeIconView valider;
     
     
-    Connection DS;
+    Connection DS,cnx;
 
     Statement ste;
     String email;
@@ -80,37 +81,28 @@ public class VerifEmailController implements Initializable {
 
     @FXML
     private void sendActivation(MouseEvent event) throws SQLException {
-        String code = Code.getText();
-        boolean verifierCode= true;
+       String activation_token  = Code.getText();
+        boolean saisieValide = true;
         String messageErreur = "";
 
         DS = MyConnection.getInstance().getCnx();
 
-        if (code.isEmpty()) {
-            verifierCode = false;
+        if (activation_token.isEmpty()) {
+            saisieValide = false;
             messageErreur += "Le champ code est requis.\n";
         } else {
 
-            String req = "SELECT * FROM user WHERE activation_token = '" + code + "'AND email = '" + email + "'";
-            try {
-                ste = DS.createStatement();
-            } catch (SQLException ex) {
-                Logger.getLogger(VerifEmailController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ResultSet result = null;
-            try {
-                result = ste.executeQuery(req);
-            } catch (SQLException ex) {
-                Logger.getLogger(VerifEmailController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            String req = "SELECT * FROM user WHERE activation_token = '" + activation_token + "'AND email = '" + email + "'";
+            ste = DS.createStatement();
+            ResultSet result = ste.executeQuery(req);
 
             if (!result.next()) {
-                verifierCode = false;
+                saisieValide = false;
                 messageErreur += "Le code saisi est invalide.\n";
             }
         }
 
-        if (!verifierCode) {
+        if (!saisieValide) {
             Alert alerte = new Alert(Alert.AlertType.ERROR);
             alerte.setTitle("Erreur de saisie");
             alerte.setHeaderText("Le code saisi est incorrect");
@@ -122,17 +114,17 @@ public class VerifEmailController implements Initializable {
             alerte.setHeaderText("Le code saisi est correct");
             alerte.setContentText("Le code saisi est valide dans la base de données.");
             alerte.showAndWait();
-           /// String requeteUpdate = "UPDATE utilisateur SET activation_token = 'actif' WHERE email = ?";
-            //PreparedStatement statementUpdate = DS.prepareStatement(requeteUpdate);
-            //System.out.println(email);
-            //statementUpdate.setString(1,email);
-            //statementUpdate.executeUpdate();
-            //Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            //stage.close();
+           String requeteUpdate = "UPDATE user SET status = 'actif' WHERE email = ?";
+            PreparedStatement statementUpdate = DS.prepareStatement(requeteUpdate);
+            System.out.println(email);
+            statementUpdate.setString(1, email);
+            statementUpdate.executeUpdate();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.close();
+
+          
 
         }
-
-        
     }
       public void setData(String email) {
         this.email = email;

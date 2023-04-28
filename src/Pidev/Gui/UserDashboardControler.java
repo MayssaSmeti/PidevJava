@@ -8,6 +8,7 @@ package Pidev.Gui;
 import Pidev.Entities.CurrentUser;
 import Pidev.Entities.User;
 import Pidev.Utilis.MyConnection;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,10 +16,13 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -38,21 +42,8 @@ public class UserDashboardControler implements Initializable {
     @FXML
     private Text logout;
     @FXML
-    private TextField fxnom;
-    @FXML
-    private TextField fxprenom;
-    @FXML
-    private TextField fxemail;
-    @FXML
-    private TextField fxnum;
-    @FXML
-    private TextField fxcin;
-    @FXML
-    private TextField fxadresse;
-    @FXML
-    private PasswordField fxpassword;
-    @FXML
-    private PasswordField confirmerpassword;
+    private Label fxemail;
+    
 
     /**
      * Initializes the controller class.
@@ -60,13 +51,13 @@ public class UserDashboardControler implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
          User loggedInUser = CurrentUser.getLoggedInUser();
 
         // Afficher les informations de l'utilisateur dans les champs du formulaire
-       // fxnom.setText(loggedInUser.getNom());
+        //fxnom.setText(loggedInUser.getNom());
         //fxprenom.setText(loggedInUser.getPrenom());
-        //fxemail.setText(loggedInUser.getEmail());
+        fxemail.setText(loggedInUser.getEmail());
+       
        
     }    
 
@@ -91,13 +82,17 @@ public class UserDashboardControler implements Initializable {
         }
     }
     @FXML
-    private void modifierUser(MouseEvent event) {
+    private void modifierUser(MouseEvent event) throws IOException {
         
         
     }
 
     @FXML
     private void open_listeOffre(MouseEvent event) {
+        
+        
+       
+        
     }
 
     @FXML
@@ -105,7 +100,7 @@ public class UserDashboardControler implements Initializable {
           User loggedInUser = CurrentUser.getLoggedInUser();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
-        alert.setHeaderText("Êtes-vous sûr de vouloir modifier cet élément ?");
+        alert.setHeaderText("Êtes-vous sûr de vouloir supprimé cet élément ?");
         alert.setContentText("Cette action est irréversible.");
 
         ButtonType buttonTypeYes = new ButtonType("Oui");

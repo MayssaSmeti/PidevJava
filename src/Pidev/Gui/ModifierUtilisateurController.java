@@ -142,24 +142,25 @@ public class ModifierUtilisateurController implements Initializable {
     @FXML
     private void Modifier(ActionEvent event) {
 
-        //if (fxcin.getText().length() <= 8) {
-        //Alert alert = new Alert(Alert.AlertType.ERROR);
-        //alert.setTitle("4 Roues Assurrances :: Error Message");
-        //alert.setHeaderText(null);
-        //alert.setContentText("CIN doit etre de 8 chiffres  !!");
-        //alert.showAndWait();
-        //} else if (fxnum.getText().length() <= 8) {
-        // Alert alert = new Alert(Alert.AlertType.ERROR);
-        //alert.setTitle("4 Roues Assurrances :: Error Message");
-        //alert.setHeaderText(null);
-        //alert.setContentText("Le numero de télephone  doit etre de 8 chiffres  !!");
-        //alert.showAndWait();
-        //} else {
+//        if (fxcin.getText().length() < 8) {
+//        Alert alert = new Alert(Alert.AlertType.ERROR);
+//        alert.setTitle("4 Roues Assurrances :: Error Message");
+//        alert.setHeaderText(null);
+//        alert.setContentText("CIN doit etre de 8 chiffres  !!");
+//        alert.showAndWait();
+//        } else if (fxnum.getText().length() < 8) 
+//        {
+//         Alert alert = new Alert(Alert.AlertType.ERROR);
+//        alert.setTitle("4 Roues Assurrances :: Error Message");
+//        alert.setHeaderText(null);
+//        alert.setContentText("Le numero de télephone  doit etre de 8 chiffres  !!");
+//        alert.showAndWait();
+//        } else {
         String email = fxemail.getText();
-        if (ValidationEmail() || verifierEmailNonDuplique(email) == false) {
+       
             UserCrud rec = new UserCrud();
-
-            //Integer id=Integer.parseInt(fxid.getText());
+           
+            // Integer id=Integer.parseInt(fxid.getText());
             Integer cin = Integer.parseInt(fxcin.getText()); //conversion 
             Integer num_tel = Integer.parseInt(fxnum.getText());
             String nom = fxnom.getText();
@@ -175,9 +176,9 @@ public class ModifierUtilisateurController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Utilsateur modifié");
             alert.showAndWait();
-             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
         }
     }
-
-}
+    
+//}

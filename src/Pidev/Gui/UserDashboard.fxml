@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -28,7 +27,7 @@
                <font>
                   <Font size="23.0" />
                </font></Text>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" scaleZ="0.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="227.0">
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" scaleZ="0.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="159.0">
                <children>
                   <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" translateX="11.0" translateY="2.0">
                      <image>
@@ -43,7 +42,7 @@
                   <Text onMouseClicked="#modifierUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Modifier mon Profil " translateX="-29.0" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="256.0">
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="222.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
                      <HBox.margin>
@@ -60,7 +59,8 @@
                   <Text onMouseClicked="#supprimertUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Supprimer mon Profil" translateX="-29.0" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="300.0">
+            <Label fx:id="fxemail" styleClass="hypertext-design" stylesheets="@design.css" text="Label" textFill="#5019a9" translateY="323.0" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="364.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
                      <HBox.margin>
@@ -87,48 +87,36 @@
             </ImageView>
          </children>
       </HBox>
-      <Pane fx:id="content_area" layoutX="191.0" layoutY="22.0" prefHeight="634.0" prefWidth="1043.0" style="-fx-background-color: #fff;" translateX="100.0" translateY="100.0">
-         <children>
-            <TextField fx:id="fxnom" layoutX="263.0" layoutY="69.0" prefHeight="42.0" prefWidth="346.0" promptText="Nom..." styleClass="textfield-design" stylesheets="@design.css" />
-            <TextField fx:id="fxprenom" layoutX="259.0" layoutY="143.0" prefHeight="42.0" prefWidth="354.0" promptText="Prénom..." styleClass="textfield-design" stylesheets="@design.css" />
-            <TextField fx:id="fxemail" layoutX="259.0" layoutY="213.0" prefHeight="42.0" prefWidth="354.0" promptText="Email...." styleClass="textfield-design" stylesheets="@design.css" />
-            <PasswordField fx:id="fxpassword" layoutX="259.0" layoutY="275.0" prefHeight="42.0" prefWidth="354.0" promptText="Mot de Passe ......." styleClass="textfield-design" stylesheets="@design.css" />
-            <PasswordField fx:id="confirmerpassword" layoutX="259.0" layoutY="342.0" prefHeight="42.0" prefWidth="354.0" promptText="Confirmer Mot de Passe ......." styleClass="textfield-design" stylesheets="@design.css" />
-         </children></Pane>
+      <Pane fx:id="content_area" layoutX="191.0" layoutY="22.0" prefHeight="634.0" prefWidth="1043.0" style="-fx-background-color: #fff;" translateX="100.0" translateY="100.0" />
       <Text fill="WHITE" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coding Squad" translateX="255.0" translateY="90.0" wrappingWidth="339.8058738708496">
          <font>
             <Font name="System Italic" size="16.0" />
          </font>
       </Text>
-      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css">
+      <HBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="291.0">
          <children>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
-               <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-45.0">
-                     <image>
-                        <Image url="@../Img/group.png" />
-                     </image>
-                  </ImageView>
-               </children>
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
             </HBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateY="291.0">
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateX="17.0" translateY="526.0">
          <children>
-            <ImageView fitHeight="30.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true" translateX="14.0" translateY="2.0">
-               <image>
-                  <Image url="@../Img/info.png" />
-               </image>
-            </ImageView>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
                <HBox.margin>
                   <Insets left="40.0" />
                </HBox.margin>
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-25.0">
+                     <image>
+                        <Image url="@../Img/user.png" />
+                     </image>
+                  </ImageView>
+               </children>
             </HBox>
-            <Text onMouseClicked="#modifierUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Mes Informations " translateX="-22.0" />
+            <Text onMouseClicked="#supprimertUser" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Connecté en tant que " translateX="-29.0" />
          </children>
       </HBox>
    </children>

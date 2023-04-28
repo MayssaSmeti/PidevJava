@@ -8,30 +8,84 @@ package Pidev.Entities;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Random;
+import java.util.UUID;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
 
 /**
  *
  * @author Mayssa
  */
 public class User {
-    
+
     private int id;
-    private String email ; 
-    private String nom ; 
-    private String prenom ; 
-    private String password ; 
-    private int cin ; 
-    private String adresse ; 
-    private int num_tel ; 
-    private String roles ; 
-    private String activation_token ; 
+    private String email;
+    private String nom;
+    private String prenom;
+    private String password;
+    private int cin;
+    private String adresse;
+    private int num_tel;
+    private String roles;
+    private String activation_token;
+    private String status;
 
     public User() {
-       
+
+    }
+
+    public User(String email, String nom, String prenom, String password, Integer cin, String adresse, Integer num_tel, String roles) {
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.cin = cin;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.roles = roles; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+    
+
+    public User(int id, String email, String roles, String nom, String prenom, int cin, int num_tel, String adresse) {
+        //To change body of generated methods, choose Tools | Templates.
+        this.id = id;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.status = status;
+        this.cin = cin;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.roles = roles;
+
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public User(int id, String email, String nom, String prenom, int cin, String adresse, int num_tel, String roles, String status) {
+        this.id = id;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.cin = cin;
+        this.adresse=adresse;
+        this.num_tel=num_tel; 
+        this.roles = roles;
+        this.status = status;
     }
 
     public String getActivation_token() {
@@ -41,11 +95,23 @@ public class User {
     public void setActivation_token(String activation_token) {
         this.activation_token = activation_token;
     }
-   
+
     public static User Current_User;
 
-    public User( String email, String nom, String prenom, String password, int cin, String adresse, int num_tel,  String activation_token) {
-        
+    public User(int id, String email, String nom, String prenom, String password, String roles, String status) {
+        this.id = id;
+        this.email = email;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+
+        this.roles = roles;
+
+        this.status = status;
+    }
+
+    public User(String email, String nom, String prenom, String password, int cin, String adresse, int num_tel, String roles, String activation_token, String status) {
+
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
@@ -53,11 +119,11 @@ public class User {
         this.cin = cin;
         this.adresse = adresse;
         this.num_tel = num_tel;
-       
+        this.roles = roles;
         this.activation_token = generateCode();
+        this.status = status;
     }
 
-    
     public User(int id, String email, String nom, String prenom, int cin, String adresse, int num_tel, String roles) {
         this.id = id;
         this.email = email;
@@ -66,19 +132,18 @@ public class User {
         this.cin = cin;
         this.adresse = adresse;
         this.num_tel = num_tel;
-         this.roles = roles;
+        this.roles = roles;
     }
 
     public User(String email, String nom, String prenom, String password, int cin, String adresse, int num_tel) {
         this.email = email;
         this.nom = nom;
         this.prenom = prenom;
-        this.password = (hashMotDePasse(password)); 
+        this.password = (hashMotDePasse(password));
         this.cin = cin;
         this.adresse = adresse;
         this.num_tel = num_tel;
     }
-    
 
     public User(String email, String nom, String prenom, int cin, String adresse, int num_tel, String roles) {
         this.email = email;
@@ -90,46 +155,37 @@ public class User {
         this.roles = roles;
     }
 
-    
-   
-   public User(TextField fxemail, TextField fxnom, TextField fxprenom, PasswordField fxpassword, Integer cin, TextField fxadresse, Integer num_tel, TextField fxroles) {
-    this.email = fxemail.getText();
-    this.cin = cin; 
-    this.num_tel = num_tel;  
-    this.password=(hashMotDePasse(fxpassword.getText()));
-    this.roles=fxroles.getText(); 
-    this.nom = fxnom.getText();
-    this.prenom = fxprenom.getText();
-    this.adresse = fxadresse.getText();
-    
+    public User(TextField fxemail, TextField fxnom, TextField fxprenom, PasswordField fxpassword, Integer cin, TextField fxadresse, Integer num_tel, TextField fxroles) {
+        this.email = fxemail.getText();
+        this.cin = cin;
+        this.num_tel = num_tel;
+        this.password = (hashMotDePasse(fxpassword.getText()));
+        this.roles = fxroles.getText();
+        this.nom = fxnom.getText();
+        this.prenom = fxprenom.getText();
+        this.adresse = fxadresse.getText();
+
     }
 
-  public User( TextField email,int cin,int num_tel, TextField role,TextField nom, TextField prenom,  TextField adresse) {
-     
-    this.email = email.getText();
-    this.cin = cin; 
-    this.num_tel = num_tel;  
-    this.roles = role.getText();
-   
-    this.nom = nom.getText();
-    this.prenom = prenom.getText();
-     
-   
-    this.adresse = adresse.getText();
-    
+    public User(TextField email, int cin, int num_tel, TextField role, TextField nom, TextField prenom, TextField adresse) {
+
+        this.email = email.getText();
+        this.cin = cin;
+        this.num_tel = num_tel;
+        this.roles = role.getText();
+        this.nom = nom.getText();
+        this.prenom = prenom.getText();
+        this.adresse = adresse.getText();
+
     }
 
-  
     public static User getCurrent_User() {
         return Current_User;
     }
-     public static void setCurrent_User(User Current_User) {
+
+    public static void setCurrent_User(User Current_User) {
         User.Current_User = Current_User;
     }
-
-   
-
-    
 
     public int getId() {
         return id;
@@ -155,8 +211,6 @@ public class User {
         this.num_tel = num_tel;
     }
 
-  
-
     public String getEmail() {
         return email;
     }
@@ -181,15 +235,13 @@ public class User {
         this.password = password;
     }
 
-  
+    public String getRoles() {
+        return roles;
+    }
 
-     public String getRoles() {
-       return roles;
-    }
     public void setRoles(String roles) {
-      this.roles = roles;
+        this.roles = roles;
     }
-   
 
     public String getNom() {
         return nom;
@@ -209,31 +261,27 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", email=" + email + ", nom=" + nom + ", prenom=" + prenom + ", password=" + password + ", cin=" + cin + ", adresse=" + adresse + ", num_tel=" + num_tel + ", roles=" + roles + '}';
+        return "User{" + "id=" + id + ", email=" + email + ", nom=" + nom + ", prenom=" + prenom + ", password=" + password + ", cin=" + cin + ", adresse=" + adresse + ", num_tel=" + num_tel + ", roles=" + roles + ", activation_token=" + activation_token + '}';
     }
 
-  
+    public String generateCode() {
 
-     public String generateCode() {
-        
         Random random = new Random();
         int codeInt = random.nextInt(1000000);
-        String code = String.format("%06d", codeInt);
+        String activation_token = String.format("%06d", codeInt);
 
-    
         String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        StringBuilder sb = new StringBuilder(code);
+        StringBuilder sb = new StringBuilder(activation_token);
         for (int i = 0; i < 2; i++) {
             int index = random.nextInt(alphabet.length());
             sb.insert(random.nextInt(sb.length() + 1), alphabet.charAt(index));
         }
         activation_token = sb.toString();
 
-       
         return activation_token;
     }
-    
-        public String hashMotDePasse(String password) {
+
+    public String hashMotDePasse(String password) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = md.digest(password.getBytes());
@@ -247,7 +295,4 @@ public class User {
         }
     }
 
- 
-
-    
 }

@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -63,10 +64,10 @@ public class UserCrud {
     {
         try //ajout dynamiqque
         {
-            String requete2 = "INSERT INTO user (`email`,`password`,`nom`,`prenom`,`adresse`,`cin`,`num_tel`,`roles`)" + " VALUES (?,?,?,?,?,?,?,?) ";
+            String requete2 =   "INSERT INTO user (`email`,`password`,`nom`,`prenom`,`adresse`,`cin`,`num_tel`,`roles`,`activation_token`,`status`) VALUES (?,?,?,?,?,?,?,?,?,'inactif')" ;
             PreparedStatement pst = cnx2.prepareStatement(requete2); //objet dedie pour les objet dynamique //statement est long  //PreparedStatemt : envoie une requête sans
             //paramètres à la base de données
-            
+
             pst.setString(1, u.getEmail());
             pst.setString(2, u.getPassword());
             pst.setString(3, u.getNom());
@@ -75,7 +76,7 @@ public class UserCrud {
             pst.setInt(6, u.getCin());
             pst.setInt(7, u.getNum_tel());
             pst.setString(8, u.getRoles());
-            
+            pst.setString(9,u.getActivation_token()) ;
 
             pst.executeUpdate();
             System.out.println("Votre utilisateur est ajouté ");
@@ -106,6 +107,7 @@ public class UserCrud {
                 u.setNum_tel(rs.getInt("num_tel"));
                 u.setRoles(rs.getString("roles"));
                 u.setAdresse(rs.getString("adresse"));
+                u.setStatus(rs.getString("status")) ; 
 
                 mylist.add(u);
 
@@ -127,7 +129,9 @@ public class UserCrud {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
+    
     }
+    
 
     public void modifierUtilisateur(User u) {
         try {
@@ -148,38 +152,38 @@ public class UserCrud {
             System.out.println(ex.getMessage());
         }
     }
-    
-    
-     public int chercherUser (String nom ) throws SQLException{
-         int id=0;
-         String requetee = "SELECT id FROM user where nom ='"+nom+"';";
-            PreparedStatement pst = cnx2.prepareStatement(requetee);
-            ResultSet rs = pst.executeQuery();
-            while(rs.next())
-            {id= rs.getInt("id");
-            }return id;
-     }
-     
-       public ObservableList<User> chercherUserR(String chaine){
-        String sql ="select user.id,user.nom ,user.prenom,user.cin,user.num_tel,user.adresse,user.email,user.roles  from user ";
-            
-             Connection cnx= MyConnection.getInstance().getCnx();
-            String ch=""+chaine+"%";
-         System.out.println(sql);
-            ObservableList<User> myList= FXCollections.observableArrayList();
+
+    public int chercherUser(String nom) throws SQLException {
+        int id = 0;
+        String requetee = "SELECT id FROM user where nom ='" + nom + "';";
+        PreparedStatement pst = cnx2.prepareStatement(requetee);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            id = rs.getInt("id");
+        }
+        return id;
+    }
+
+    public ObservableList<User> chercherUserR(String chaine) {
+        String sql = "select user.id,user.nom ,user.prenom,user.cin,user.num_tel,user.adresse,user.email,user.roles  from user ";
+
+        Connection cnx = MyConnection.getInstance().getCnx();
+        String ch = "" + chaine + "%";
+        System.out.println(sql);
+        ObservableList<User> myList = FXCollections.observableArrayList();
         try {
-           
-            Statement ste= cnx.createStatement();
-           // PreparedStatement pst = myCNX.getCnx().prepareStatement(requete6);
-            PreparedStatement stee =cnx.prepareStatement(sql);  
+
+            Statement ste = cnx.createStatement();
+            // PreparedStatement pst = myCNX.getCnx().prepareStatement(requete6);
+            PreparedStatement stee = cnx.prepareStatement(sql);
             stee.setString(1, ch);
             stee.setString(2, ch);
 
-         System.out.println(stee);
+            System.out.println(stee);
 
             ResultSet rs = stee.executeQuery();
-            while (rs.next()){
-                 User u= new User();
+            while (rs.next()) {
+                User u = new User();
                 u.setId(rs.getInt("id"));
                 u.setEmail(rs.getString("email"));
                 u.setNom(rs.getString("nom"));
@@ -195,6 +199,52 @@ public class UserCrud {
             System.out.println(ex.getMessage());
         }
         return myList;
-      }
+    }
 
+    public List<User> RechercheUser(String email) {
+        List<User> user = new ArrayList<>();
+        try {
+            String req = "select * from user WHERE email = '" + email + "'";
+            Statement st = cnx2.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                User u = new User();
+                u.setId(rs.getInt("id"));
+                u.setEmail(rs.getString("email"));
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setCin(rs.getInt("cin"));
+                u.setNum_tel(rs.getInt("num_tel"));
+                u.setRoles(rs.getString("roles"));
+                u.setAdresse(rs.getString("adresse"));
+
+                user.add(u);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+
+        return user  ;
+    }
+    public void updateUserPassword(User user) throws SQLException{
+           Connection cnx = MyConnection.getInstance().getCnx();
+             String req ="UPDATE user SET `password`=? WHERE email= ?";
+        try {
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setString(1, user.getPassword());
+            ps.setString(2, user.getEmail());
+            ps.executeUpdate(); 
+        }
+        
+        catch(SQLException ex) {
+                System.out.println(ex.getMessage());
+        }
+            
+            
+           
+    }
+    
+   
+    
+    
 }
