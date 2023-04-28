@@ -80,8 +80,8 @@ public class ServiceDevis implements IService<Devis> {
     @Override
     public List<Devis> getAll() throws SQLException {
         List<Devis> lm = new ArrayList<>();
-        Mecanicien l = new Mecanicien(1, "Wadii Sdouga", "wadii.sdouga2000@gmail.com");
-        Expert e = new Expert(2, "Akrem Zaghdoudi", "akrem.zaghdoudi@esprit.tn");
+        Mecanicien l = new Mecanicien(2, "Akrem Zaghdoudi", "akrem.zaghdoudi@esprit.tn");
+        Expert ee = new Expert(2, "Houssem Abidi", "akrem.zaghdoudi@esprit.tn");
         try {
             String req = "SELECT * FROM `devis` ";
             Statement ste = cnx.createStatement();
@@ -92,9 +92,17 @@ public class ServiceDevis implements IService<Devis> {
                 Devis m = new Devis();
                 m.setId(res.getInt("id"));
                 m.setMecanicien((Mecanicien) l);
-                m.setExpert(e);
                 m.setTotal_ht(res.getFloat("total_ht"));
                 m.setDate(res.getDate("date"));
+                String req2 = "SELECT * FROM `user` WHERE id="+res.getInt("id_expert");
+                Statement ste2 = cnx.createStatement();
+                ResultSet res2 = ste2.executeQuery(req2);
+                while (res2.next()) {
+                    System.out.println(res2);
+                m.setNomE(res2.getString("nom"));
+                m.setPrenomE(res2.getString("prenom"));
+                m.setEmailE(res2.getString("email"));
+                } 
                 lm.add(m);
             }
 
@@ -185,7 +193,7 @@ public class ServiceDevis implements IService<Devis> {
 
             }
         }
-       
+
         return lm;
     }
 

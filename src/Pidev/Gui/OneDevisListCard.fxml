@@ -18,7 +18,12 @@
          <children>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="599.0">
                <children>
-                  <Text fx:id="OffreName" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Expert" wrappingWidth="74.48193359375">
+                  <Text fx:id="OffreName1" fill="#171717" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Expert :" wrappingWidth="73.48193359375">
+                     <font>
+                        <Font name="Montserrat ExtraBold" size="19.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="ExpertName" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Expert" wrappingWidth="403.48193359375">
                      <font>
                         <Font name="Montserrat ExtraBold" size="19.0" />
                      </font>
@@ -41,12 +46,12 @@
                   </Text>
                   <HBox fx:id="priceHbox" prefHeight="39.0" prefWidth="72.0" stylesheets="@../assets/style/offreStyle.css" translateX="372.0">
                      <children>
-                        <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="dt" />
-                        <Text fx:id="priceOffre" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="269.0">
+                        <Text fx:id="priceOffre" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="269.0">
                            <HBox.margin>
                               <Insets left="4.0" />
                            </HBox.margin>
                         </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-price-text" text="dt" />
                      </children>
                      <padding>
                         <Insets top="5.0" />

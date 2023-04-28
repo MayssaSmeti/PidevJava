@@ -5,13 +5,11 @@
  */
 package Pidev.Entities;
 
-
 import Pidev.Services.ServiceDevis;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  *
@@ -19,15 +17,14 @@ import java.util.List;
  */
 public class Devis {
 
-  
     private static int id;
     private float total_ht;
     private Date date;
     private Expert expert;
     private Mecanicien mecanicien;
-    
+
     private String nomM;
-     private String nomE;
+    private String nomE, prenomE, emailE;
     private List<DevisItem> devisItems;
 
     public Devis(int id, float total_ht, Date date, Expert expert, Mecanicien mecanicien) {
@@ -75,13 +72,12 @@ public class Devis {
     }
 
     public void setId(int id) {
-       this.id = id;
-    }
-     public static void setIdDevis(int i) {
-        Devis.id=i;
+        this.id = id;
     }
 
-
+    public static void setIdDevis(int i) {
+        Devis.id = i;
+    }
 
     public Expert getExpert() {
         return expert;
@@ -110,7 +106,6 @@ public class Devis {
     public void setDevisItems(List<DevisItem> devisItems) {
         this.devisItems = devisItems;
     }
-    
 
     public float getTotal_ht() {
         return total_ht;
@@ -166,11 +161,10 @@ public class Devis {
         return total;
     }
 
-    
-     public List<DevisItem> getDevisItems(int id) throws SQLException{
-         ServiceDevis sd =new ServiceDevis();
-        return  sd.getDevisItems(id);
-     }
+    public List<DevisItem> getDevisItems(int id) throws SQLException {
+        ServiceDevis sd = new ServiceDevis();
+        return sd.getDevisItems(id);
+    }
 
     public String getNomM() {
         return nomM;
@@ -188,8 +182,20 @@ public class Devis {
         this.nomE = nomE;
     }
 
- 
-    
-    
+    public String getPrenomE() {
+        return prenomE;
+    }
+
+    public void setPrenomE(String prenomE) {
+        this.prenomE = prenomE;
+    }
+
+    public String getEmailE() {
+        return emailE;
+    }
+
+    public void setEmailE(String emailE) {
+        this.emailE = emailE;
+    }
 
 }

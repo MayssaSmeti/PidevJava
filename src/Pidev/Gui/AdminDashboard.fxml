@@ -37,7 +37,7 @@
                         <Insets left="40.0" />
                      </HBox.margin>
                   </HBox>
-                  <Text onMouseClicked="#open_listeOffre" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Liste Des Offres" translateX="-29.0" />
+                  <Text onMouseClicked="#open_listeOffre" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Liste Des Devis" translateX="-29.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="100.0">
@@ -54,10 +54,9 @@
                         <Insets left="40.0" />
                      </HBox.margin>
                   </HBox>
-                  <Text onMouseClicked="#open_addOffreCard" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="   Ajouter une Offre" translateX="-22.0" />
+                  <Text onMouseClicked="#open_addOffreCard" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="   Ajouter un Devis" translateX="-22.0" />
                </children>
             </HBox>
-            <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Contrat" translateX="-70.0" translateY="120.0" />
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="130.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
@@ -72,24 +71,6 @@
                         <Insets left="40.0" />
                      </HBox.margin>
                   </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Liste Des Contrats" translateX="-18.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="130.0">
-               <children>
-                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
-                     <children>
-                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0">
-                           <image>
-                              <Image url="@../assets/img/ajouter-un-bouton-circulaire-noir.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <HBox.margin>
-                        <Insets left="40.0" />
-                     </HBox.margin>
-                  </HBox>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Ajouter Un Contrat" translateX="-11.0" />
                </children>
             </HBox>
          </children></VBox>

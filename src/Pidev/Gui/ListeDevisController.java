@@ -17,8 +17,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -38,42 +41,37 @@ public class ListeDevisController implements Initializable {
     @FXML
     private GridPane DevisListContainer;
 
+    @FXML
+    private TextField txtRechercher;
+
     //@FXML
     //private TextField searchField;
     //@FXML
     //private TextField searchQuery;
-
     // private ObservableList<Devis> searchedProduits = FXCollections.observableArrayList();
     /**
      * Initializes the controller class.
      */
-    /*@FXML
-    void handleSearchItem(ActionEvent event) {
-        ServiceDevis sd = new ServiceDevis();
-        searchQuery.textProperty().addListener((observable, oldValue, newValue) -> {
+    ServiceDevis DS = new ServiceDevis();
+    @FXML
+    private Label lblNoResults;
 
-            try {
-                searchedProduits.setAll(sd.searchProduit(newValue));
-
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
-            }
-
-            try {
-
-                updateGrid(searchedProduits);
-            } catch (SQLException | IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
-    }*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Instancier le service de produit
-        ServiceDevis DS = new ServiceDevis();
 
         List<Devis> devis;
+
+        txtRechercher.textProperty().addListener((observable, oldValue, newValue) -> {
+            try {
+                updateDisplayedCars(newValue);
+            } catch (SQLException ex) {
+                Logger.getLogger(ListeDevisController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(ListeDevisController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
         try {
             devis = DS.getAll();
             // product list ------------------------------------------------
@@ -105,26 +103,46 @@ public class ListeDevisController implements Initializable {
             Logger.getLogger(ListeDevisController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /*searchField.textProperty().addListener((observable, oldValue, newValue) -> {
-            searchDevis(newValue);
-        });*/
     }
 
-    /*private void searchDevis(String searchTerm) {
-        ObservableList<Node> cards = GridPane.getChildren();
-        for (Node card : cards) {
-            if (card instanceof VBox) {
-                VBox vbox = (VBox) card;
-                String devisName = ((Label) vbox.lookup("#devisName")).getText();
-                String clientName = ((Label) vbox.lookup("#clientName")).getText();
-                if (!devisName.toLowerCase().contains(searchTerm.toLowerCase())
-                        && !clientName.toLowerCase().contains(searchTerm.toLowerCase())) {
-                    vbox.setVisible(false);
-                } else {
-                    vbox.setVisible(true);
-                }
+    private void updateDisplayedCars(String searchTerm) throws SQLException, IOException {
+        // Clear the existing cards
+        DevisListContainer.getChildren().clear();
+
+        // Create a new VBox layout container
+        VBox cardsContainer = new VBox(10);
+
+        // Get all Devis objects from the database
+        List<Devis> devisList = DS.getAll();
+
+        // Loop through each Devis object
+        boolean foundResults = false;
+        for (Devis devis : devisList) {
+            // If the Devis object matches the search term, add it to the filtered VBox
+            if (devis.getNomE().toLowerCase().contains(searchTerm.toLowerCase()) || devis.getPrenomE().toLowerCase().contains(searchTerm.toLowerCase())) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("OneDevisListCard.fxml"));
+                HBox OneCard = fxmlLoader.load();
+                OneDevisListCardControler devisCardController = fxmlLoader.getController();
+
+                // Set the data for the card
+                devisCardController.setOffreData(devis);
+
+                // Add the card to the filtered VBox
+                cardsContainer.getChildren().add(OneCard);
+                foundResults = true;
+
+                // Set the margin for the card
+                VBox.setMargin(OneCard, new Insets(10, 0, 0, 0));
+                OneCard.setStyle("-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.09), 25, 0.1, 0, 0);");
             }
-        }*/
+        }
+
+        // Add the cards container to the main container
+        DevisListContainer.getChildren().add(cardsContainer);
+
+        // Set the visibility of the "No results found" label
+        lblNoResults.setVisible(!foundResults);
     }
 
-
+}
