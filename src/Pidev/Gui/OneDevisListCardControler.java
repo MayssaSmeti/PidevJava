@@ -8,12 +8,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.image.Image;
+
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -30,6 +29,8 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Rectangle;
 import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -172,7 +173,6 @@ public class OneDevisListCardControler {
 
         //showDevis button 
         qrCodeOffre.setId(String.valueOf(d.getId()));
-        
 
         qrCodeOffre.setOnMouseClicked(event -> {
             System.out.println(d.getId());
@@ -218,11 +218,28 @@ public class OneDevisListCardControler {
                     PdfWriter.getInstance(document, new FileOutputStream("D:\\Esprit\\Sem2\\JavaFx\\DevisItems.pdf"));
                     document.open();
 
-                    // Add the header
-                    Paragraph header = new Paragraph("Devis");
-                    header.setAlignment(Element.ALIGN_CENTER);
-                    header.setSpacingAfter(20);
-                    document.add(header);
+// Add the header and logo
+                    PdfPTable headerTable = new PdfPTable(2);
+                    headerTable.setWidthPercentage(100);
+                    headerTable.setSpacingAfter(20);
+
+// Add the header cell
+                    PdfPCell headerCell = new PdfPCell(new Paragraph("Devis"));
+                    headerCell.setBorder(Rectangle.NO_BORDER);
+                    headerCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    headerTable.addCell(headerCell);
+
+// Add the logo cell
+                    Image logo = Image.getInstance("D:\\Esprit\\Sem2\\mobile\\tp\\assurance0\\PidevJava\\src\\Pidev\\assets\\img\\logo_png_with_shadow.png");
+                    logo.scaleAbsolute(100, 100); // resize the logo if needed
+                    PdfPCell logoCell = new PdfPCell(logo, false);
+                    logoCell.setBorder(Rectangle.NO_BORDER);
+                  
+                    logoCell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+                    logoCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+                    headerTable.addCell(logoCell);
+
+                    document.add(headerTable);
 
                     // add a line separator
                     LineSeparator line = new LineSeparator();
@@ -248,6 +265,10 @@ public class OneDevisListCardControler {
                     cell = new PdfPCell(new Paragraph("Expert:" + " " + d.getExpert().getNom()));
                     cell.setBorder(PdfPCell.NO_BORDER);
                     detailsTable.addCell(cell);
+
+// add a line separator
+                    line.setLineColor(BaseColor.LIGHT_GRAY);
+                    document.add(line);
 
                     // add a table to the PDF
                     PdfPTable table2 = new PdfPTable(4);
@@ -313,52 +334,89 @@ public class OneDevisListCardControler {
                         cell.setPadding(8);
                         table2.addCell(cell);
                     }
+
                     document.add(detailsTable);
                     document.add(table2);
                     document.close();
                     System.out.println("PDF file created successfully.");
                     System.out.println(d);
-               
-                        // create a new email message
-                        Properties props = new Properties();
-                        props.put("mail.smtp.auth", "true");
-                        props.put("mail.smtp.starttls.enable", "true");
-                        props.put("mail.smtp.host", "smtp.gmail.com");
-                        props.put("mail.smtp.port", "587");
-                        
-                        
-                        
-                        Session session = Session.getInstance(props,
-                                new javax.mail.Authenticator() {
-                            protected PasswordAuthentication getPasswordAuthentication() {
-                                return new PasswordAuthentication("wadii.sdouga@esprit.tn", "223JMT7061");
-                            }
-                        });
-                        Message message = new MimeMessage(session);
-                        message.setFrom(new InternetAddress(d.getMecanicien().getEmail()));
 
-                        message.setRecipients(Message.RecipientType.TO,
-                                InternetAddress.parse(d.getExpert().getEmail()));
-                        message.setSubject("Devis PDF");
-                        message.setText("Please find attached the PDF for the Devis.");
+                    // create a new email message
+                    Properties props = new Properties();
+                    props.put("mail.smtp.auth", "true");
+                    props.put("mail.smtp.starttls.enable", "true");
+                    props.put("mail.smtp.host", "smtp.gmail.com");
+                    props.put("mail.smtp.port", "587");
 
-                        // attach the PDF file to the email message
-                        MimeBodyPart messageBodyPart = new MimeBodyPart();
-                        Multipart multipart = new MimeMultipart();
-                        DataSource source = new FileDataSource("D:\\Esprit\\Sem2\\JavaFx\\DevisItems.pdf");
-                        messageBodyPart.setDataHandler(new DataHandler(source));
-                        messageBodyPart.setFileName("DevisItems.pdf");
-                        multipart.addBodyPart(messageBodyPart);
-                        message.setContent(multipart);
+                    Session session = Session.getInstance(props,
+                            new javax.mail.Authenticator() {
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication("wadii.sdouga@esprit.tn", "223JMT7061");
+                        }
+                    });
+                    Message message = new MimeMessage(session);
+                    message.setFrom(new InternetAddress(d.getMecanicien().getEmail()));
 
-                        // send the email message
-                        Transport.send(message);
+                    message.setRecipients(Message.RecipientType.TO,
+                            InternetAddress.parse(d.getExpert().getEmail()));
+                    message.setSubject("Devis PDF");
+                    message.setText("Please find attached the PDF for the Devis.");
 
-                        System.out.println("Email sent successfully.");
-                    } catch (Exception ex) {
-                        ex.printStackTrace();
-                    }
-               
+                    // attach the PDF file to the email message
+                    MimeBodyPart messageBodyPart = new MimeBodyPart();
+                    Multipart multipart = new MimeMultipart();
+                    DataSource source = new FileDataSource("D:\\Esprit\\Sem2\\JavaFx\\DevisItems.pdf");
+                    messageBodyPart.setDataHandler(new DataHandler(source));
+                    messageBodyPart.setFileName("DevisItems.pdf");
+                    multipart.addBodyPart(messageBodyPart);
+                    // add logo image to the email body
+                    MimeBodyPart logoPart = new MimeBodyPart();
+                    DataSource logoSource = new FileDataSource("D:\\Esprit\\Sem2\\mobile\\tp\\assurance0\\PidevJava\\src\\Pidev\\assets\\img\\logo_png_with_shadow.png");
+                    logoPart.setDataHandler(new DataHandler(logoSource));
+                    logoPart.setHeader("Content-ID", "<logo>");
+
+// create the HTML content for the email body
+                    String htmlBody = "<html>"
+                            + "<body>"
+                            + "<p>Bonjour M. " + d.getExpert().getNom() + "</p>"
+                            + "<p>Veuillez trouver ci-joint le PDF du devis.</p>"
+                            + "<img src='cid:logo' style='width:200px;height:200px;'/>" // insérer le logo
+                            + "<p>Cordialement,</p>"
+                            + "<p>" + d.getMecanicien().getNom() + "</p>"
+                            + "<hr>"
+                            + "<p style='text-align:center;font-size:12px;color:gray;'>"
+                            + "Cet email a été envoyé par 4RouesAssurances. &copy; 2023"
+                            + "</p>"
+                            + "</html>";
+
+// ajouter le contenu HTML et le logo au message électronique
+                    MimeBodyPart htmlPart = new MimeBodyPart();
+                    htmlPart.setContent(htmlBody, "text/html; charset=utf-8");
+
+// créer une partie de message pour le pied de page
+                    MimeBodyPart footerPart = new MimeBodyPart();
+                    footerPart.setText("\n"
+                            + "Cet e-mail et ses pièces jointes sont confidentiels et destinés exclusivement à la personne ou à l'entité à qui ils sont adressés. "
+                            + "Si vous avez reçu cet e-mail par erreur, veuillez en informer immédiatement l'expéditeur et supprimer l'e-mail de votre système. "
+                            + "La divulgation ou l'utilisation non autorisée des informations contenues dans cet e-mail est strictement interdite. "
+                            + "(C) 2023 Mecanicien. Tous droits réservés.");
+
+// create a multipart object and add the parts
+                    multipart.addBodyPart(logoPart);
+                    multipart.addBodyPart(htmlPart);
+
+                    multipart.addBodyPart(footerPart);
+
+// set the message content
+                    message.setContent(multipart);
+
+                    // send the email message
+                    Transport.send(message);
+
+                    System.out.println("Email sent successfully.");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
 
             });
 
