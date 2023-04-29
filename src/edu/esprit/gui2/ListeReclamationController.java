@@ -11,12 +11,16 @@ import edu.esprit.services.ReclamationCRUD;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
+import static java.util.stream.Collectors.toList;
+import java.util.stream.Stream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -37,10 +41,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.Pagination;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -56,8 +63,9 @@ public class ListeReclamationController implements Initializable {
     private TextField tfRechercher;
     @FXML
     private Button btnre;
-
+    
    
+
 
     /**
      * Initializes the controller class.
@@ -67,6 +75,8 @@ public class ListeReclamationController implements Initializable {
     // Récupérer toutes les réclamations depuis la base de données
     ReclamationCRUD reclamations = new ReclamationCRUD();
     List<Reclamation> rec = reclamations.afficherReclamations();
+    
+    
 
     // Parcourir la liste de réclamations et ajouter chaque réclamation dans la GridPane
     int row = 0;
@@ -102,48 +112,87 @@ public class ListeReclamationController implements Initializable {
         });
 
         row++;
-    }      
+    } 
+    
+    
+
+  
 }
     
 
 
 
-    @FXML
-    private void rechercherReclamation(ActionEvent event) {
+   @FXML
+private void rechercherReclamation(ActionEvent event) {
+ ReclamationCRUD reclamations = new ReclamationCRUD();
+    List<Reclamation> rec = reclamations.afficherReclamations();
+        String o = tfRechercher.getText();
+         
+         List<Reclamation> bystatue = rec.stream()
+        .filter(re -> re.getDescription().toLowerCase().contains(o.toLowerCase()) || 
+                       re.getObjet().toLowerCase().contains(o.toLowerCase()) || 
+                       Integer.toString(re.getNote()).contains(o))
+        .collect(toList());
 
-         // Récupérer le texte saisi dans le champ de recherche
-    String rechercher = tfRechercher.getText();
+    // Tri des réclamations filtrées en fonction de l'objet en ordre croissant
+    Collections.sort(bystatue, (r1, r2) -> r1.getObjet().compareTo(r2.getObjet()));
 
-    // Créer un prédicat pour filtrer les réclamations
-    Predicate<Reclamation> predicate = reclam -> {
-        String objet = reclam.getObjet();
-        String description = reclam.getDescription();
-        return objet.contains(rechercher) || description.contains(rechercher);
-    };
-    };
+             
+        
+        
+        if (tfRechercher.getText().isEmpty()){
+         
+        show(rec);
+        }
+       
+        else {
+            show(bystatue);
+        
+        }
+    }
+    
+   private void show(List<Reclamation> rec) {
+    // Effacement des éléments précédents
+    gridPane.getChildren().clear();
+
+    // Ajout des réponses dans la liste observable
+    ObservableList<Reclamation> items = FXCollections.observableArrayList();
+    items.addAll(rec);
+
+    // Affichage de la liste dans le ListView
+    int row = 0;
+    for (Reclamation r : items) {
+        Label labelObjet = new Label(r.getObjet());
+        Label labelDescription = new Label(r.getDescription());
+        Label labelNote = new Label(Integer.toString(r.getNote()));
+
+        gridPane.add(labelObjet, 0, row);
+        gridPane.add(labelDescription, 1, row);
+        gridPane.add(labelNote, 2, row);
+
+        row++;
+    }
+}
+
+
+
+      
 
     @FXML
     private void statique(ActionEvent event) {
-         // Créer des données
-    ObservableList<PieChart.Data> pieChartData =
-            FXCollections.observableArrayList(
-            new PieChart.Data("Réclamation traitée", 30),
-            new PieChart.Data("Réclamation en cours", 20),
-            new PieChart.Data("Réclamation non traitée", 10));
+      
+try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("./PieChart.fxml"));
+        Parent root = loader.load();
 
-    // Créer le PieChart
-    final PieChart chart = new PieChart(pieChartData);
-    chart.setTitle("Statistiques des réclamations");
-
-    // Créer la scène
-    VBox root = new VBox();
-    root.getChildren().add(chart);
-    Scene scene = new Scene(root, 800, 600);
-
-    // Créer une nouvelle fenêtre pour afficher le graphique
-    Stage newStage = new Stage();
-    newStage.setScene(scene);
-    newStage.show();
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+        popupStage.initOwner(((Node)event.getSource()).getScene().getWindow());
+        popupStage.setScene(new Scene(root));
+        popupStage.showAndWait();
+    } catch (IOException ex) {
+        Logger.getLogger(PieChart.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }
 
     @FXML
@@ -182,7 +231,18 @@ public class ListeReclamationController implements Initializable {
     }
 
    
-  
+
+    @FXML
+    private void trieer(MouseEvent event) {
+         ReclamationCRUD reclamations = new ReclamationCRUD();
+    List<Reclamation> rec = reclamations.afficherReclamations();
+    
+    // Tri de la liste de réponses dans l'ordre croissant en fonction de leur description
+    Collections.sort(rec, (r1, r2) -> r1.getObjet().compareTo(r2.getObjet()));
+
+    // Affichage de la liste triée dans le ListView
+    show(rec);
+    }
 }
 
   

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 public class PieChartExample extends Application {
  
+    
     @Override public void start(Stage stage) {
         // Créer des données
         ObservableList<PieChart.Data> pieChartData =

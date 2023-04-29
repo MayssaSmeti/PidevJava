@@ -23,6 +23,10 @@ public class Reponse {
         this.description = description;
     }
 
+    public Reponse(int id) {
+        this.id = id;
+    }
+
     
    
     

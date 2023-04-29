@@ -53,6 +53,19 @@ public class Reclamation {
         this.note = note;
     }
 
+    public Reclamation(String description, String objet, User client) {
+        this.description = description;
+        this.objet = objet;
+        this.client = client;
+    }
+
+    public Reclamation(int id, String description, String objet, User client) {
+        this.id = id;
+        this.description = description;
+        this.objet = objet;
+        this.client = client;
+    }
+
   
 
     
@@ -102,4 +115,6 @@ public class Reclamation {
     public String toString() {
         return "Reclamation{" + "id=" + id + ", description=" + description + ", objet=" + objet + ", client=" + client + ", note=" + note + '}';
     }   
+
+  
 }

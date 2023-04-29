@@ -5,12 +5,14 @@
 }
 
 /* Google Font Import - Montserrat*/
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");*/
 
 * {
   /*font-family: "Adigiana Extreme";*/
   -fx-font-family: "Montserrat", sans-serif;
 }
+
+
 
 .bg {
   -fx-background-image: url("../img/bg.png");
@@ -636,4 +638,24 @@
 sideBtnTextTitleAPP{
   -fx-font-size: 10px;
   -fx-font-weight: 700;
+}
+
+.rate{
+  -fx-background-image: url("../img/etoile.png"); 
+}
+
+.note-1 {
+    -fx-text-fill: red;
+}
+.note-2 {
+    -fx-text-fill: orange;
+}
+.note-3 {
+    -fx-text-fill: yellow;
+}
+.note-4 {
+    -fx-text-fill: lime;
+}
+.note-5 {
+    -fx-text-fill: green;
 }

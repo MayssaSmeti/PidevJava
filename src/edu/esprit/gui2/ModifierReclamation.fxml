@@ -4,70 +4,42 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="edu.esprit.gui2.ModifierReclamationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui2.ModifierReclamationController">
      <children>
-        <Label layoutX="55.0" layoutY="103.0" text="Objet:" textFill="#bf360c">
+        <Label layoutX="215.0" layoutY="103.0" text="Objet:" textFill="#76cdcd">
          <font>
-            <Font name="Forte" size="24.0" />
+            <Font name="Arial Bold" size="24.0" />
          </font></Label>
-        <Label layoutX="25.0" layoutY="169.0" text="Description:" textFill="#bf360c">
+        <Label layoutX="175.0" layoutY="155.0" text="Description:" textFill="#76cdcd">
          <font>
-            <Font name="Forte" size="24.0" />
+            <Font name="Arial Bold" size="24.0" />
          </font></Label>
-        <Label layoutX="56.0" layoutY="278.0" text="Note:" textFill="#bf360c">
+        <Label layoutX="214.0" layoutY="264.0" text="Note:" textFill="#76cdcd">
          <font>
-            <Font name="Forte" size="24.0" />
+            <Font name="Arial Bold" size="24.0" />
          </font></Label>
-        <TextField fx:id="tfObjet" layoutX="153.0" layoutY="105.0" prefHeight="25.0" prefWidth="343.0" />
-        <TextArea fx:id="taDescription" layoutX="153.0" layoutY="169.0" prefHeight="82.0" prefWidth="343.0" />
-        <TextField fx:id="tfNote" layoutX="153.0" layoutY="279.0" prefHeight="25.0" prefWidth="343.0" />
-        <Button fx:id="btnModifier" layoutX="264.0" layoutY="333.0" mnemonicParsing="false" onAction="#modifierReclamation" text="Modifier">
+        <TextField fx:id="tfObjet" layoutX="324.0" layoutY="104.0" prefHeight="25.0" prefWidth="343.0" />
+        <TextArea fx:id="taDescription" layoutX="324.0" layoutY="155.0" prefHeight="82.0" prefWidth="343.0" />
+        <TextField fx:id="tfNote" layoutX="324.0" layoutY="265.0" prefHeight="25.0" prefWidth="343.0" />
+        <Button fx:id="btnModifier" layoutX="414.0" layoutY="331.0" mnemonicParsing="false" onAction="#modifierReclamation" prefHeight="39.0" prefWidth="124.0" style="-fx-background-color: F9968B;" text="    Modifier" textFill="#0d0d0d">
          <font>
             <Font size="18.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.023742690682411194" green="0.2210526317358017" blue="0.07307017594575882" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.31578946113586426" green="0.2947368323802948" blue="0.2947368323802948" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill></Button>
+         </font></Button>
         <Label fx:id="lblIdReclamation" layoutX="509.0" layoutY="15.0" />
-      <Label layoutX="69.0" layoutY="5.0" prefHeight="54.0" prefWidth="482.0" text="Modifier une réclamation" textAlignment="CENTER">
+      <Label layoutX="69.0" layoutY="5.0" prefHeight="62.0" prefWidth="754.0" text="Modifier une réclamation" textAlignment="CENTER" textFill="#26474e">
          <font>
-            <Font name="Elephant" size="36.0" />
+            <Font name="Century Schoolbook Bold Italic" size="48.0" />
          </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.0736842080950737" green="0.060084469616413116" blue="0.04230019450187683" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.10588235408067703" green="0.3686274588108063" blue="0.125490203499794" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
       </Label>
+      <ImageView fitHeight="27.0" fitWidth="29.0" layoutX="417.0" layoutY="337.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/modifier-les-informations.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

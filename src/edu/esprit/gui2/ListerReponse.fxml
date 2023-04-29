@@ -3,41 +3,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui2.ListerReponseController">
    <children>
-      <Label layoutX="14.0" layoutY="14.0" text="Lister d'une réponse">
+      <Label layoutX="85.0" layoutY="45.0" text="Lister d'une réponse" textFill="#26474e">
          <font>
-            <Font name="Century" size="36.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="0.7368420958518982" green="0.4181806445121765" blue="0.12007797509431839" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
-      <Label fx:id="tfDesc" layoutX="32.0" layoutY="186.0" text="Description :" textFill="#dd2c00">
-         <font>
-            <Font name="Forte" size="24.0" />
+            <Font name="Century Schoolbook Bold Italic" size="48.0" />
          </font>
       </Label>
-      <TextField fx:id="tfdesc" layoutX="169.0" layoutY="187.0" prefHeight="26.0" prefWidth="218.0" />
-      <Pane layoutX="-4.0" layoutY="59.0" prefHeight="7.0" prefWidth="610.0" style="-fx-background-color: black;" />
+      <Label fx:id="tfDesc" layoutX="135.0" layoutY="186.0" text="Description :" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfdesc" layoutX="292.0" layoutY="186.0" prefHeight="118.0" prefWidth="236.0" />
    </children>
 </AnchorPane>

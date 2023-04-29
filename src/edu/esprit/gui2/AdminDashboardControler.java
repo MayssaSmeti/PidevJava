@@ -1,9 +1,8 @@
 
-package gui;
+package edu.esprit.gui2;
 
-import entities.Offre;
-import service.IOffreService;
-import service.OffreService;
+
+import edu.esprit.entities.Reclamation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -19,11 +18,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 
-/**
- * FXML Controller class
- *
- * @author zaghd
- */
+
 public class AdminDashboardControler implements Initializable {
 
     @FXML
@@ -50,33 +45,32 @@ public class AdminDashboardControler implements Initializable {
        
     @FXML
     void open_addOffreCard(MouseEvent event) throws IOException {
-        Offre.actionTest = 0;
-        Parent fxml = FXMLLoader.load(getClass().getResource("AddOffre.fxml"));
+        //Reclamation.actionTest = 0;
+        Parent fxml = FXMLLoader.load(getClass().getResource("Reclamation.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
-
     }
 
     @FXML
     void open_listeOffre(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("ListeOffre.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("ListeReclamation.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
-
-
     }
+    
+  
 
     @FXML
     void open_listeContrat(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("ListeContrat.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getResource("LReponse.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
     }
 
     @FXML
     void open_addContratCard(MouseEvent event) throws IOException {
-        Offre.actionTest = 0;
-        Parent fxml = FXMLLoader.load(getClass().getResource("AddContrat.fxml"));
+        //Reclamation.actionTest = 0;
+        Parent fxml = FXMLLoader.load(getClass().getResource("Reponse.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
 

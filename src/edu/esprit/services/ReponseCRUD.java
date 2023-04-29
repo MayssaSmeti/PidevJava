@@ -115,7 +115,7 @@ public class ReponseCRUD {
         }
     }
     
-      public void modifier(Reponse re) {
+    public void modifier(Reponse re) {
         try {
             String req = "UPDATE `Reponse` SET `description` = '" + re.getDescription() 
                     + "', `id_reclamation_id` = '" + re.getReclamation().getId() 
@@ -128,6 +128,8 @@ public class ReponseCRUD {
             System.out.println(ex.getMessage());
         }
     }
+      
+      
 
   
 }
