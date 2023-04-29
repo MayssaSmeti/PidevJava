@@ -29,7 +29,7 @@
                      <children>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-45.0">
                            <image>
-                              <Image url="@../assets/img/offre.png" />
+                              <Image url="@../assets/img/devis.png" />
                            </image>
                         </ImageView>
                      </children>

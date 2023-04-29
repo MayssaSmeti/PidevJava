@@ -64,7 +64,7 @@ public class ListeDevisController implements Initializable {
 
         txtRechercher.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
-                updateDisplayedCars(newValue);
+                updateDisplayedDevis(newValue);
             } catch (SQLException ex) {
                 Logger.getLogger(ListeDevisController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -105,7 +105,7 @@ public class ListeDevisController implements Initializable {
 
     }
 
-    private void updateDisplayedCars(String searchTerm) throws SQLException, IOException {
+    private void updateDisplayedDevis(String searchTerm) throws SQLException, IOException {
         // Clear the existing cards
         DevisListContainer.getChildren().clear();
 
