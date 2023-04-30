@@ -87,7 +87,15 @@
             </ImageView>
          </children>
       </HBox>
-      <Pane fx:id="content_area" layoutX="191.0" layoutY="22.0" prefHeight="634.0" prefWidth="1043.0" style="-fx-background-color: #fff;" translateX="100.0" translateY="100.0" />
+      <Pane fx:id="content_area" layoutX="520.0" layoutY="22.0" prefHeight="634.0" prefWidth="514.0" style="-fx-background-color: #fff;" translateX="100.0" translateY="100.0">
+         <children>
+            <Label fx:id="fxwelcome" alignment="CENTER" contentDisplay="CENTER" layoutX="87.0" layoutY="165.0" prefHeight="17.0" prefWidth="340.0" text="Bienvenue " textFill="#1c108e">
+               <font>
+                  <Font name="Book Antiqua Bold Italic" size="44.0" />
+               </font>
+            </Label>
+            <Label fx:id="fxprenom" layoutX="243.0" layoutY="268.0" text="Label" />
+         </children></Pane>
       <Text fill="WHITE" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coding Squad" translateX="255.0" translateY="90.0" wrappingWidth="339.8058738708496">
          <font>
             <Font name="System Italic" size="16.0" />
@@ -102,7 +110,7 @@
             </HBox>
          </children>
       </HBox>
-      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateX="17.0" translateY="526.0">
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@offreStyle.css" translateX="17.0" translateY="526.0">
          <children>
             <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
                <HBox.margin>

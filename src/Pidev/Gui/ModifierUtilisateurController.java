@@ -138,6 +138,7 @@ public class ModifierUtilisateurController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.close();
     }
+    int id ; 
 
     @FXML
     private void Modifier(ActionEvent event) {
@@ -168,9 +169,9 @@ public class ModifierUtilisateurController implements Initializable {
             String roles = fxrole.getText();
             String adresse = fxadresse.getText();
 
-            User R = new User();
-            R = new User(R.getId(), email, nom, prenom, cin, adresse, num_tel, roles);
-            rec.modifierUtilisateur(R);
+           
+            User R = new User(id, email, nom, prenom, cin, adresse, num_tel, roles);
+            rec.modifierUtilisateur3(R);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("4 roues assurances :: Success Message");
             alert.setHeaderText(null);

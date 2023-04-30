@@ -33,7 +33,7 @@ public class Main {
       // User u3 = new User(86,"loul@gmail.com", "loulgggo", "edii",22222, "hjbbfb", 0, "hdfjhj") ; 
 
         //pcd.modifierUtilisateur(u3);
-
+        pcd.selectEmail("mayssa.smeeti@gmail.com");
 
         System.out.println(pcd.afficherUtilisateurs());
       //  Mail test = new  Mail(); 

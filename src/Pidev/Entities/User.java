@@ -37,6 +37,11 @@ public class User {
 
     }
 
+    public User(String email) {
+        this.email = email;
+    }
+    
+
     public User(String email, String nom, String prenom, String password, Integer cin, String adresse, Integer num_tel, String roles) {
         this.email = email;
         this.nom = nom;
@@ -66,6 +71,18 @@ public class User {
         this.num_tel = num_tel;
         this.roles = roles;
 
+    }
+
+    public User(int id, TextField fxnom, TextField fxprenom, TextField fxemail, Integer cin, Integer num_tel, TextField fxadresse) {
+        this.id = id;
+        this.email = fxemail.getText();
+        this.nom = fxnom.getText();
+        this.prenom = fxprenom.getText();
+       
+        this.cin = cin ;
+        this.adresse = fxadresse.getText();
+        this.num_tel = num_tel;
+      
     }
 
     public String getStatus() {

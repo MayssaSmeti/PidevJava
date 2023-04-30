@@ -6,6 +6,8 @@
 package Pidev.Gui;
 
 import API.Mail;
+import Pidev.Services.UserCrud;
+import Pidev.Utilis.SessionManager;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
@@ -37,11 +39,18 @@ public class ForgotPasswordController implements Initializable {
     @FXML
     private AnchorPane btnCodeSend;
     @FXML
-    private TextField fxemail;
+    TextField fxemail;
     @FXML
     private FontAwesomeIconView Fxback;
     @FXML
     private Button btnsend;
+
+    public String getEmail() {
+        String email = fxemail.getText();
+        return email;
+
+    }
+    UserCrud fs = new UserCrud();
 
     /**
      * Initializes the controller class.
@@ -49,78 +58,84 @@ public class ForgotPasswordController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void backfont(MouseEvent event) throws IOException {
-    // récupère la scène actuelle à partir de l'événement
-    Scene currentScene = ((Node) event.getSource()).getScene();
-    // récupère la fenêtre actuelle à partir de la scène
-    Stage currentStage = (Stage) currentScene.getWindow();
-    // charge la nouvelle vue depuis un fichier FXML
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
-    Parent newViewParent = loader.load();
-    // crée une nouvelle scène à partir de la vue chargée
-    Scene newScene = new Scene(newViewParent);
-    // récupère la nouvelle fenêtre à partir de la scène
-    Stage newStage = new Stage();
-    newStage.setScene(newScene);
-    // affiche la nouvelle fenêtre
-    newStage.show();
-    // ferme l'ancienne fenêtre
-    currentStage.close();
-    }    
-      private boolean isValidEmail(String email) {
-       
-        return  email.matches(".+@.+\\..+");
+        // récupère la scène actuelle à partir de l'événement
+        Scene currentScene = ((Node) event.getSource()).getScene();
+        // récupère la fenêtre actuelle à partir de la scène
+        Stage currentStage = (Stage) currentScene.getWindow();
+        // charge la nouvelle vue depuis un fichier FXML
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
+        Parent newViewParent = loader.load();
+        // crée une nouvelle scène à partir de la vue chargée
+        Scene newScene = new Scene(newViewParent);
+        // récupère la nouvelle fenêtre à partir de la scène
+        Stage newStage = new Stage();
+        newStage.setScene(newScene);
+        // affiche la nouvelle fenêtre
+        newStage.show();
+        // ferme l'ancienne fenêtre
+        currentStage.close();
     }
 
-   private int generateVerificationCode() {
-    Random random = new Random();
-    return 100000 + random.nextInt(900000);
-}
-   private boolean sendVerificationCodeByEmail(String email, int code) {
-    // TODO: Implement email sending logic to send code to user's email
-    String message = "  Votre  code de rénitialisation : " + code;
-    Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", email, "Rénitialisation Code ", message);
+    private boolean isValidEmail(String email) {
 
-    try {
-        emailsend.sendEmail();
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Code Sent");
-        alert.setHeaderText("A verification code has been sent to your email.");
-        alert.showAndWait();
-        return true;
-    } catch (MessagingException ex) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("An error occurred while sending the verification code.");
-        alert.showAndWait();
-        return false;
+        return email.matches(".+@.+\\..+");
     }
-    
-  
-}
+
+    private int generateVerificationCode() {
+        Random random = new Random();
+        return 100000 + random.nextInt(900000);
+    }
+
+    private boolean sendVerificationCodeByEmail(String email, int code) {
+        // TODO: Implement email sending logic to send code to user's email
+        String message = "  Votre  code de rénitialisation : " + code;
+        Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", email, "Rénitialisation Code ", message);
+
+        try {
+            emailsend.sendEmail();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Code Enovoyé ");
+            alert.setHeaderText("Un Code de vérification est envoyé vers votre email.");
+            alert.showAndWait();
+            return true;
+        } catch (MessagingException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Un erreur s'est produit .");
+            alert.showAndWait();
+            return false;
+        }
+
+    }
 
     @FXML
     private void SendCodeVerification(ActionEvent event) throws IOException {
-          String email = fxemail.getText();
+        String email = fxemail.getText();
+
         if (!isValidEmail(email)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Invalid Email");
-            alert.setHeaderText("Please enter a valid email address.");
+            alert.setTitle(" Email Invalid");
+            alert.setHeaderText("Entrez votre email s'il vous plait .");
             alert.showAndWait();
-            return;
-    }
-     int code = generateVerificationCode();
-        boolean emailSent = sendVerificationCodeByEmail(email, code);
-        if (emailSent) {
-            // Update database to store the verification code with the user's account
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Code Sent");
-            alert.setHeaderText("A verification code has been sent to your email.");
-            alert.showAndWait();
-             Stage home = new Stage();
+            return; 
+        }
+    
+        if (fs.SearchByMail(email)!= null) {
+            SessionManager.setEmail(email);
+
+            int code = generateVerificationCode();
+            boolean emailSent = sendVerificationCodeByEmail(email, code);
+            if (emailSent) {
+                // Update database to store the verification code with the user's account
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Code Envoyé ");
+                alert.setHeaderText("Un Code de vérification est envoyé vers votre email.");
+                alert.showAndWait();
+                Stage home = new Stage();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("ChangerMotdePasse.fxml"));
                 Parent root = loader.load();
                 ChangerMotdePasseController cc = loader.getController();
@@ -129,11 +144,13 @@ public class ForgotPasswordController implements Initializable {
 
                 home.setScene(scene);
                 home.show();
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("An error occurred while sending the verification code.");
-            alert.showAndWait();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Erreur");
+                alert.setHeaderText("Un erreur s'est produit.");
+                alert.showAndWait();
+            }
+
         }
     }
 }

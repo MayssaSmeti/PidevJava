@@ -43,6 +43,10 @@ public class UserDashboardControler implements Initializable {
     private Text logout;
     @FXML
     private Label fxemail;
+    @FXML
+    private Label fxwelcome;
+    @FXML
+    private Label fxprenom;
     
 
     /**
@@ -54,12 +58,12 @@ public class UserDashboardControler implements Initializable {
          User loggedInUser = CurrentUser.getLoggedInUser();
 
         // Afficher les informations de l'utilisateur dans les champs du formulaire
-        //fxnom.setText(loggedInUser.getNom());
-        //fxprenom.setText(loggedInUser.getPrenom());
+        ///fxnom.setText(loggedInUser.getNom());
+        fxprenom.setText(loggedInUser.getEmail());
         fxemail.setText(loggedInUser.getEmail());
        
        
-    }    
+   }    
 
     
     @FXML
@@ -88,7 +92,10 @@ public class UserDashboardControler implements Initializable {
     }
 
     @FXML
-    private void open_listeOffre(MouseEvent event) {
+    private void open_listeOffre(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("UpdateUser.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
         
         
        

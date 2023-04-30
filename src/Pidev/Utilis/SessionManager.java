@@ -33,6 +33,7 @@ public class SessionManager {
     SessionManager.roles=role;
     }
  
+      
     public static SessionManager getInstace(int id , int cin , String email, int num_tel , String nom ,String adresse,String prenom,String role) {
         if(instance == null) {
             instance = new SessionManager( id , cin ,  email ,  num_tel ,  nom,adresse,prenom, role);

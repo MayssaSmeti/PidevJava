@@ -29,10 +29,12 @@ public class Connexion extends Application {
         try {
             // Parent root = FXMLLoader.load(getClass().getResource("AdminDasshboard.fxml")) ;
             //Parent root = FXMLLoader.load(getClass().getResource("FrontDasshborad.fxml")) ;
-            // Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("UpdateUser.fxml"));
+
+           Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("VerifEmail.fxml")) ;
-            // Parent root = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
+            //Parent root = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
             // Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
 
             Scene scene = new Scene(root);

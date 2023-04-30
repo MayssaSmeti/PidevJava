@@ -16,10 +16,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -95,14 +98,13 @@ public class AdminController implements Initializable {
 //        // TODO
 //        showRec();
 //    }
-
     @Override
-public void initialize(URL url, ResourceBundle rb) {
-    showRec();
-    tableviewUser.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE); 
-    tableviewUser.getSelectionModel().setCellSelectionEnabled(true);
-    getUserList("");
-}
+    public void initialize(URL url, ResourceBundle rb) {
+        showRec();
+        tableviewUser.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        tableviewUser.getSelectionModel().setCellSelectionEnabled(true);
+        getUserList("");
+    }
 
     @FXML
     public void showRec() //affiche une liste utilisateur fe table view 
@@ -132,7 +134,7 @@ public void initialize(URL url, ResourceBundle rb) {
             User user;
             ResultSet rs = smt.executeQuery();
             while (rs.next()) { //parcour les enregistrement retoune par la requette sql 
-                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"),rs.getString("status"));
+                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"), rs.getString("status"));
                 UserList.add(user);//ajout utilisateur fe liste 
             }
             System.out.println(UserList);
@@ -179,7 +181,7 @@ public void initialize(URL url, ResourceBundle rb) {
         alert.setHeaderText(null);
         alert.setContentText("Utilisateur supprimé");
         alert.showAndWait();
-        
+
     }
 
     @FXML
@@ -242,7 +244,7 @@ public void initialize(URL url, ResourceBundle rb) {
     }
 
     void setPrenom(String text) {
-         //To change body of generated methods, choose Tools | Templates.
+        //To change body of generated methods, choose Tools | Templates.
     }
 
     private void Recherche(KeyEvent event) {
@@ -258,7 +260,7 @@ public void initialize(URL url, ResourceBundle rb) {
 
     @FXML
     private void btnSearch(MouseEvent event) {
-      ObservableList<User> list = getUserList(fxRecherche.getText());
+        ObservableList<User> list = getUserList(fxRecherche.getText());
         cin.setCellValueFactory(new PropertyValueFactory<>("CIN"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));
         numtel.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
@@ -266,37 +268,67 @@ public void initialize(URL url, ResourceBundle rb) {
         prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
         adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
         roles.setCellValueFactory(new PropertyValueFactory<>("roles"));
-        
-  
-    tableviewUser.setItems(list);
-}
-    
-    
-    
-    public ObservableList<User> getUserList(String search) { // add search parameter
-    Connection conn = MyConnection.getInstance().getCnx();
-    ObservableList<User> UserList = FXCollections.observableArrayList();
-    try {
-        String query2 = "SELECT * FROM user WHERE nom LIKE ? OR prenom LIKE ?"; // modify query
-        PreparedStatement smt = conn.prepareStatement(query2);
-        smt.setString(1, "%" + search + "%"); // set search term
-        smt.setString(2, "%" + search + "%"); // set search term
-        User user;
-        ResultSet rs = smt.executeQuery();
-        while (rs.next()) { //parcour les enregistrement retoune par la requette sql 
-                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"),rs.getString("status"));
-            UserList.add(user);//ajout utilisateur fe liste 
+
+        tableviewUser.setItems(list);
+    }
+
+    public ObservableList<User> getUserList(String search) {
+        Connection conn = MyConnection.getInstance().getCnx();
+        ObservableList<User> userList = FXCollections.observableArrayList();
+        try {
+            String query = "SELECT * FROM user WHERE nom LIKE ? OR prenom LIKE ?";
+            PreparedStatement smt = conn.prepareStatement(query);
+            smt.setString(1, "%" + search + "%");
+            smt.setString(2, "%" + search + "%");
+            ResultSet rs = smt.executeQuery();
+            List<User> filteredList = new ArrayList<>();
+            while (rs.next()) {
+                User user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"), rs.getString("status"));
+                filteredList.add(user);
+            }
+            userList = FXCollections.observableArrayList(filteredList.stream()
+                    .filter(user -> user.getNom().toLowerCase().contains(search.toLowerCase()) || user.getPrenom().toLowerCase().contains(search.toLowerCase()))
+                    .collect(Collectors.toList()));
+            System.out.println(userList);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
         }
-        System.out.println(UserList);
-    } catch (SQLException ex) {
-        System.out.println(ex.getMessage());
+        return userList;
     }
+   
+    
 
-    return UserList;
 
-}
+
+
+
+
+
+    
+//    public ObservableList<User> getUserList(String search) { // add search parameter
+//    Connection conn = MyConnection.getInstance().getCnx();
+//    ObservableList<User> UserList = FXCollections.observableArrayList();
+//    try {
+//        String query2 = "SELECT * FROM user WHERE nom LIKE ? OR prenom LIKE ?"; // modify query
+//        PreparedStatement smt = conn.prepareStatement(query2);
+//        smt.setString(1, "%" + search + "%"); // set search term
+//        smt.setString(2, "%" + search + "%"); // set search term
+//        User user;
+//        ResultSet rs = smt.executeQuery();
+//        while (rs.next()) { //parcour les enregistrement retoune par la requette sql 
+//                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"),rs.getString("status"));
+//            UserList.add(user);//ajout utilisateur fe liste 
+//        }
+//        System.out.println(UserList);
+//    } catch (SQLException ex) {
+//        System.out.println(ex.getMessage());
+//    }
+//
+//    return UserList;
+//
+//}
+    
+    
+    
+    
     }
-
-
-
-

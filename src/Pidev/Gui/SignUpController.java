@@ -232,12 +232,6 @@ public class SignUpController implements Initializable {
                 home.show();
                 System.out.println("ajout avec succee");
                 if (saisieValide = true) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("4 Roues Assurrances :: BIENVENUE");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Vous Etes Inscrit !!");
-                    alert.showAndWait();
-                }
                 try {
                     Parent fxml = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
                     home.setScene(scene);
@@ -247,7 +241,7 @@ public class SignUpController implements Initializable {
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 }
-
+                } 
             } catch (MessagingException ex) {
                 Alert alerte = new Alert(AlertType.ERROR);
                 alerte.setTitle("Erreur lors de l'envoi de l'email");

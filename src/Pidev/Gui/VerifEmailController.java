@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Pidev.Gui;
+
 import com.jfoenix.controls.JFXButton;
 import Pidev.Utilis.MyConnection;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -32,16 +33,14 @@ import javafx.stage.Stage;
  *
  * @author Mayssa
  */
-
 public class VerifEmailController implements Initializable {
 
     @FXML
     private TextField Code;
     @FXML
     private FontAwesomeIconView valider;
-    
-    
-    Connection DS,cnx;
+
+    Connection DS, cnx;
 
     Statement ste;
     String email;
@@ -52,9 +51,9 @@ public class VerifEmailController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
-    public boolean verifierCode(String activation_token ) {
+    public boolean verifierCode(String activation_token) {
         String requete = "SELECT * FROM user WHERE activation_token= ?";
         PreparedStatement statement;
         ResultSet resultSet;
@@ -63,7 +62,7 @@ public class VerifEmailController implements Initializable {
 
         try {
             statement = Ds.prepareStatement(requete);
-            statement.setString(1,activation_token);
+            statement.setString(1, activation_token);
             resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
@@ -76,12 +75,10 @@ public class VerifEmailController implements Initializable {
 
         return !codeExiste;
     }
-   
-    
 
     @FXML
     private void sendActivation(MouseEvent event) throws SQLException {
-       String activation_token  = Code.getText();
+        String activation_token = Code.getText();
         boolean saisieValide = true;
         String messageErreur = "";
 
@@ -114,19 +111,23 @@ public class VerifEmailController implements Initializable {
             alerte.setHeaderText("Le code saisi est correct");
             alerte.setContentText("Le code saisi est valide dans la base de données.");
             alerte.showAndWait();
-           String requeteUpdate = "UPDATE user SET status = 'actif' WHERE email = ?";
+            String requeteUpdate = "UPDATE user SET status = 'actif' WHERE email = ?";
             PreparedStatement statementUpdate = DS.prepareStatement(requeteUpdate);
             System.out.println(email);
             statementUpdate.setString(1, email);
             statementUpdate.executeUpdate();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.close();
-
-          
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("4 Roues Assurrances :: BIENVENUE");
+            alert.setHeaderText(null);
+            alert.setContentText("Vous Etes Inscrit !!");
+            alert.showAndWait();
 
         }
     }
-      public void setData(String email) {
+
+    public void setData(String email) {
         this.email = email;
         System.out.println(email + "aaaaa");
 

@@ -15,6 +15,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -135,7 +137,7 @@ public class UserCrud {
 
     public void modifierUtilisateur(User u) {
         try {
-            String requete5 = "UPDATE  user SET  email=?,nom=?,prenom=?,cin=?,adresse=?,num_tel=?,roles=? WHERE id=? ; ";
+            String requete5 = "UPDATE  user SET  email=?,nom=?,prenom=?,cin=?,adresse=?,num_tel=?,roles=? WHERE id=? "; 
             PreparedStatement pst = cnx2.prepareStatement(requete5); //objet dedie pour les objet dynamique //statement est long 
             pst.setString(1, u.getEmail());
             pst.setString(2, u.getNom());
@@ -226,6 +228,26 @@ public class UserCrud {
 
         return user  ;
     }
+    public User selectEmail(String email ){
+         String req = "select * from user WHERE email = '" + email + "'";
+         try (PreparedStatement stmt = cnx2.prepareStatement(req)) {
+            stmt.setString(1, email);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    User user = new User(rs.getString("email") );
+                    return user;
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException ex) {
+            System.err.println("Error getting user: " + ex.getMessage());
+            return null;
+        }
+            
+                
+        
+    }
     public void updateUserPassword(User user) throws SQLException{
            Connection cnx = MyConnection.getInstance().getCnx();
              String req ="UPDATE user SET `password`=? WHERE email= ?";
@@ -244,7 +266,44 @@ public class UserCrud {
            
     }
     
-   
+     
+    public User SearchByMail(String s) {
+        User p = new User();
+        String request = "SELECT * FROM user WHERE email ='"+s+"';";
+        try {
+            Statement st = cnx2.createStatement();
+            ResultSet rs = st.executeQuery(request);
+            while(rs.next()){
+                p.setId(rs.getInt(1));
+                p.setNom(rs.getString("nom"));
+                p.setPrenom(rs.getString("prenom"));
+                p.setEmail(rs.getString("email"));
+                p.setNum_tel(rs.getInt("num_tel"));
+                p.setCin(rs.getInt("cin"));
+                p.setAdresse(rs.getString("adresse"));
+               
+                p.setPassword(rs.getString("password"));
+               
+                p.setRoles(rs.getString("roles"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         System.out.println("email existe "); 
+        return p;
+                         
+    }
+    
+    public void modifierUtilisateur3(User u) {
+        try {
+            String req = "UPDATE `user` SET `nom` = '" + u.getNom() + "', `prenom` = '" + u.getPrenom() + "', `email` = '" + u.getEmail()+ "',  `cin` = '" + u.getCin()+ "',`num_tel` = '" + u.getNum_tel()+ "',`adresse` = '" + u.getAdresse()+ "' WHERE `user`.`id` = " + u.getId();
+            Statement st = cnx2.createStatement();
+            st.executeUpdate(req);
+            System.out.println("Personne updated !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
     
 }
