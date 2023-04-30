@@ -273,62 +273,17 @@ public class AdminController implements Initializable {
     }
 
     public ObservableList<User> getUserList(String search) {
-        Connection conn = MyConnection.getInstance().getCnx();
         ObservableList<User> userList = FXCollections.observableArrayList();
-        try {
-            String query = "SELECT * FROM user WHERE nom LIKE ? OR prenom LIKE ?";
-            PreparedStatement smt = conn.prepareStatement(query);
-            smt.setString(1, "%" + search + "%");
-            smt.setString(2, "%" + search + "%");
-            ResultSet rs = smt.executeQuery();
-            List<User> filteredList = new ArrayList<>();
-            while (rs.next()) {
-                User user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"), rs.getString("status"));
-                filteredList.add(user);
-            }
-            userList = FXCollections.observableArrayList(filteredList.stream()
-                    .filter(user -> user.getNom().toLowerCase().contains(search.toLowerCase()) || user.getPrenom().toLowerCase().contains(search.toLowerCase()))
-                    .collect(Collectors.toList()));
-            System.out.println(userList);
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+        UserCrud us = new UserCrud(); 
+        List<User> allUsers = us.afficherUtilisateurs(); // méthode qui retourne tous les utilisateurs dans une liste
+
+        userList = allUsers.stream()
+                .filter(user -> user.getNom().contains(search) || user.getPrenom().contains(search))
+                .collect(Collectors.toCollection(FXCollections::observableArrayList));
+
+        System.out.println(userList);
         return userList;
     }
-   
-    
 
-
-
-
-
-
-
-    
-//    public ObservableList<User> getUserList(String search) { // add search parameter
-//    Connection conn = MyConnection.getInstance().getCnx();
-//    ObservableList<User> UserList = FXCollections.observableArrayList();
-//    try {
-//        String query2 = "SELECT * FROM user WHERE nom LIKE ? OR prenom LIKE ?"; // modify query
-//        PreparedStatement smt = conn.prepareStatement(query2);
-//        smt.setString(1, "%" + search + "%"); // set search term
-//        smt.setString(2, "%" + search + "%"); // set search term
-//        User user;
-//        ResultSet rs = smt.executeQuery();
-//        while (rs.next()) { //parcour les enregistrement retoune par la requette sql 
-//                user = new User(rs.getInt("id"), rs.getString("email"), rs.getString("nom"), rs.getString("prenom"), rs.getInt("cin"), rs.getString("adresse"), rs.getInt("num_tel"), rs.getString("roles"),rs.getString("status"));
-//            UserList.add(user);//ajout utilisateur fe liste 
-//        }
-//        System.out.println(UserList);
-//    } catch (SQLException ex) {
-//        System.out.println(ex.getMessage());
-//    }
-//
-//    return UserList;
-//
-//}
-    
-    
-    
-    
-    }
+  
+}

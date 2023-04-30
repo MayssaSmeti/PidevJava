@@ -40,12 +40,6 @@ public class UpdateController implements Initializable {
     private TextField fxnom;
     @FXML
     private TextField fxprenom;
-    @FXML
-    private TextField fxcin;
-    @FXML
-    private TextField fxnum;
-    @FXML
-    private TextField fxadresse;
 
     /**
      * Initializes the controller class.
@@ -120,8 +114,5 @@ public class UpdateController implements Initializable {
       
     }
 
-    @FXML
-    private void close(MouseEvent event) {
-    }
     
 }

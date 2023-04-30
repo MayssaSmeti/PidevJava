@@ -87,20 +87,12 @@ public class UserDashboardControler implements Initializable {
     }
     @FXML
     private void modifierUser(MouseEvent event) throws IOException {
-        
-        
-    }
-
-    @FXML
-    private void open_listeOffre(MouseEvent event) throws IOException {
-        Parent fxml = FXMLLoader.load(getClass().getResource("UpdateUser.fxml"));
+         Parent fxml = FXMLLoader.load(getClass().getResource("UpdateUser.fxml"));
         content_area.getChildren().removeAll();
         content_area.getChildren().setAll(fxml);
         
-        
-       
-        
     }
+
 
     @FXML
     private void supprimertUser(MouseEvent event) throws SQLException {
@@ -133,6 +125,14 @@ public class UserDashboardControler implements Initializable {
             successAlert.showAndWait();
             System.out.println("compte supprimé");
         }
+    }
+
+    @FXML
+    private void changeps(MouseEvent event) throws IOException {
+        Parent fxml = FXMLLoader.load(getClass().getResource("Password.fxml"));
+        content_area.getChildren().removeAll();
+        content_area.getChildren().setAll(fxml);
+        
     }
     
     
