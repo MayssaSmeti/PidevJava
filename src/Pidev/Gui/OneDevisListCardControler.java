@@ -210,7 +210,9 @@ public class OneDevisListCardControler {
             table.setItems(list);
 
             // create a button for printing and attaching an event listener to it
-            Button printButton = new Button("Print");
+            Button printButton = new Button("Send");
+            printButton.setStyle("-fx-background-color: #ffa500; -fx-text-fill: #fff; -fx-font-size: 14pt; -fx-font-weight: bold;");
+
             printButton.setOnAction((ActionEvent e) -> {
                 // create a PDF file
                 try {
