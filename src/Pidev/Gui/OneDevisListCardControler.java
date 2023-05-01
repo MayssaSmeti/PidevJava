@@ -51,6 +51,8 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.util.Properties;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -106,7 +108,7 @@ public class OneDevisListCardControler {
     @FXML
     private Text ExpertName;
 
-    public void setOffreData(Devis d) {
+    public void setDevisData(Devis d) {
 
         ExpertName.setText(d.getNomE() + " " + d.getPrenomE());
 
@@ -154,18 +156,27 @@ public class OneDevisListCardControler {
             Devis.setIdDevis(d.getId());
 
             //Devis.actionTest = 1; // pour afficher le bouton update
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterDevis.fxml"));
+           
             try {
+                // Load the EditDevis.fxml file
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("EditDevis.fxml"));
                 Parent root = loader.load();
-                // Accéder à la pane content_area depuis le controller de
-                // OneProductListCard.fxml
-                Pane contentArea = (Pane) ((Node) event.getSource()).getScene().lookup("#content_area");
 
-                // Vider la pane et afficher le contenu de AddProduct.fxml
-                contentArea.getChildren().clear();
-                contentArea.getChildren().add(root);
+                // Get the controller of the EditDevis.fxml file
+                EditDevisController controller = loader.getController();
+
+                // Set the ID of the selected Devis item in the controller
+                controller.setDevis(d);
+
+                // Set the current stage
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+
             } catch (IOException e) {
                 e.printStackTrace();
+            } catch (SQLException ex) {
+                Logger.getLogger(OneDevisListCardControler.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         });
@@ -175,7 +186,7 @@ public class OneDevisListCardControler {
         qrCodeOffre.setId(String.valueOf(d.getId()));
 
         qrCodeOffre.setOnMouseClicked(event -> {
-            System.out.println(d.getId());
+            System.out.println(qrCodeOffre.getId());
 
             // create a dialog to display the devis items
             Dialog<Devis> dialog = new Dialog<>();

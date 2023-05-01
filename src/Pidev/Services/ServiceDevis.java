@@ -94,15 +94,15 @@ public class ServiceDevis implements IService<Devis> {
                 m.setMecanicien((Mecanicien) l);
                 m.setTotal_ht(res.getFloat("total_ht"));
                 m.setDate(res.getDate("date"));
-                String req2 = "SELECT * FROM `user` WHERE id="+res.getInt("id_expert");
+                String req2 = "SELECT * FROM `user` WHERE id=" + res.getInt("id_expert");
                 Statement ste2 = cnx.createStatement();
                 ResultSet res2 = ste2.executeQuery(req2);
                 while (res2.next()) {
                     System.out.println(res2);
-                m.setNomE(res2.getString("nom"));
-                m.setPrenomE(res2.getString("prenom"));
-                m.setEmailE(res2.getString("email"));
-                } 
+                    m.setNomE(res2.getString("nom"));
+                    m.setPrenomE(res2.getString("prenom"));
+                    m.setEmailE(res2.getString("email"));
+                }
                 lm.add(m);
             }
 
@@ -140,6 +140,18 @@ public class ServiceDevis implements IService<Devis> {
         }
         return (ArrayList<DevisItem>) lm;
 
+    }
+
+    public void updateDevisItem(DevisItem devisItem) throws SQLException {
+   
+        String query = "UPDATE devis_item SET description = ?, quantite = ?, unitprice = ?, totalprice = ? WHERE id = ?";
+        PreparedStatement pstmt = cnx.prepareStatement(query);
+        pstmt.setString(1, devisItem.getDescription());
+        pstmt.setInt(2, devisItem.getQte());
+        pstmt.setDouble(3, devisItem.getUnitprice());
+        pstmt.setDouble(4, devisItem.getUnitprice()*devisItem.getQte());
+        pstmt.setInt(5, devisItem.getDevis().getId());
+        pstmt.executeUpdate();
     }
 
     @Override

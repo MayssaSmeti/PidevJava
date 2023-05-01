@@ -22,7 +22,7 @@
          </children></HBox>
       <VBox alignment="TOP_CENTER" layoutX="-4.0" layoutY="121.0" prefHeight="579.0" prefWidth="274.0" style="-fx-background-color: #fffffff;" stylesheets="@../assets/style/offreStyle.css">
          <children>
-            <Text fill="#ff7c09" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Offre" translateX="-83.0" translateY="100.0" />
+            <Text fill="#ff7c09" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Devis" translateX="-83.0" translateY="100.0" />
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../assets/style/offreStyle.css" translateY="100.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">

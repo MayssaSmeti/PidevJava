@@ -15,12 +15,10 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.ParseException;
+
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.application.Application;
-import static javafx.application.Application.launch;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -95,24 +93,25 @@ public class AjouterDevisController implements Initializable {
 
         ServiceDevis sd = new ServiceDevis();
 
-        double prixU = Double.parseDouble(itemPrixUTextField.getText());
-        int quantite = Integer.parseInt(itemQuantiteTextField.getText());
-        System.out.println(quantite);
+ 
 
         if (itemDescriptionTextField.getText().isEmpty() || itemPrixUTextField.getText().isEmpty() || itemQuantiteTextField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
             alert.setHeaderText("Erreur de saisie !");
             alert.setContentText("SVP remplir tous les champs" + "");
+            alert.show();
             alert.showAndWait();
 
-        } else if (prixU < 0 || quantite <= 0) {
+        } else if (Double.parseDouble(itemPrixUTextField.getText()) < 0 || Integer.parseInt(itemQuantiteTextField.getText()) <= 0) {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setTitle("Erreur");
-            alert.setHeaderText(null);
+            alert.setHeaderText("Erreur de saisie !");
             alert.setContentText("Le prix doit être supérieur à zéro.");
             alert.showAndWait();
         } else {
+            double prixU = Double.parseDouble(itemPrixUTextField.getText());
+            int quantite = Integer.parseInt(itemQuantiteTextField.getText());
 
             float total = (float) (prixU * quantite);
             DevisItem p = new DevisItem(itemDescriptionTextField.getText(), (int) prixU, quantite, (float) total);

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AjouterDevisController">
+<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="701.0" styleClass="dash__container-card" stylesheets="@../assets/style/offreStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AjouterDevisController">
     <children>
         <VBox fx:id="itemsContainer" alignment="CENTER" prefHeight="641.0" prefWidth="725.0" spacing="10">
             <padding>

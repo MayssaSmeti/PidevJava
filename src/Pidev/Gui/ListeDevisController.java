@@ -60,7 +60,7 @@ public class ListeDevisController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // Instancier le service de produit
 
-        List<Devis> devis;
+        List<Devis> devisList;
 
         txtRechercher.textProperty().addListener((observable, oldValue, newValue) -> {
             try {
@@ -73,18 +73,19 @@ public class ListeDevisController implements Initializable {
         });
 
         try {
-            devis = DS.getAll();
-            // product list ------------------------------------------------
+            devisList = DS.getAll();
+            // devis list ------------------------------------------------
             int column = 0;
             int row = 1;
             try {
-                for (int i = 0; i < devis.size(); i++) {
+                for (Devis devis : devisList) {
 
                     FXMLLoader fxmlLoader = new FXMLLoader();
                     fxmlLoader.setLocation(getClass().getResource("OneDevisListCard.fxml"));
                     HBox OneCard = fxmlLoader.load();
                     OneDevisListCardControler devisCardController = fxmlLoader.getController();
-                    devisCardController.setOffreData(devis.get(i));
+                    System.out.println(devis);
+                    devisCardController.setDevisData(devis);
 
                     if (column == 1) {
                         column = 0;
@@ -126,7 +127,7 @@ public class ListeDevisController implements Initializable {
                 OneDevisListCardControler devisCardController = fxmlLoader.getController();
 
                 // Set the data for the card
-                devisCardController.setOffreData(devis);
+                devisCardController.setDevisData(devis);
 
                 // Add the card to the filtered VBox
                 cardsContainer.getChildren().add(OneCard);

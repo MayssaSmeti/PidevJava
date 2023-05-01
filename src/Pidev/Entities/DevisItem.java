@@ -10,9 +10,10 @@ package Pidev.Entities;
  * @author SCORPIO-12
  */
 public class DevisItem {
-    private int id,qte;
+
+    private int id, qte;
     private String description;
-    private double unitprice,totalprice;    
+    private double unitprice, totalprice;
     private Devis devis;
 
     public DevisItem(int id, int qte, String description, float unitprice, float totalprice, Devis devis) {
@@ -24,7 +25,7 @@ public class DevisItem {
         this.devis = devis;
     }
 
-    public DevisItem(String description,int qte,  double unitprice, double totalprice) {
+    public DevisItem(String description, int qte, double unitprice, double totalprice) {
         this.qte = qte;
         this.description = description;
         this.unitprice = unitprice;
@@ -37,6 +38,24 @@ public class DevisItem {
     public DevisItem(String newItem, double newPrice, int newQuantity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public DevisItem(int selectedDevisItemId, String description, int quantity, double price, double total) {
+        this.id = selectedDevisItemId;
+        this.qte = quantity;
+        this.description = description;
+        this.unitprice = price;
+        this.totalprice = total;
+    }
+    
+      public DevisItem( String description, int quantity, double price, double total,Devis devis) {
+
+        this.qte = quantity;
+        this.description = description;
+        this.unitprice = price;
+        this.totalprice = total;
+        this.devis=devis;
+    }
+    
 
     public int getId() {
         return id;
@@ -115,7 +134,5 @@ public class DevisItem {
         }
         return true;
     }
-    
-    
-    
+
 }
