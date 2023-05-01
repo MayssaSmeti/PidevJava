@@ -177,7 +177,16 @@
   -fx-background-color: #ff7c03;
   -fx-cursor: hand;
 }
+.product2__card-btns {
+  -fx-background-radius: 100px;
+  -fx-border-radius: 100px;
+  -fx-background-color: #fffff;
+  -fx-cursor: hand;
+}
 
+.product2__card-btns:hover {
+  -fx-background-color: #ff9532;
+}
 .product__card-btns:hover {
   -fx-background-color: #ff9532;
 }
@@ -703,6 +712,13 @@ sideBtnTextTitleAPP{
 
 .btn3{
   -fx-background-color: linear-gradient(to bottom right, #ff7c03, #ff7c03); 
+  -fx-cursor: hand;
+  -fx-text-fill: #fff;
+  -fx-font-size: 14px;
+}
+
+.btn4{
+  -fx-background-color: linear-gradient(to bottom right, #ffff, #ffff); 
   -fx-cursor: hand;
   -fx-text-fill: #fff;
   -fx-font-size: 14px;

@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -14,15 +15,19 @@
 
 <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1134.0" styleClass="dash__container-card" stylesheets="@../style/offreStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.ListeOffreControler">
    <children>
-      <ScrollPane layoutX="27.0" layoutY="115.0" prefHeight="493.0" prefWidth="1035.0" styleClass="offre-card-scrollPane" stylesheets="@../style/offreStyle.css">
-         <content>
-            <GridPane fx:id="offreListContainer">
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
-         </content>
-      </ScrollPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" translateY="116.0">
+         <children>
+            <ScrollPane fx:id="scroll" prefHeight="493.0" prefWidth="1035.0" styleClass="offre-card-scrollPane" stylesheets="@../style/offreStyle.css">
+               <content>
+                  <GridPane fx:id="offreListContainer">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
       <HBox alignment="CENTER_LEFT" layoutX="27.0" layoutY="5.0" prefHeight="100.0" prefWidth="1035.0">
          <children>
             <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product-title" text="Listes Des Offres" />
@@ -31,21 +36,28 @@
                   <Image url="@../assets/img/magnifier.png" />
                </image>
             </ImageView>
-            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="76.0" styleClass="sort-text" stylesheets="@../style/offreStyle.css">
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.0" prefWidth="518.0" styleClass="sort-text" stylesheets="@../style/offreStyle.css" translateX="13.0" translateY="24.0">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <children>
+                  <TextField fx:id="txtRechercher" prefHeight="37.0" prefWidth="356.0" promptText="Rechercher Un Offre" stylesheets="@../style/offreStyle.css">
+                     <styleClass>
+                        <String fx:value="radius" />
+                        <String fx:value="shadow" />
+                        <String fx:value="white-bg" />
+                     </styleClass>
+                  </TextField>
+                  <ImageView fitHeight="33.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" translateX="-32.0">
+                     <image>
+                        <Image url="@../img/loupe.png" />
+                     </image>
+                  </ImageView>
+               </children>
             </HBox>
-            <TextField fx:id="txtRechercher" prefHeight="37.0" prefWidth="356.0" promptText="Rechercher Un Offre" stylesheets="@../style/offreStyle.css">
-               <styleClass>
-                  <String fx:value="radius" />
-                  <String fx:value="shadow" />
-                  <String fx:value="white-bg" />
-               </styleClass>
-            </TextField>
          </children>
       </HBox>
    </children>

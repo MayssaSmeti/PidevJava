@@ -12,6 +12,14 @@ public class Offre {
 
     private static int IdOffre;
 
+    public Offre(int id, int prix, String titre, String validite_offre) {
+        this.id = id;
+        this.prix = prix;
+        this.titre = titre;
+        this.validite_offre = validite_offre;
+    }
+    
+
 
     public static int getIdOffre() {
         return IdOffre;

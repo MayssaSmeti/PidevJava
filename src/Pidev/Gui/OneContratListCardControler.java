@@ -91,7 +91,7 @@ public class OneContratListCardControler  {
                     getClass().getResource("C:\\Users\\zaghd\\Desktop\\lacrim\\\\PidevJava\\src\\Pidev\\OffresUploads\\" + contrat.getPhoto_cin()).toExternalForm());
             img.setImage(image);*/
             String s="C:\\Users\\zaghd\\Desktop\\lacrim\\\\PidevJava\\src\\Pidev\\OffresUploads\\" + contrat.getPhoto_cin();
-System.out.println(s);
+//System.out.println(s);
             File file = new File(s);
 if(file.exists()) {
     Image image = new Image(file.toURI().toString());

@@ -33,7 +33,9 @@ import javafx.scene.text.Text;
 import Pidev.Services.IOffreService;
 import Pidev.Services.OffreService;
 import Pidev.Utilis.MyConnection;
+import java.util.Optional;
 import javafx.scene.Node;
+import javafx.scene.control.ButtonType;
 
 /**
  * FXML Controller class
@@ -95,7 +97,7 @@ public class OneOffreListCardFrontControler  {
             this.offre = offre ;
 
             String s="C:\\Users\\zaghd\\Desktop\\lacrim\\PidevJava\\src\\Pidev\\OffresUploads\\" + offre.getImage_offre();
-            System.out.println(s);
+            //System.out.println(s);
                         File file = new File(s);
             if(file.exists()) {
                 Image image = new Image(file.toURI().toString());
@@ -175,28 +177,49 @@ public class OneOffreListCardFrontControler  {
     
     
         }
-        @FXML
-    void addBtn(ActionEvent event) throws  SQLException {
-        FrontControler mForm = new FrontControler();
-        mForm.customerID();
-        String insertData = "INSERT INTO customer "
-                            + "( customer_id, prix, titre, validite_offre) "
-                            + "VALUES(?,?,?,?)";
-           pst = cnx.prepareStatement(insertData);
-           pst.setString(1, String.valueOf(data.cID));
-           pst.setString(2, priceOffre.getText());
-           pst.setString(3, OffreName.getText());
-           pst.setString(4, validiteOffre.getText());
+       @FXML
+void addBtn(ActionEvent event) throws SQLException {
+    FrontControler mForm = new FrontControler();
+    mForm.customerID();
 
-             pst.executeUpdate();
+    // Check if the titre already exists in the table
+    String checkData = "SELECT COUNT(*) FROM customer WHERE titre = ?";
+    pst = cnx.prepareStatement(checkData);
+    pst.setString(1, OffreName.getText());
+    ResultSet rs = pst.executeQuery();
+    rs.next();
+    int count = rs.getInt(1);
 
-        alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Offre ajoutée");
-                    alert.setHeaderText(null);
-                    alert.setContentText("L'offre est ajouté a votre panier avec succées!");
-                    alert.showAndWait();
-
+    if (count > 0) {
+        // The titre already exists, show an alert and don't insert the data
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.setTitle("Offre déjà ajoutée");
+        alert.setHeaderText(null);
+        alert.setContentText("L'offre que vous essayez d'ajouter est déjà dans votre panier!");
+        alert.showAndWait();
+    } else {
+        // The titre doesn't exist, insert the data
+        String insertData = "INSERT INTO customer (customer_id, prix, titre, validite_offre) VALUES (?, ?, ?, ?)";
+        pst = cnx.prepareStatement(insertData);
+        pst.setString(1, String.valueOf(data.cID));
+        pst.setString(2, priceOffre.getText());
+        pst.setString(3, OffreName.getText());
+        pst.setString(4, validiteOffre.getText());
+        pst.executeUpdate();
+        //mForm.menuGetOrder();
+        //mForm.menuGetTotal();
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Offre ajoutée");
+        alert.setHeaderText(null);
+        alert.setContentText("L'offre est ajoutée à votre panier avec succès!");
+        alert.showAndWait();
+        
+        //menuShowOrderData();
+         //   mForm.menuDisplayTotal();
+        
     }
+}
+
     
         
     }    

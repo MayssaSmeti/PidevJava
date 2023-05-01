@@ -74,7 +74,7 @@ public class OneOffreListCardControler  {
             //         getClass().getResource("/assets/OffresUploads/" + offre.getImage_offre()).toExternalForm());
             // img.setImage(image);
 String s="C:\\Users\\zaghd\\Desktop\\lacrim\\\\PidevJava\\src\\Pidev\\OffresUploads\\" + offre.getImage_offre();
-System.out.println(s);
+//System.out.println(s);
             File file = new File(s);
 if(file.exists()) {
     Image image = new Image(file.toURI().toString());

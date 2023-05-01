@@ -17,6 +17,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.beans.Observable;
@@ -28,12 +29,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -66,7 +71,7 @@ public class FrontControler implements Initializable {
     private Button menu_payer;
 
     @FXML
-    private TableColumn<?, ?> menu_prix;
+    private TableColumn<Offre, String> menu_prix;
 
     @FXML
     private Button menu_recu;
@@ -78,16 +83,16 @@ public class FrontControler implements Initializable {
     private Button menu_supprimer;
 
     @FXML
-    private TableView<?> menu_tableView;
+    private TableView<Offre> menu_tableView;
 
     @FXML
-    private TableColumn<?, ?> menu_titre;
+    private TableColumn<Offre, String> menu_titre;
 
     @FXML
     private Label menu_total;
 
     @FXML
-    private TableColumn<?, ?> menu_validite;
+    private TableColumn<Offre, String> menu_validite;
 
     @FXML
     private Button open_listeOffre;
@@ -95,6 +100,9 @@ public class FrontControler implements Initializable {
     @FXML
     private TableColumn<customersData, String> customers_col_customerID;
 
+      @FXML
+    private AnchorPane panier;
+      
     public ObservableList<Offre> cardListData;
     
 
@@ -111,6 +119,10 @@ public class FrontControler implements Initializable {
 
 
         menu_tableView.setPlaceholder(labelVide);
+        
+        menuDisplayTotal();
+        
+        menuShowOrderData();
         
 
         //menuDisplayCard();
@@ -229,6 +241,148 @@ public class FrontControler implements Initializable {
         Parent fxml = FXMLLoader.load(getClass().getResource("ListeOffreFront.fxml"));
         menu_gridPane.getChildren().removeAll();
         menu_gridPane.getChildren().setAll(fxml);
+        panier.setVisible(true);
     }
-  
+     private double totalP;
+    
+    public void menuGetTotal() {
+        customerID();
+        String total = "SELECT SUM(prix) FROM customer WHERE customer_id = " + cID;
+        
+        
+        
+        try {
+            
+           pst = cnx.prepareStatement(total);
+          result = pst.executeQuery();
+            
+            if (result.next()) {
+                totalP = result.getInt("SUM(prix)");
+                System.out.println(totalP);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    public void menuDisplayTotal() {
+        menuGetTotal();
+        menu_total.setText("" + totalP);
+    }
+    
+   private ObservableList<Offre> menuOrderListData;
+    
+    public void menuShowOrderData() {
+        menuOrderListData = menuGetOrder();
+        
+        menu_titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        menu_validite.setCellValueFactory(new PropertyValueFactory<>("validite_offre"));
+        menu_prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
+        System.out.println(menuOrderListData);
+        menu_tableView.setItems(menuOrderListData);
+    }
+    
+    ///////////////////////////////////////////////////////////
+    public ObservableList<Offre> menuGetOrder() {
+        customerID();
+        ObservableList<Offre> listData = FXCollections.observableArrayList();
+        
+        String sql = "SELECT * FROM customer WHERE customer_id = " + cID;
+        
+        
+        
+        try {
+             pst = cnx.prepareStatement(sql);
+          result = pst.executeQuery();
+            
+            Offre prod;
+            
+            while (result.next()) {
+                prod = new Offre(result.getInt("id"),
+                        result.getInt("prix"),
+                        result.getString("titre"),
+                        result.getString("validite_offre"));
+                listData.add(prod);
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return listData;
+    }
+    
+     @FXML
+    void menu_payer(ActionEvent event) {
+       
+        
+    }
+     private int getid;
+     String gettitre;
+     Alert alert;
+     
+      @FXML
+public void menuSelectOrder() {
+    Offre prod = menu_tableView.getSelectionModel().getSelectedItem();
+    int num = menu_tableView.getSelectionModel().getSelectedIndex();
+
+    if (num < 0) {
+        getid = -1;
+        gettitre = "";
+        return;
+    }
+
+    getid = prod.getId();
+    gettitre = prod.getTitre();
+}
+
+      
+    
+    @FXML
+public void menuRemoveBtn() {
+    //System.out.println(gettitre);
+    menuSelectOrder();
+    if (gettitre == null || gettitre.isEmpty()) {
+        alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Error Message");
+        alert.setHeaderText(null);
+        alert.setContentText("Please select the order you want to remove");
+        alert.showAndWait();
+    } else {
+        String deleteData = "DELETE FROM customer WHERE id = " + getid;
+
+        try {
+            alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to delete this order?");
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get().equals(ButtonType.OK)) {
+                pst = cnx.prepareStatement(deleteData);
+                pst.executeUpdate();
+            }
+
+            menuShowOrderData();
+            menuDisplayTotal();
+            gettitre = null; // reset the gettitre variable
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+    
+    @FXML
+    void refresh_panier(ActionEvent event) {
+         menuShowOrderData();
+        menuDisplayTotal();
+    }
+    
+    @FXML
+    void openpanier(MouseEvent event) {
+       // panier.setVisible(true);
+    }
 }  
