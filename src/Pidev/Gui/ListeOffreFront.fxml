@@ -15,7 +15,7 @@
 
 <Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="720.0" styleClass="dash__container-card" stylesheets="@../style/offreStyle.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.ListeOffreFrontControler">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="7.0" prefHeight="513.0" prefWidth="720.0" styleClass="offre-card-scrollPane" stylesheets="@../style/offreStyle.css" translateY="103.0">
+      <ScrollPane hbarPolicy="NEVER" layoutX="7.0" layoutY="-52.0" prefHeight="553.0" prefWidth="720.0" styleClass="offre-card-scrollPane" stylesheets="@../style/offreStyle.css" translateY="103.0">
          <content>
             <GridPane fx:id="offreListContainer">
               <rowConstraints>

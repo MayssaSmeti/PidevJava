@@ -33,7 +33,7 @@
             </ImageView>
             <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="484.0" styleClass="sort-text" stylesheets="@../style/offreStyle.css" translateX="286.0">
                <children>
-                  <HBox fx:id="ExportrListe" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="184.0" stylesheets="@../style/offreStyle.css" translateX="47.0">
+                  <HBox fx:id="ExportrListe" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#excelBtn" prefHeight="35.0" prefWidth="184.0" stylesheets="@../style/offreStyle.css" translateX="47.0">
                      <children>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true" translateX="121.0">
                            <image>

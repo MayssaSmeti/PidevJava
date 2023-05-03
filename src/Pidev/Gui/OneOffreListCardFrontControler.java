@@ -178,9 +178,8 @@ public class OneOffreListCardFrontControler  {
     
         }
        @FXML
-void addBtn(ActionEvent event) throws SQLException {
-    FrontControler mForm = new FrontControler();
-    mForm.customerID();
+void addBtn(ActionEvent event) throws SQLException, IOException {
+    
 
     // Check if the titre already exists in the table
     String checkData = "SELECT COUNT(*) FROM customer WHERE titre = ?";
@@ -214,8 +213,12 @@ void addBtn(ActionEvent event) throws SQLException {
         alert.setContentText("L'offre est ajoutée à votre panier avec succès!");
         alert.showAndWait();
         
-        //menuShowOrderData();
-         //   mForm.menuDisplayTotal();
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("Front.fxml"));
+        Parent root=loader.load();
+        FrontControler mForm = loader.getController();
+        mForm.customerID();
+        mForm.menuShowOrderData();
+         mForm.menuDisplayTotal();
         
     }
 }

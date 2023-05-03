@@ -115,7 +115,7 @@
                            </children>
                         </HBox>
                      </content></ScrollPane>
-                  <GridPane fx:id="menu_gridPane" layoutX="56.0" layoutY="73.0" prefHeight="55.0" prefWidth="150.0" translateX="-41.0" translateY="-59.0">
+                  <GridPane fx:id="menu_gridPane" layoutX="56.0" layoutY="73.0" prefHeight="2.0" prefWidth="150.0" translateX="-41.0" translateY="-59.0">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -172,7 +172,7 @@
                   </Label>
                   <Button fx:id="menu_payer" layoutX="31.0" layoutY="490.0" mnemonicParsing="false" onAction="#menu_payer" prefHeight="49.0" prefWidth="271.0" styleClass="btn" stylesheets="@../style/offreStyle.css" text="Payer" translateX="22.0" translateY="21.0" />
                   <Button fx:id="menu_supprimer" layoutX="41.0" layoutY="500.0" mnemonicParsing="false" onAction="#menuRemoveBtn" prefHeight="50.0" prefWidth="127.0" styleClass="btn2" stylesheets="@../style/offreStyle.css" text="Supprimer" translateX="12.0" translateY="82.0" />
-                  <Button fx:id="menu_recu" layoutX="51.0" layoutY="510.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="127.0" styleClass="btn3" stylesheets="@../style/offreStyle.css" text="Reçu" translateX="148.0" translateY="71.0" />
+                  <Button fx:id="menu_recu" layoutX="51.0" layoutY="510.0" mnemonicParsing="false" onAction="#pdfbtn" prefHeight="50.0" prefWidth="127.0" styleClass="btn3" stylesheets="@../style/offreStyle.css" text="Reçu" translateX="148.0" translateY="71.0" />
                   <TableView fx:id="menu_tableView" layoutX="8.0" layoutY="13.0" prefHeight="330.0" prefWidth="340.0" stylesheets="@../style/offreStyle.css" translateY="45.0">
                      <columns>
                         <TableColumn fx:id="menu_titre" prefWidth="212.0001220703125" text="Nom Offre" />
@@ -196,6 +196,51 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Text>
+            <AnchorPane fx:id="payement" layoutX="-32.0" prefHeight="223.0" prefWidth="539.0" stylesheets="@../style/offreStyle.css" translateX="156.0" translateY="296.0" visible="false">
+               <styleClass>
+                  <String fx:value="white-bg" />
+                  <String fx:value="shadow" />
+                  <String fx:value="radius" />
+               </styleClass>
+               <children>
+                  <AnchorPane fx:id="payement1" prefHeight="38.0" prefWidth="566.0" style="-fx-background-color: #ff7c03;" stylesheets="@../style/offreStyle.css">
+                     <children>
+                        <Text fill="WHITE" layoutY="-13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payement" translateX="5.0" translateY="34.0" wrappingWidth="186.93670654296875">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Button layoutY="-3.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#closepay" prefHeight="34.0" prefWidth="40.0" styleClass="btn2" translateX="525.0" translateY="3.0">
+                           <graphic>
+                              <ImageView fitHeight="29.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true" translateX="3.0" translateY="-1.0">
+                                 <image>
+                                    <Image url="@../img/cross.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                     <styleClass>
+                        <String fx:value="radius" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                  </AnchorPane>
+                  <AnchorPane fx:id="payement11" layoutY="31.0" prefHeight="193.0" prefWidth="566.0" styleClass="white-bg" stylesheets="@../style/offreStyle.css">
+                     <children>
+                        <Text fx:id="payement_total" layoutX="195.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test" translateX="-40.0" translateY="-89.0" wrappingWidth="163.73675537109375">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                        <Text layoutY="-55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Votre Total est :" translateX="7.0" translateY="78.0" wrappingWidth="294.39996337890625">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

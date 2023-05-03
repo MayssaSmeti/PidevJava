@@ -1,6 +1,16 @@
 
 package Pidev.Gui;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import Pidev.Entities.Offre;
 //import Pidev.Entities.Panier;
 import Pidev.Entities.customersData;
@@ -9,6 +19,11 @@ import Pidev.Services.IOffreService;
 import Pidev.Services.OffreService;
 import Pidev.Tests.Main;
 import Pidev.Utilis.MyConnection;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.DocumentException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,6 +31,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -28,6 +44,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -44,6 +61,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 /**
  * FXML Controller class
@@ -84,6 +104,9 @@ public class FrontControler implements Initializable {
 
     @FXML
     private TableView<Offre> menu_tableView;
+    
+    @FXML
+    private AnchorPane payement;
 
     @FXML
     private TableColumn<Offre, String> menu_titre;
@@ -102,6 +125,9 @@ public class FrontControler implements Initializable {
 
       @FXML
     private AnchorPane panier;
+      
+      @FXML
+    private Text payement_total;
       
     public ObservableList<Offre> cardListData;
     
@@ -270,6 +296,7 @@ public class FrontControler implements Initializable {
     public void menuDisplayTotal() {
         menuGetTotal();
         menu_total.setText("" + totalP);
+        payement_total.setText("" + totalP);
     }
     
    private ObservableList<Offre> menuOrderListData;
@@ -317,7 +344,7 @@ public class FrontControler implements Initializable {
      @FXML
     void menu_payer(ActionEvent event) {
        
-        
+        //payement.setVisible(true);
     }
      private int getid;
      String gettitre;
@@ -379,6 +406,228 @@ public void menuRemoveBtn() {
     void refresh_panier(ActionEvent event) {
          menuShowOrderData();
         menuDisplayTotal();
+    }
+    
+     
+    @FXML
+    private void pdfbtn(ActionEvent event) throws SQLException, FileNotFoundException, DocumentException, BadElementException, IOException {
+        ObservableList<Offre> listData = FXCollections.observableArrayList();
+        
+        menuGetTotal();
+        listData = menuGetOrder() ;
+        //System.out.println(listData);
+         // Afficher la boîte de dialogue de sélection de fichier
+         //System.out.println(totalP);
+         //System.out.println(menu_amount);
+         if (totalP == 0 ) { //|| menu_amount.getText().isEmpty()) {
+            alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setContentText("Vous devez faire votre ordre d'abord");
+            alert.showAndWait();
+        } else {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Enregistrer le fichier PDF");
+        fileChooser.getExtensionFilters().add(new ExtensionFilter("Fichiers PDF", "*.pdf"));
+        File selectedFile = fileChooser.showSaveDialog(((Node) event.getSource()).getScene().getWindow());
+        if (selectedFile != null) {
+            // Générer le fichier PDF avec l'emplacement de sauvegarde sélectionné
+            // Récupérer la liste des produits
+            //CompetitionServices CompetitionService = new CompetitionServices();
+           // List<Competition> CompetitionList = CompetitionService.afficherListe();
+
+            try {
+                // Créer le document PDF
+                Document document = new Document();
+                PdfWriter.getInstance(document, new FileOutputStream(selectedFile));
+                document.open();
+
+                // Créer une instance de l'image
+                Image image = Image.getInstance(System.getProperty("user.dir") + "/src/Pidev/img/pdfff.png");
+
+                // Positionner l'image en haut à gauche
+                image.setAbsolutePosition(5, document.getPageSize().getHeight() - 120);
+
+                // Modifier la taille de l'image
+                image.scaleAbsolute(100, 100);
+
+                // Ajouter l'image au document 
+                document.add(image);
+
+                // Créer une police personnalisée pour la date
+                Font fontDate = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+                BaseColor color = new BaseColor(255,128,0);
+                fontDate.setColor(color); // Définir la couleur de la police
+                
+                // Créer un paragraphe avec le lieu
+                Paragraph tunis = new Paragraph("Tunis", fontDate);
+                tunis.setIndentationLeft(455); // Définir la position horizontale
+                tunis.setSpacingBefore(-30); // Définir la position verticale
+                // Ajouter le paragraphe au document
+                document.add(tunis);
+
+                // Obtenir la date d'aujourd'hui
+                LocalDate today = LocalDate.now();
+
+                // Créer un paragraphe avec la date
+                Paragraph date = new Paragraph(today.toString(), fontDate);
+
+                date.setIndentationLeft(437); // Définir la position horizontale
+                date.setSpacingBefore(1); // Définir la position verticale
+                // Ajouter le paragraphe au document
+                document.add(date);
+
+                // Créer une police personnalisée
+                Font font = new Font(Font.FontFamily.TIMES_ROMAN, 32, Font.BOLD);
+                BaseColor titleColor = new BaseColor(255,128,0); //
+                font.setColor(titleColor);
+
+                // Ajouter le contenu au document
+                Paragraph title = new Paragraph("Votre recu", font);
+                title.setAlignment(Element.ALIGN_CENTER);
+                title.setSpacingBefore(50); // Ajouter une marge avant le titre pour l'éloigner de l'image
+                title.setSpacingAfter(20);
+                document.add(title);
+
+                PdfPTable table = new PdfPTable(3); // 
+                table.setWidthPercentage(100);
+                table.setSpacingBefore(30f);
+                table.setSpacingAfter(30f);
+                //document.add(table);
+
+                // Ajouter les en-têtes de colonnes
+                Font hrFont = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.BOLD);
+                BaseColor hrColor = new BaseColor(0, 0, 0);
+                hrFont.setColor(hrColor);
+
+                PdfPCell cell1 = new PdfPCell(new Paragraph("Nom Offre", hrFont));
+                BaseColor bgColor = new BaseColor(211, 211, 211);
+                cell1.setBackgroundColor(bgColor);
+                cell1.setBorderColor(titleColor);
+                cell1.setPaddingTop(20);
+                cell1.setPaddingBottom(20);
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell2 = new PdfPCell(new Paragraph("Validité", hrFont));
+                cell2.setBackgroundColor(bgColor);
+                cell2.setBorderColor(titleColor);
+                cell2.setPaddingTop(20);
+                cell2.setPaddingBottom(20);
+                cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                PdfPCell cell3 = new PdfPCell(new Paragraph("Prix", hrFont));
+                cell3.setBackgroundColor(bgColor);
+                cell3.setBorderColor(titleColor);
+                cell3.setPaddingTop(20);
+                cell3.setPaddingBottom(20);
+                cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                table.addCell(cell1);
+                table.addCell(cell2);
+                table.addCell(cell3);
+
+                
+                Font hdFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.NORMAL);
+                BaseColor hdColor = new BaseColor(255,128,0); //
+                hdFont.setColor(hdColor);
+                // Ajouter les données des produits
+                 
+                for (Offre offre : listData) {
+                    Font font3 = new Font(Font.FontFamily.TIMES_ROMAN, 32, Font.BOLD);
+                BaseColor borderColor = new BaseColor(255,128,0); //
+                font.setColor(borderColor);
+                
+                    PdfPCell cellR1 = new PdfPCell(new Paragraph(offre.getTitre()));
+                    cellR1.setBorderColor(borderColor);
+                    cellR1.setPaddingTop(10);
+                    cellR1.setPaddingBottom(10);
+                    cellR1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR1);
+
+                    PdfPCell cellR2 = new PdfPCell(new Paragraph(offre.getValidite_offre().toString()));
+                    cellR2.setBorderColor(titleColor);
+                    cellR2.setPaddingTop(10);
+                    cellR2.setPaddingBottom(10);
+                    cellR2.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR2);
+
+                    PdfPCell cellR3 = new PdfPCell(new Paragraph(String.valueOf(offre.getPrix())));
+                    cellR3.setBorderColor(titleColor);
+                    cellR3.setPaddingTop(10);
+                    cellR3.setPaddingBottom(10);
+                    cellR3.setHorizontalAlignment(Element.ALIGN_CENTER);
+                    table.addCell(cellR3);
+
+                
+                
+            } 
+                Font fontTotal = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+            BaseColor totalColor = new BaseColor(255,128,0); //
+            fontTotal.setColor(totalColor);
+            Paragraph total = new Paragraph("Total: " + totalP + " DT", fontTotal);
+            total.setAlignment(Element.ALIGN_RIGHT);
+            total.setSpacingBefore(50);
+            
+            
+                // Créer une police personnalisée
+                Font font2 = new Font(Font.FontFamily.TIMES_ROMAN, 32, Font.BOLD);
+                BaseColor merciColor = new BaseColor(255,128,0); //
+                font.setColor(merciColor);
+
+                // Ajouter le contenu au document
+                Paragraph merci = new Paragraph("Merci pour votre commande", font2);
+                merci.setAlignment(Element.ALIGN_CENTER);
+                merci.setSpacingBefore(20); // Ajouter une marge avant le titre pour l'éloigner de l'image
+                //title.setSpacingAfter(20);
+                
+                
+                table.setSpacingBefore(20);
+                document.add(table);
+                document.add(total);
+                document.add(merci);
+            document.close();
+
+                System.out.println("Le fichier PDF a été généré avec succès.");
+                menuRestart();
+                menuClear();
+                Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText("Fichier PDF généré avec succès");
+            alert.setContentText("Le fichier PDF a été enregistré avec succès:\n"); //+ selectedFile.getAbsolutePath());
+            alert.showAndWait();
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+         }
+    }
+    public void menuClear() {
+        
+         String deleteData = "DELETE FROM customer";
+
+        try {
+
+           
+                pst = cnx.prepareStatement(deleteData);
+                pst.executeUpdate();
+            
+
+            menuShowOrderData();
+            menuDisplayTotal();
+            gettitre = null; // reset the gettitre variable
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
+     public void menuRestart() {
+        totalP = 0;
+        menu_total.setText("$0.0");
+    }
+     
+    @FXML
+    void closepay(ActionEvent event) {
+        payement.setVisible(false);
     }
     
     @FXML
