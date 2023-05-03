@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="606.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.DétailsConstatController">
+     <children>
+      <Label layoutX="182.0" layoutY="22.0" text="Details Constat" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font></Label>
+      <TextField fx:id="tfnom" layoutX="286.0" layoutY="117.0" />
+      <TextField fx:id="tfprenom" layoutX="286.0" layoutY="154.0" />
+      <TextField fx:id="tftype" layoutX="286.0" layoutY="190.0" />
+      <TextField fx:id="tfmarque" layoutX="286.0" layoutY="227.0" />
+      <TextField fx:id="tfassurance" layoutX="286.0" layoutY="263.0" />
+      <TextField fx:id="tfadresse" layoutX="286.0" layoutY="298.0" />
+      <TextField fx:id="tfemplacement" layoutX="286.0" layoutY="333.0" />
+      <TextField fx:id="tfdate" layoutX="286.0" layoutY="557.0" />
+      <TextField fx:id="tfmail" layoutX="286.0" layoutY="520.0" />
+      <TextField fx:id="tfphoto" layoutX="286.0" layoutY="369.0" />
+      <TextField fx:id="tfdescription" layoutX="286.0" layoutY="404.0" />
+      <TextField fx:id="tfobservations" layoutX="286.0" layoutY="443.0" />
+      <TextField fx:id="tfnum" layoutX="286.0" layoutY="481.0" />
+      <Text fill="#ff8521" layoutX="71.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Client : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="70.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prenom Client : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="71.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type Véhicule  : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="71.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque Véhicule : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="71.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assurance : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="72.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="71.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emplacement Accident : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="71.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo Accident : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="71.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description Degat : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="71.0" layoutY="466.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observations  : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="72.0" layoutY="503.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro Contrat  : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="73.0" layoutY="543.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="74.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date_Création : ">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

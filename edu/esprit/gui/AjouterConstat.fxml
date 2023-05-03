@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<<<<<<< HEAD
+=======
+<?import javafx.scene.image.ImageView?>
+>>>>>>> 0326fe5 (api)
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<<<<<<< HEAD
+<AnchorPane id="AnchorPane" prefHeight="737.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.AjouterConstatController">
+   <children>
+      <Label layoutX="182.0" layoutY="22.0" text="Ajouter Constat" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Text fill="#ff8521" layoutX="79.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Client :">
+=======
+<AnchorPane id="AnchorPane" prefHeight="951.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.AjouterConstatController">
+   <children>
+      <Label layoutX="380.0" layoutY="14.0" text="Ajouter Constat" textAlignment="CENTER" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Label>
+      <Text fill="#ff8521" layoutX="216.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Client :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="79.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom Client :">
+=======
+      <Text fill="#ff8521" layoutX="216.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom Client :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="79.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type Véhicule :">
+=======
+      <Text fill="#ff8521" layoutX="214.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type Véhicule :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="79.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque Véhicule :">
+=======
+      <Text fill="#ff8521" layoutX="216.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque Véhicule :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="78.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assurance :">
+=======
+      <Text fill="#ff8521" layoutX="215.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assurance :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="79.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse :">
+=======
+      <Text fill="#ff8521" layoutX="217.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="78.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emplacement Accident :">
+=======
+      <Text fill="#ff8521" layoutX="218.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emplacement Accident :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="77.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo Accident :">
+=======
+      <Text fill="#ff8521" layoutX="221.0" layoutY="511.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo Accident :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="79.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description Degat :">
+=======
+      <Text fill="#ff8521" layoutX="221.0" layoutY="595.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description Degat :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="79.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observations :">
+=======
+      <Text fill="#ff8521" layoutX="226.0" layoutY="632.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observations :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="78.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro Contrat :">
+=======
+      <Text fill="#ff8521" layoutX="228.0" layoutY="669.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro Contrat :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="79.0" layoutY="540.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :">
+=======
+      <Text fill="#ff8521" layoutX="229.0" layoutY="714.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <Text fill="#ff8521" layoutX="80.0" layoutY="579.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date_Création :">
+=======
+      <Text fill="#ff8521" layoutX="228.0" layoutY="754.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date_Création :">
+>>>>>>> 0326fe5 (api)
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+<<<<<<< HEAD
+      <TextField fx:id="tfnom" layoutX="286.0" layoutY="117.0" />
+      <TextField fx:id="tfprenom" layoutX="286.0" layoutY="154.0" />
+      <TextField fx:id="tfassurance" layoutX="286.0" layoutY="263.0" />
+      <TextField fx:id="tfadresse" layoutX="286.0" layoutY="298.0" />
+      <TextField fx:id="tfemplacement" layoutX="286.0" layoutY="333.0" />
+      <TextField fx:id="tfmail" layoutX="286.0" layoutY="517.0" />
+      <TextField fx:id="tfdescription" layoutX="286.0" layoutY="404.0" />
+      <TextField fx:id="tfobservations" layoutX="286.0" layoutY="443.0" />
+      <TextField fx:id="tfnum" layoutX="286.0" layoutY="481.0" />
+      <Button fx:id="btnAjouter" layoutX="213.0" layoutY="632.0" mnemonicParsing="false" onAction="#EnregistrerConstat" prefHeight="31.0" prefWidth="179.0" style="-fx-background-color: #ff8521;" text="Ajouter" />
+      <DatePicker fx:id="tfdate" layoutX="286.0" layoutY="556.0" prefHeight="31.0" prefWidth="187.0" />
+      <ComboBox fx:id="tftype" layoutX="286.0" layoutY="192.0" prefHeight="31.0" prefWidth="187.0" promptText="Choisir votre Type" />
+      <ComboBox fx:id="tfmarque" layoutX="286.0" layoutY="227.0" prefHeight="31.0" prefWidth="187.0" promptText="Choisir votre Marque" />
+      <Button fx:id="tfimage" layoutX="287.0" layoutY="368.0" mnemonicParsing="false" onAction="#ChoisirFichier" prefHeight="31.0" prefWidth="187.0" text="Choisir un fichier" />
+      <Text fx:id="messagenom" fill="RED" layoutX="482.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messageprenom" fill="RED" layoutX="482.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messagetype" fill="RED" layoutX="482.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messagemarque" fill="RED" layoutX="482.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messageassu" fill="RED" layoutX="482.0" layoutY="287.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messageadresse" fill="RED" layoutX="482.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messageaccid" fill="RED" layoutX="482.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messagephoto" fill="RED" layoutX="482.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messagedesc" fill="RED" layoutX="482.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messageobs" fill="RED" layoutX="482.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messagenum" fill="RED" layoutX="482.0" layoutY="502.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messagemail" fill="RED" layoutX="482.0" layoutY="538.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="messagedate" fill="RED" layoutX="482.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+=======
+      <TextField fx:id="tfnom" layoutX="437.0" layoutY="119.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfprenom" layoutX="438.0" layoutY="159.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfassurance" layoutX="441.0" layoutY="287.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfadresse" layoutX="444.0" layoutY="331.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfemplacement" layoutX="444.0" layoutY="374.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfmail" layoutX="449.0" layoutY="692.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfdescription" layoutX="444.0" layoutY="565.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfobservations" layoutX="445.0" layoutY="607.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfnum" layoutX="446.0" layoutY="648.0" prefHeight="35.0" prefWidth="368.0" />
+      <Button fx:id="btnAjouter" layoutX="593.0" layoutY="864.0" mnemonicParsing="false" onAction="#EnregistrerConstat" prefHeight="64.0" prefWidth="64.0" styleClass="btn_Ajout" stylesheets="@../../../assets/style/offreStyle.css" textAlignment="CENTER" />
+      <DatePicker fx:id="tfdate" layoutX="448.0" layoutY="734.0" prefHeight="35.0" prefWidth="368.0" />
+      <ComboBox fx:id="tftype" layoutX="438.0" layoutY="200.0" prefHeight="35.0" prefWidth="368.0" promptText="Choisir votre Type" />
+      <ComboBox fx:id="tfmarque" layoutX="439.0" layoutY="246.0" prefHeight="35.0" prefWidth="368.0" promptText="Choisir votre Marque" />
+      <Button fx:id="tfimage" layoutX="646.0" layoutY="454.0" mnemonicParsing="false" onAction="#ChoisirFichier" prefHeight="46.0" prefWidth="163.0" text="Choisir une image" />
+      <Text fx:id="messagenom" fill="RED" layoutX="816.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="210.999999769032" />
+      <Text fx:id="messageprenom" fill="RED" layoutX="816.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messagetype" fill="RED" layoutX="816.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997863173485" />
+      <Text fx:id="messagemarque" fill="RED" layoutX="821.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messageassu" fill="RED" layoutX="821.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messageadresse" fill="RED" layoutX="827.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="199.99999625980854" />
+      <Text fx:id="messageaccid" fill="RED" layoutX="821.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997460842133" />
+      <Text fx:id="messagephoto" fill="RED" layoutX="830.0" layoutY="484.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="203.16795424371958" />
+      <Text fx:id="messagedesc" fill="RED" layoutX="825.0" layoutY="588.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messageobs" fill="RED" layoutX="821.0" layoutY="631.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997460842133" />
+      <Text fx:id="messagenum" fill="RED" layoutX="824.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997460842133" />
+      <Text fx:id="messagemail" fill="RED" layoutX="822.0" layoutY="715.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997460842133" />
+      <Text fx:id="messagedate" fill="RED" layoutX="831.0" layoutY="758.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <TextField fx:id="t1" editable="false" layoutX="451.0" layoutY="777.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="t2" layoutX="451.0" layoutY="817.0" prefHeight="35.0" prefWidth="368.0" />
+      <Text fx:id="messagecaptcha" fill="RED" layoutX="830.0" layoutY="840.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fill="#ff8521" layoutX="230.0" layoutY="799.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Captcha :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="image" fitHeight="144.0" fitWidth="184.0" layoutX="445.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" />
+>>>>>>> 0326fe5 (api)
+   </children>
+</AnchorPane>

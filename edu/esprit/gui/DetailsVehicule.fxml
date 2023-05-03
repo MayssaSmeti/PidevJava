@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<<<<<<< HEAD
+=======
+<?import javafx.scene.control.Button?>
+>>>>>>> 0326fe5 (api)
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<<<<<<< HEAD
+<AnchorPane id="AnchorPane" prefHeight="299.0" prefWidth="615.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.DetailsVehiculeController">
+   <children>
+      <Label layoutX="56.0" layoutY="86.0" text="Matricule : " textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="56.0" layoutY="131.0" text="Type : " textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="52.0" layoutY="173.0" text="Marque :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="208.0" layoutY="24.0" text="Details Vehicule" textAlignment="CENTER" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font></Label>
+      <TextField fx:id="tfmatricule" editable="false" layoutX="254.0" layoutY="84.0" />
+      <TextField fx:id="tftype" editable="false" layoutX="254.0" layoutY="129.0" />
+      <TextField fx:id="tfmarque" editable="false" layoutX="254.0" layoutY="171.0" />
+      <Label layoutX="51.0" layoutY="215.0" text="Nombre chevaux :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <TextField fx:id="tfnb_ch" editable="false" layoutX="254.0" layoutY="213.0" />
+=======
+<AnchorPane id="AnchorPane" prefHeight="614.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.DetailsVehiculeController">
+   <children>
+      <Label layoutX="80.0" layoutY="165.0" text="Matricule : " textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></Label>
+      <Label layoutX="81.0" layoutY="215.0" text="Type : " textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></Label>
+      <Label layoutX="83.0" layoutY="272.0" text="Marque :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></Label>
+      <Label layoutX="131.0" layoutY="6.0" text="Details Vehicule" textAlignment="CENTER" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font></Label>
+      <TextField fx:id="tfmatricule" layoutX="312.0" layoutY="147.0" prefHeight="48.0" prefWidth="301.0" />
+      <TextField fx:id="tftype" layoutX="312.0" layoutY="204.0" prefHeight="48.0" prefWidth="301.0" />
+      <TextField fx:id="tfmarque" layoutX="312.0" layoutY="260.0" prefHeight="48.0" prefWidth="301.0" />
+      <Label layoutX="85.0" layoutY="330.0" text="Nombre chevaux :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></Label>
+      <TextField fx:id="tfnb_ch" layoutX="312.0" layoutY="320.0" prefHeight="48.0" prefWidth="301.0" />
+      <Button layoutX="230.0" layoutY="436.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="70.0" prefWidth="66.0" styleClass="btn_modif" stylesheets="@../../../assets/style/offreStyle.css" />
+      <Button layoutX="457.0" layoutY="432.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="70.0" prefWidth="76.0" styleClass="btn_Supp" stylesheets="@../../../assets/style/offreStyle.css" />
+>>>>>>> 0326fe5 (api)
+   </children>
+</AnchorPane>

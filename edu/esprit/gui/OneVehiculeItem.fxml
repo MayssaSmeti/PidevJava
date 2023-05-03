@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="175.0" prefWidth="875.0" style="-fx-background-color: #FEE7F0;" styleClass="product-card" stylesheets="@../assets/style/offreStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.OneVehiculeItemController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="172.0" prefWidth="488.0" translateY="2.0">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="599.0">
+               <children>
+                  <Text fx:id="OffreName1" fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Matricule  :" wrappingWidth="285.48193359375">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="tfmat" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="       Text" wrappingWidth="403.48193359375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="525.0" stylesheets="@../assets/style/offreStyle.css">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="494.0" translateY="-5.0">
+                     <children>
+                        <Text fx:id="stockProduit" fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="Type        :" wrappingWidth="285.1064453125">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Text>
+                        <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="0.0">
+                           <children>
+                              <Text fx:id="tftype" strokeType="OUTSIDE" strokeWidth="0.0" text="           Text" wrappingWidth="401.3603515625">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
+               <children>
+                  <Text fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque  :" wrappingWidth="291.14453125">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="tfmarque" strokeType="OUTSIDE" strokeWidth="0.0" text="              Text" wrappingWidth="447.6708984375">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre de  Cheveaux :" wrappingWidth="291.87109375">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="tfnb" strokeType="OUTSIDE" strokeWidth="0.0" text=" Text" wrappingWidth="271.3603515625">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" prefHeight="181.0" prefWidth="356.0" stylesheets="@../assets/style/offreStyle.css">
+         <children>
+            <HBox fx:id="editOffre" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns">
+               <children>
+                  <ImageView fx:id="btnAjout" fitHeight="43.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/img/view.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox fx:id="deleteOffre" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" stylesheets="@../assets/style/offreStyle.css">
+               <children>
+                  <ImageView fx:id="btnSupprime" fitHeight="44.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/img/minus.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </HBox>
+            <HBox fx:id="qrCodeOffre" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="46.0" styleClass="product__card-btns" stylesheets="@../assets/style/offreStyle.css">
+               <children>
+                  <ImageView fx:id="btnShow" fitHeight="56.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../assets/img/visual.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="6.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets left="6.0" />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="6.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+   </children>
+</HBox>
