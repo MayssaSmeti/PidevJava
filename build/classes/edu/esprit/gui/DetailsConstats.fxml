@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="682.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.DetailsConstatsController">
+   <children>
+      <Label layoutX="177.0" layoutY="45.0" text="Détails Constat" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="123.0" text="Nom Client :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="157.0" text="Prénom Client :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="190.0" text="Type Véhicule :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="262.0" text="Assurance  Client :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="226.0" text="Marque Véhicule : " textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="299.0" text="Adresse  Client :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="334.0" text="Emplacement Accident :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="370.0" text="Photo Accident :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="404.0" text="Description :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="438.0" text="Observations :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="472.0" text="Numéro contrat :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="508.0" text="Mail :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="540.0" text="Date :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfnom" layoutX="273.0" layoutY="117.0" />
+      <TextField fx:id="tfprenom" layoutX="273.0" layoutY="152.0" />
+      <TextField fx:id="tftype" layoutX="273.0" layoutY="188.0" />
+      <TextField fx:id="tfmarque" layoutX="273.0" layoutY="224.0" />
+      <TextField fx:id="tfassurance" layoutX="273.0" layoutY="260.0" />
+      <TextField fx:id="tfadresse" layoutX="274.0" layoutY="295.0" />
+      <TextField fx:id="tfemplacement" layoutX="274.0" layoutY="331.0" />
+      <TextField fx:id="tfphoto" layoutX="276.0" layoutY="366.0" />
+      <TextField fx:id="tfdescription" layoutX="276.0" layoutY="402.0" />
+      <TextField fx:id="tfobservations" layoutX="276.0" layoutY="437.0" />
+      <TextField fx:id="tfnum" layoutX="276.0" layoutY="472.0" />
+      <TextField fx:id="tfmail" layoutX="276.0" layoutY="507.0" />
+      <TextField fx:id="tfdate" layoutX="276.0" layoutY="542.0" />
+      <Button layoutX="139.0" layoutY="618.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: #ff8521;" text="Modifier" textFill="#0d0d0d" />
+      <Button layoutX="332.0" layoutY="619.0" mnemonicParsing="false" onAction="#Supprimer" style="-fx-background-color: #ff8521;" text="Supprimer" textFill="#0d0d0d" />
+   </children>
+</AnchorPane>

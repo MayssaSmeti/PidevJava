@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="557.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.DetailsVehiculeController">
+   <children>
+      <Label layoutX="56.0" layoutY="86.0" text="Matricule : " textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="56.0" layoutY="131.0" text="Type : " textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="52.0" layoutY="173.0" text="Marque :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="208.0" layoutY="24.0" text="Details Vehicule" textAlignment="CENTER" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font></Label>
+      <TextField fx:id="tfmatricule" layoutX="254.0" layoutY="84.0" />
+      <TextField fx:id="tftype" layoutX="254.0" layoutY="129.0" />
+      <TextField fx:id="tfmarque" layoutX="254.0" layoutY="171.0" />
+      <Label layoutX="51.0" layoutY="215.0" text="Nombre chevaux :" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <TextField fx:id="tfnb_ch" layoutX="254.0" layoutY="213.0" />
+      <Button fx:id="btnModifier" layoutX="112.0" layoutY="293.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: ff8521;" text="Modifier" />
+      <Button fx:id="btnSupprimer" layoutX="359.0" layoutY="293.0" mnemonicParsing="false" onAction="#Supprimer" style="-fx-background-color: ff8521;" text="Supprimer" />
+   </children>
+</AnchorPane>

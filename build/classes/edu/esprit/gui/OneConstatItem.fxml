@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0" prefWidth="1024.0" style="-fx-background-color: #FEE7F0;" styleClass="product-card" stylesheets="@../assets/style/aliStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui.OneConstatItemController">
+   <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="193.0" prefWidth="276.0" styleClass="product__list-imgContainer">
+         <children>
+            <ImageView fx:id="tfimage" fitHeight="194.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="599.0" translateY="2.0">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="599.0">
+               <children>
+                  <Text fx:id="stockProduit1" fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="Nom  Client    :" wrappingWidth="220.57421875">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="tfnom" strokeType="OUTSIDE" strokeWidth="0.0" text="                Text" wrappingWidth="195.57421875">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="607.0" stylesheets="@../assets/style/offreStyle.css">
+               <children>
+                  <Text fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Emplacement Accident :" wrappingWidth="219.2607421875">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="tfemp" strokeType="OUTSIDE" strokeWidth="0.0" text="    Text">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="39.0" prefWidth="599.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="886.0">
+                     <children>
+                        <Text fx:id="stockProduit12" fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="Numéro Contrat   :" wrappingWidth="219.2607421875">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="tfnum" strokeType="OUTSIDE" strokeWidth="0.0" text="            Text" wrappingWidth="334.89794921875">
+                           <HBox.margin>
+                              <Insets left="4.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <ImageView fx:id="btnadd" fitHeight="46.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/img/view.png" />
+                           </image>
+                        </ImageView>
+                        <HBox prefHeight="75.0" prefWidth="16.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0" />
+                              <HBox prefHeight="100.0" prefWidth="200.0" />
+                              <HBox prefHeight="100.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <ImageView fx:id="btndelete" fitHeight="46.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/img/minus.png" />
+                           </image>
+                        </ImageView>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <ImageView fx:id="btnshow" fitHeight="64.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../assets/img/visual.png" />
+                           </image>
+                        </ImageView>
+                     </children></HBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="77.0" prefWidth="599.0">
+               <children>
+                  <Text fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail              :" wrappingWidth="219.2607421875">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="tfmail" strokeType="OUTSIDE" strokeWidth="0.0" text="                       Text" wrappingWidth="371.6708984375">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children></HBox>
+            <HBox prefHeight="48.0" prefWidth="599.0">
+               <children>
+                  <Text fill="#2b67ff" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Création :" wrappingWidth="219.2607421875">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Text>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="tfdate" strokeType="OUTSIDE" strokeWidth="0.0" text="                    Text" wrappingWidth="250.3603515625">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>
