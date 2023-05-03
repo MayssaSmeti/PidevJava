@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="756.0" prefWidth="669.0" styleClass="hypertext-design" stylesheets="@design.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.SignUpController">
+   <children>
+      <ImageView fitHeight="225.0" fitWidth="220.0" layoutX="20.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Logo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="48.0" layoutY="393.0" prefHeight="18.0" prefWidth="166.0" text="4 Roues Assurrances " textAlignment="CENTER" textFill="#1e1466">
+         <font>
+            <Font name="Bookman Old Style" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="30.0" prefHeight="40.0" prefWidth="227.0" styleClass="hypertext-design" stylesheets="@design.css" text="Inscrivez Vous ! " textAlignment="CENTER" textFill="#2b1681">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxnom" layoutX="325.0" layoutY="125.0" prefHeight="26.0" prefWidth="220.0" promptText="Nom..." styleClass="textfield-design" stylesheets="@design.css">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="fxprenom" layoutX="326.0" layoutY="178.0" prefHeight="26.0" prefWidth="220.0" promptText="Prénom..." styleClass="textfield-design" stylesheets="@design.css">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="fxemail" layoutX="325.0" layoutY="239.0" prefHeight="26.0" prefWidth="220.0" promptText="Email..." styleClass="textfield-design">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="fxpassword" layoutX="325.0" layoutY="293.0" prefHeight="26.0" prefWidth="220.0" promptText="Mot de Passe...." styleClass="textfield-design">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </PasswordField>
+      <TextField fx:id="fxcin" layoutX="326.0" layoutY="490.0" prefHeight="26.0" prefWidth="220.0" promptText="CIN..." styleClass="textfield-design">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="fxnum" layoutX="326.0" layoutY="553.0" prefHeight="26.0" prefWidth="220.0" promptText="Numéro de Télephone...." styleClass="textfield-design">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="fxadresse" layoutX="326.0" layoutY="626.0" prefHeight="26.0" prefWidth="220.0" promptText="Adresse...." styleClass="textfield-design">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </TextField>
+      <Pane layoutX="264.0" layoutY="1.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="397.0" layoutY="92.0" prefHeight="15.0" prefWidth="102.0" text="Votre Identité" textAlignment="CENTER" textFill="#0f145e">
+         <font>
+            <Font name="Script MT Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="380.0" layoutY="440.0" text="Vos Coordonnées " textFill="#141971">
+         <font>
+            <Font name="Script MT Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btninscrit" alignment="CENTER" contentDisplay="CENTER" layoutX="362.0" layoutY="702.0" mnemonicParsing="false" onAction="#inscrit" prefHeight="26.0" prefWidth="147.0" styleClass="button-design" text="S'inscrire ">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="confirmerPassword" layoutX="326.0" layoutY="361.0" prefHeight="32.0" prefWidth="220.0" promptText="Confirmer Mot de Passe..." styleClass="textfield-design" stylesheets="@design.css">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </PasswordField>
+   </children>
+</AnchorPane>

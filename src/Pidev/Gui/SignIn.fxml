@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="fxFront" prefHeight="446.0" prefWidth="644.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.SignInController">
+   <children>
+      <Label alignment="CENTER" layoutX="28.0" layoutY="252.0" prefHeight="30.0" prefWidth="246.0" styleClass="hypertext-design" stylesheets="@design.css" text="4 Roues Assurrances" textAlignment="CENTER">
+         <opaqueInsets>
+            <Insets bottom="44.0" left="33.0" right="44.0" top="10.0" />
+         </opaqueInsets>
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="144.0" fitWidth="203.0" layoutX="50.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Logo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="322.0" layoutY="83.0" prefHeight="18.0" prefWidth="168.0" styleClass="hypertext-design" stylesheets="@design.css" text="Connexion ! " textFill="#193e94">
+         <font>
+            <Font name="Goudy Old Style" size="28.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fxemail" layoutX="290.0" layoutY="158.0" prefHeight="33.0" prefWidth="230.0" promptText="Email..." styleClass="textfield-design" stylesheets="@design.css">
+         <font>
+            <Font name="Book Antiqua" size="16.0" />
+         </font>
+      </TextField>
+      <Pane layoutX="281.0">
+         <children>
+            <HBox />
+         </children>
+      </Pane>
+      <HBox alignment="CENTER" layoutX="200.0">
+         <effect>
+            <GaussianBlur />
+         </effect>
+      </HBox>
+      <Button fx:id="btnconnexion" alignment="CENTER" layoutX="313.0" layoutY="269.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="186.0" styleClass="login-bg" stylesheets="@design.css" text="Se Connecter " textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="261.0" layoutY="340.0" prefHeight="18.0" prefWidth="314.0" text="Vous n'avez pas un Compte ? Insrivez-Vous ! " textAlignment="CENTER" textFill="#5e0909" />
+      <Button fx:id="btninscrit" alignment="CENTER" contentDisplay="CENTER" layoutX="329.0" layoutY="371.0" mnemonicParsing="false" onAction="#inscription" prefHeight="29.0" prefWidth="179.0" styleClass="textfield-design" stylesheets="@design.css" text="Créer un Compte !" textFill="#401212">
+         <font>
+            <Font name="Book Antiqua" size="15.0" />
+         </font>
+      </Button>
+      <StackPane prefHeight="150.0" prefWidth="200.0" />
+      <Hyperlink fx:id="fxforgotpassword" alignment="CENTER" contentDisplay="CENTER" layoutX="313.0" layoutY="307.0" onAction="#Forgotpass" prefHeight="24.0" prefWidth="186.0" text="Mot de Passe oublié ?" />
+      <PasswordField fx:id="fxpassword" layoutX="292.0" layoutY="216.0" prefHeight="34.0" prefWidth="230.0" promptText="Mot De Passe" styleClass="textfield-design" stylesheets="@design.css" />
+   </children>
+</AnchorPane>
