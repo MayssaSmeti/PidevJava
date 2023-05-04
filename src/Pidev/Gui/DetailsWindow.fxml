@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="484.0" prefWidth="1111.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.DetailsWindowController">
+   <children>
+      <Label layoutX="247.0" layoutY="166.0" text="Description:" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font></Label>
+      <Label layoutX="291.0" layoutY="115.0" text="Objet :" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font></Label>
+      <Label layoutX="292.0" layoutY="286.0" text="Note :" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font></Label>
+      <TextField fx:id="tfdescription" layoutX="405.0" layoutY="155.0" prefHeight="77.0" prefWidth="329.0" />
+      <TextField fx:id="tfobjet" layoutX="427.0" layoutY="113.0" prefHeight="26.0" prefWidth="286.0" />
+      <Label layoutX="201.0" layoutY="14.0" prefHeight="62.0" prefWidth="738.0" text="Détails d'une réclamation" textAlignment="CENTER" textFill="#26474e">
+         <font>
+            <Font name="Century Schoolbook Bold Italic" size="48.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfnote" layoutX="537.0" layoutY="284.0" prefHeight="31.0" prefWidth="66.0" />
+      <Button fx:id="btnmo" layoutX="300.0" layoutY="380.0" mnemonicParsing="false" onAction="#modifier" prefHeight="53.0" prefWidth="147.0" style="-fx-background-color: F9968B;" text="Modifier">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnsupp" layoutX="690.0" layoutY="380.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="53.0" prefWidth="157.0" style="-fx-background-color: F9968B;" text="   Supprimer">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="31.0" fitWidth="42.0" layoutX="300.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/modifier-les-informations.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="31.0" fitWidth="33.0" layoutX="690.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/supprimer.png" />
+         </image>
+      </ImageView>
+      <HBox fx:id="reponse" alignment="CENTER" layoutX="522.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#reponse" prefHeight="68.0" prefWidth="97.0" styleClass="product__card-btn" stylesheets="@../assets/Style/offreStyle.css">
+         <children>
+            <ImageView fitHeight="48.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Img/repondre-a-tous.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -5,8 +5,8 @@
  */
 package Pidev.Utilis;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
@@ -14,11 +14,12 @@ import java.sql.SQLException;
  * @author Mayssa
  */
 public class MyConnection {
-      public String url="jdbc:mysql://localhost:3306/pidev";
+    public String url="jdbc:mysql://localhost:3306/pidev3";
     public String login="root";
     public String pwd="";
     
-     Connection cnx;
+    Connection cnx;
+    Connection role ; 
     public static MyConnection instance;
     
    private  MyConnection(){
@@ -33,6 +34,9 @@ public class MyConnection {
     public Connection getCnx() {
         return cnx;
     }
+    public Connection getRole(){
+        return role ;
+    }
     
     public static MyConnection getInstance(){
         if(instance == null){
@@ -40,4 +44,5 @@ public class MyConnection {
         }
         return instance;
     }
+    
 }

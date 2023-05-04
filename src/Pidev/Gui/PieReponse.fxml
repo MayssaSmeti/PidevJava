@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="688.0" prefWidth="1086.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Pidev.Gui.PieReponseController">
+   <children>
+      <PieChart fx:id="PieRe" layoutX="387.0" layoutY="97.0" prefHeight="558.0" prefWidth="1023.0" />
+      <Label layoutX="315.0" layoutY="30.0" prefHeight="61.0" prefWidth="780.0" text="Statistiques des réponses" textFill="#26474e">
+         <font>
+            <Font name="Century Schoolbook Bold Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="34.0" layoutY="210.0" text="Nombre total de réponses :" textAlignment="CENTER" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="label" layoutX="288.0" layoutY="211.0" text="Label" textFill="#e10a0a">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

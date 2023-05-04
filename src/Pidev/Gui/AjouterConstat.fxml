@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="894.0" prefWidth="1090.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AjouterConstatController">
+   <children>
+      <Label layoutX="365.0" layoutY="-9.0" text="Ajouter Constat" textAlignment="CENTER" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Label>
+      <Text fill="#ff8521" layoutX="220.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Client :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="220.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prénom Client :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="218.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type Véhicule :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="220.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Marque Véhicule :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="219.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assurance :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="221.0" layoutY="311.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adresse :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="222.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emplacement Accident :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="225.0" layoutY="457.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Photo Accident :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="225.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description Degat :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="230.0" layoutY="582.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Observations :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="232.0" layoutY="619.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Numéro Contrat :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="233.0" layoutY="664.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#ff8521" layoutX="232.0" layoutY="704.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date_Création :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tfnom" layoutX="441.0" layoutY="80.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfprenom" layoutX="442.0" layoutY="120.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfassurance" layoutX="445.0" layoutY="248.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfadresse" layoutX="445.0" layoutY="288.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfemplacement" layoutX="448.0" layoutY="328.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfmail" layoutX="453.0" layoutY="642.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfdescription" layoutX="448.0" layoutY="515.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfobservations" layoutX="449.0" layoutY="557.0" prefHeight="35.0" prefWidth="368.0" />
+      <TextField fx:id="tfnum" layoutX="450.0" layoutY="598.0" prefHeight="35.0" prefWidth="368.0" />
+      <Button fx:id="btnAjouter" layoutX="597.0" layoutY="806.0" mnemonicParsing="false" onAction="#EnregistrerConstat" prefHeight="64.0" prefWidth="64.0" styleClass="btn_Ajout" stylesheets="@../assets/style/offreStyle.css" textAlignment="CENTER" />
+      <DatePicker fx:id="tfdate" layoutX="452.0" layoutY="684.0" prefHeight="35.0" prefWidth="368.0" />
+      <ComboBox fx:id="tftype" layoutX="442.0" layoutY="161.0" prefHeight="35.0" prefWidth="368.0" promptText="Choisir votre Type" />
+      <ComboBox fx:id="tfmarque" layoutX="443.0" layoutY="207.0" prefHeight="35.0" prefWidth="368.0" promptText="Choisir votre Marque" />
+      <Button fx:id="tfimage" layoutX="650.0" layoutY="415.0" mnemonicParsing="false" onAction="#ChoisirFichier" prefHeight="46.0" prefWidth="163.0" text="Choisir une image" />
+      <Text fx:id="messagenom" fill="RED" layoutX="820.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="210.999999769032" />
+      <Text fx:id="messageprenom" fill="RED" layoutX="820.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messagetype" fill="RED" layoutX="820.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997863173485" />
+      <Text fx:id="messagemarque" fill="RED" layoutX="825.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messageassu" fill="RED" layoutX="825.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messageadresse" fill="RED" layoutX="831.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="199.99999625980854" />
+      <Text fx:id="messageaccid" fill="RED" layoutX="825.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997460842133" />
+      <Text fx:id="messagephoto" fill="RED" layoutX="834.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="203.16795424371958" />
+      <Text fx:id="messagedesc" fill="RED" layoutX="829.0" layoutY="537.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <Text fx:id="messagenum" fill="RED" layoutX="828.0" layoutY="620.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="218.99997460842133" />
+      <Text fx:id="messagemail" fill="RED" layoutX="825.0" layoutY="664.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="269.9999746084213" />
+      <Text fx:id="messagedate" fill="RED" layoutX="835.0" layoutY="707.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.00001657009125" />
+      <TextField fx:id="t2" layoutX="455.0" layoutY="767.0" prefHeight="35.0" prefWidth="368.0" />
+      <Text fx:id="messagecaptcha" fill="RED" layoutX="834.0" layoutY="791.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="262.00001657009125" />
+      <Text fill="#ff8521" layoutX="234.0" layoutY="749.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Captcha :">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="image" fitHeight="144.0" fitWidth="184.0" layoutX="449.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="t1" layoutX="536.0" layoutY="724.0" prefHeight="36.0" prefWidth="200.0" textAlignment="CENTER" textFill="#200080">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Text fx:id="messageobs" fill="RED" layoutX="825.0" layoutY="577.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="262.00000834465027" />
+   </children>
+</AnchorPane>

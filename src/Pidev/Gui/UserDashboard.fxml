@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="1361.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.UserDashboardControler">
+   <children>
+      <ScrollPane fx:id="menu_scrollPane" hbarPolicy="NEVER" layoutX="316.0" layoutY="83.0" prefHeight="642.0" prefWidth="730.0" vbarPolicy="NEVER" />
+      <Button layoutX="477.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#changeps" text="Modifier mot de passe " />
+      <Button layoutX="836.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#modifierUser" text="Modifier info" />
+      <Label fx:id="fxemail" layoutX="1119.0" layoutY="28.0" text="Label" />
+   </children>
+</AnchorPane>

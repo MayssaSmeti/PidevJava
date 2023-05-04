@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="content_areaFront" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="759.0" prefWidth="1413.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AdminDashboardContratControler">
+   <children>
+      <HBox prefHeight="122.0" prefWidth="1413.0" style="-fx-background-color: #ff7c03;" stylesheets="@../style/offreStyle.css">
+         <children>
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitleAPP" text="4RouesAssurances" translateX="254.0" translateY="51.0" wrappingWidth="339.8058738708496">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Text>
+         </children></HBox>
+      <VBox alignment="TOP_CENTER" layoutX="-4.0" layoutY="121.0" prefHeight="579.0" prefWidth="274.0" style="-fx-background-color: #fffffff;" stylesheets="@../style/offreStyle.css">
+         <children>
+            <Text fill="#ff7c09" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Offre" translateX="-83.0" translateY="100.0" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeOffre" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../style/offreStyle.css" translateY="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-45.0">
+                           <image>
+                              <Image url="@../img/offre.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Liste Des Offres" translateX="-29.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_addOffreCard" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../style/offreStyle.css" translateY="100.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0" translateX="-35.0">
+                     <children>
+                        <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/ajouter-un-bouton-circulaire-noir.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="   Ajouter une Offre" translateX="-22.0" />
+               </children>
+            </HBox>
+            <Text fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnTextTitle" text="Contrat" translateX="-70.0" translateY="120.0" />
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_listeContrat" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../style/offreStyle.css" translateY="130.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0">
+                           <image>
+                              <Image url="@../img/contrat.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Liste Des Contrats" translateX="-18.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#open_addContratCard" prefHeight="57.0" prefWidth="200.0" styleClass="sideBtn" stylesheets="@../style/offreStyle.css" translateY="130.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="57.0" prefWidth="56.0">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0">
+                           <image>
+                              <Image url="@../img/ajouter-un-bouton-circulaire-noir.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="40.0" />
+                     </HBox.margin>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="sideBtnText" text="Ajouter Un Contrat" translateX="-11.0" />
+               </children>
+            </HBox>
+         </children></VBox>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="122.0" prefWidth="150.0" styleClass="logoContainer" stylesheets="@../style/offreStyle.css" translateX="103.0" translateY="31.0">
+         <children>
+            <ImageView fitHeight="105.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Img/photo%20de%20pf%20page%20fb%202%20.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Pane fx:id="content_area" layoutX="270.0" layoutY="122.0" prefHeight="634.0" prefWidth="1145.0" style="-fx-background-color: #fff;" />
+      <Text fill="WHITE" layoutX="10.0" layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coding Squad" translateX="255.0" translateY="90.0" wrappingWidth="339.8058738708496">
+         <font>
+            <Font name="System Italic" size="16.0" />
+         </font>
+      </Text>
+      <HBox layoutX="-50.0" onMouseClicked="#open_listeOffreFront" prefHeight="43.0" prefWidth="0.0" styleClass="sideBtn" stylesheets="@../style/offreStyle.css" translateX="1368.0" translateY="12.0">
+         <children>
+            <ImageView fitHeight="41.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/photo%20de%20pf%20page%20fb.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

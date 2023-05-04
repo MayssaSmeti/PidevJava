@@ -7,8 +7,24 @@ package Pidev.Entities;
 
 /**
  *
- * @author Mayssa
+ * @author SCORPIO-12
  */
-public class Mecanicien  extends User {
+public class Mecanicien extends User {
+
+
+    public Mecanicien(int id) {
+        super(id);
+    }
+
+    public Mecanicien(int id, String nom, String email) {
+        super(id, nom, email);
+    }
+
+    
+    
+  
+    
+
+   
     
 }
