@@ -3,7 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rayen/Desktop/PidevJava/src/edu/pidev/gui/AjouterRapportController.java</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/AdminDashboard.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/AfficherRapport.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/test.java</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/EditRendezvous.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/AddRendezvous.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/AjouterRapport.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Services/ServiceRapport.java</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/offreStyle.css</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/ListRapport.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/AddRapportCardController.java</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Services/ServiceRendezvous.java</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Tests/MainClass.java</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/EditRapport.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/AjouterRendezvous.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/AfficherRendezvous.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/OneRapportListCard.fxml</file>
+            <file>file:/C:/Users/rayen/Desktop/4rouesAssuranccesPidev/pidev1/src/Pidev/Gui/addRapportxCard.fxml</file>
         </group>
     </open-files>
 </project-private>

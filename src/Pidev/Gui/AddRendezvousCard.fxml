@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="754.0" prefWidth="986.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AddRendezvousCardController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="752.0" prefWidth="936.0">
+         <children>
+            <VBox layoutX="62.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="507.0" styleClass="addProductCard" stylesheets="@../assets/style/offreStyle.css">
+               <children>
+                  <HBox prefHeight="53.0" prefWidth="570.0">
+                     <children>
+                        <Text fx:id="productName" fill="#ff7c03" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-title" text="Ajouter un Rapport">
+                           <font>
+                              <Font name="Montserrat ExtraBold" size="19.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="16.0" top="26.0" />
+                     </padding>
+                  </HBox>
+                  <HBox prefHeight="33.0" prefWidth="570.0">
+                     <children>
+                        <Text fill="#32594a" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-desc">
+                           <font>
+                              <Font name="Montserrat Regular" size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <padding>
+                        <Insets bottom="27.0" left="16.0" />
+                     </padding>
+                  </HBox>
+                  <Line endX="488.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
+                     <VBox.margin>
+                        <Insets bottom="27.0" left="16.0" right="16.0" />
+                     </VBox.margin>
+                  </Line>
+                  <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="102.0" prefWidth="570.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <children>
+                        <HBox prefHeight="6.0" prefWidth="538.0" stylesheets="@../assets/style/offreStyle.css">
+                           <children>
+                              <Text fill="#383838" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Date">
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="cinInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product">
+                           <stylesheets>
+                              <URL value="@../assets/style/aliStyle.css" />
+                              <URL value="@../assets/style/offreStyle.css" />
+                           </stylesheets>
+                           <children>
+                              <DatePicker fx:id="datePicker" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="98.0" prefWidth="630.0" stylesheets="@../assets/style/offreStyle.css">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <children>
+                        <HBox prefHeight="6.0" prefWidth="538.0">
+                           <children>
+                              <Text fill="#383838" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Lieu">
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </Text>
+                              <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                                 <font>
+                                    <Font name="Montserrat Regular" size="16.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="dateduErrorInputHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
+                           <children>
+                              <Text fill="#dc284c" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="form_errors-product-point" text=".  " translateY="-15.0" wrappingWidth="23.18400001525879" />
+                              <TextField fx:id="tf_lieu" prefHeight="66.0" prefWidth="538.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </VBox>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="105.0" prefWidth="570.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                     <children>
+                        <VBox prefHeight="105.0" prefWidth="638.0">
+                           <children>
+                              <HBox prefHeight="6.0" prefWidth="538.0">
+                                 <padding>
+                                    <Insets bottom="10.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox fx:id="dateauErrorInputHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css">
+                                 <children>
+                                    <HBox prefHeight="93.0" prefWidth="466.0">
+                                       <children>
+                                          <Text fill="#383838" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__add-input-label" text="Rapport_Id">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin>
+                                          </Text>
+                                          <Text fill="#e43f52" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="etoile" text="*">
+                                             <font>
+                                                <Font name="Montserrat Regular" size="16.0" />
+                                             </font>
+                                          </Text>
+                                          <ComboBox fx:id="type_id" prefWidth="150.0" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="105.0" prefWidth="570.0">
+                     <padding>
+                        <Insets left="16.0" right="16.0" />
+                     </padding>
+                  </HBox>
+                  <Line endX="498.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="16.0" />
+                     </VBox.margin>
+                  </Line>
+                  <Line endX="498.0" startX="-100.0" stroke="#defee6" strokeWidth="2.0">
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="16.0" />
+                     </VBox.margin>
+                  </Line>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0">
+                     <children>
+                        <Button fx:id="add_new_RendezvousBtn" mnemonicParsing="false" onAction="#addnewrdvBtn" onMouseClicked="#addNewRendezvous" styleClass="product__add-new-productBtn" text="Ajouter" textFill="WHITE">
+                           <font>
+                              <Font name="Montserrat Regular" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="630.0" />
+               </children>
+            </VBox>
+            <VBox layoutX="450.0" layoutY="455.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="181.0" prefWidth="200.0">
+               <padding>
+                  <Insets left="16.0" right="16.0" />
+               </padding>
+               <children>
+                  <HBox prefHeight="6.0" prefWidth="538.0">
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="photoInputErrorHbox" prefHeight="67.0" prefWidth="598.0" styleClass="form_errors-product" stylesheets="@../assets/style/aliStyle.css" />
+               </children>
+            </VBox>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
