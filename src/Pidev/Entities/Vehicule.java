@@ -1,14 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Pidev.Entities;
 
-/**
- *
- * @author Mayssa
- */
 public class Vehicule {
-    
+  private int id;
+  private String matricule ;
+  public Vehicule(int id, String matricule) {
+    this.id = id;
+    this.matricule = matricule;
+  }
+  public Vehicule() {
+  }
+  public int getId() {
+    return id;
+  }
+  public void setId(int id) {
+    this.id = id;
+  }
+  public String getMatricule() {
+    return matricule;
+  }
+  public void setMatricule(String matricule) {
+    this.matricule = matricule;
+  }
+
+
+  
+  
 }
