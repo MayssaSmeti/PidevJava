@@ -12,14 +12,13 @@ package Pidev.Utilis;
 public class SessionManager {
    private static SessionManager instance;
  
-     private static int id;
+    private static int id;
     private static int cin;
     private static String email;
     private static int num_tel;
     private static String nom;
     private static String adresse;
     private static String prenom ; 
-   
     private static String roles;
 
      private SessionManager(int id , int cin , String email, int num_tel , String nom ,String adresse,String prenom,String role ) {

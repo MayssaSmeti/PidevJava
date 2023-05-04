@@ -102,8 +102,9 @@ public class SignInController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Erreur de connexion");
                 alert.setHeaderText(null);
-                alert.setContentText("Votre compte a été désactivé par l'administrateur. Veuillez contacter l'administrateur pour plus d'informations.");
-                alert.showAndWait(); 
+                alert.setContentText("Votre compte est désactivé . Activez le ! ");
+                alert.showAndWait();
+                
             } else {
                 int userId = result.getInt("id");
                 String userName = result.getString("nom");

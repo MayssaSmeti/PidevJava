@@ -137,7 +137,7 @@ public class UserCrud {
 
     public void modifierUtilisateur(User u) {
         try {
-            String requete5 = "UPDATE  user SET  email=?,nom=?,prenom=?,cin=?,adresse=?,num_tel=?,roles=? WHERE id=? "; 
+            String requete5 = "UPDATE user SET  email=?,nom=?,prenom=?,cin=?,adresse=?,num_tel=?,roles=? WHERE id=? "; 
             PreparedStatement pst = cnx2.prepareStatement(requete5); //objet dedie pour les objet dynamique //statement est long 
             pst.setString(1, u.getEmail());
             pst.setString(2, u.getNom());
@@ -296,7 +296,7 @@ public class UserCrud {
     
     public void modifierUtilisateur3(User u) {
         try {
-            String req = "UPDATE `user` SET `nom` = '" + u.getNom() + "', `prenom` = '" + u.getPrenom() + "', `email` = '" + u.getEmail()+ "',  `cin` = '" + u.getCin()+ "',`num_tel` = '" + u.getNum_tel()+ "',`adresse` = '" + u.getAdresse()+ "' WHERE `user`.`id` = " + u.getId();
+            String req = "UPDATE `user` SET `nom` = '" + u.getNom() + "', `prenom` = '" + u.getPrenom() + "', `email` = '" + u.getEmail()+ "',`cin` = '" + u.getCin()+ "',`num_tel` = '" + u.getNum_tel()+ "',`adresse` = '" + u.getAdresse()+ "' WHERE `user` .`id` = " + u.getId();
             Statement st = cnx2.createStatement();
             st.executeUpdate(req);
             System.out.println("Personne updated !");

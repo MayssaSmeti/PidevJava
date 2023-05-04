@@ -85,6 +85,19 @@ public class User {
       
     }
 
+    public User(int id, TextField fxemail, TextField fxnom, TextField fxprenom, TextField fxcin, TextField fxadresse, TextField fxnum, TextField fxrole) {
+     this.id= id ; 
+     this.email=fxemail.getText(); 
+     this.nom=fxnom.getText(); 
+     this.prenom=fxprenom.getText();
+     this.adresse=fxadresse.getText(); 
+     this.cin=Integer.parseInt(fxcin.getText());
+     this.num_tel=Integer.parseInt(fxnum.getText()); 
+     this.roles=fxrole.getText(); 
+             
+             
+    }
+
     public String getStatus() {
         return status;
     }

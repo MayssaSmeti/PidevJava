@@ -29,7 +29,7 @@ public class Connexion extends Application {
         try {
             // Parent root = FXMLLoader.load(getClass().getResource("AdminDasshboard.fxml")) ;
             //Parent root = FXMLLoader.load(getClass().getResource("FrontDasshborad.fxml")) ;
-            //Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
+           // Parent root = FXMLLoader.load(getClass().getResource("SignUp.fxml"));
             //Parent root = FXMLLoader.load(getClass().getResource("UpdateUser.fxml"));
 
            Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));

@@ -6,6 +6,7 @@
 package Pidev.Tests;
 
 import API.Mail;
+import API.SMS;
 
 import Pidev.Entities.User;
 import Pidev.Services.UserCrud;
@@ -33,14 +34,16 @@ public class Main {
       // User u3 = new User(86,"loul@gmail.com", "loulgggo", "edii",22222, "hjbbfb", 0, "hdfjhj") ; 
 
         //pcd.modifierUtilisateur(u3);
-        pcd.selectEmail("mayssa.smeeti@gmail.com");
+      // pcd.selectEmail("mayssa.smeeti@gmail.com");
 
-        System.out.println(pcd.afficherUtilisateurs());
-      //  Mail test = new  Mail(); 
+       // System.out.println(pcd.afficherUtilisateurs());
+      // Mail test = new  Mail(); 
         //test.sendEmail();
         //sendSMS test= new sendSMS();
         //test.sendSms(); 
         
     }
+    
+    
     
 }

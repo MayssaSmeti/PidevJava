@@ -113,7 +113,7 @@ public class ModifierUtilisateurController implements Initializable {
         fxcin.setText(cin);
         fxnom.setText(user.getNom());
         fxprenom.setText(user.getPrenom());
-
+        fxrole.setText(user.getRoles());
         fxadresse.setText(user.getAdresse());
         String num = String.valueOf(user.getNum_tel());
         fxnum.setText(num);
@@ -157,20 +157,15 @@ public class ModifierUtilisateurController implements Initializable {
 //        alert.setContentText("Le numero de télephone  doit etre de 8 chiffres  !!");
 //        alert.showAndWait();
 //        } else {
-        String email = fxemail.getText();
+        
        
             UserCrud rec = new UserCrud();
            
             // Integer id=Integer.parseInt(fxid.getText());
-            Integer cin = Integer.parseInt(fxcin.getText()); //conversion 
-            Integer num_tel = Integer.parseInt(fxnum.getText());
-            String nom = fxnom.getText();
-            String prenom = fxprenom.getText();
-            String roles = fxrole.getText();
-            String adresse = fxadresse.getText();
+           
 
            
-            User R = new User(id, email, nom, prenom, cin, adresse, num_tel, roles);
+            User R = new User(id, fxemail, fxnom, fxprenom, fxcin, fxadresse, fxnum, fxrole);
             rec.modifierUtilisateur3(R);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("4 roues assurances :: Success Message");

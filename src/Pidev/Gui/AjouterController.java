@@ -11,6 +11,8 @@ import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -72,6 +74,7 @@ public class AjouterController implements Initializable {
 
     @FXML
     private void ajouter(ActionEvent event) {
+         String  pass = hashMotDePasse(fxpassword.getText());
         if (fxnom.getText().isEmpty()
                 || fxprenom.getText().isEmpty() 
                 || fxemail.getText().isEmpty() 
@@ -82,7 +85,7 @@ public class AjouterController implements Initializable {
         {
             Alert a = new Alert(Alert.AlertType.ERROR, "Champs invalides ! ", ButtonType.OK);
             a.showAndWait();
-
+          
         } else if (fxpassword.getText().length() < 8) {
             Alert a = new Alert(Alert.AlertType.ERROR, "Mot de passe doit etre >8 caractéres !)", ButtonType.OK);
             a.showAndWait();
@@ -99,7 +102,7 @@ public class AjouterController implements Initializable {
             UserCrud us = new UserCrud();
             Integer cin = Integer.parseInt(fxcin.getText()); //conversion
             Integer num_tel = Integer.parseInt(fxnum.getText());
-            User p = new User(fxemail.getText(), fxnom.getText(), fxprenom.getText(), fxpassword.getText(), cin, fxadresse.getText(), num_tel,fxroles.getText());
+            User p = new User(fxemail.getText(), fxnom.getText(), fxprenom.getText(), pass, cin, fxadresse.getText(), num_tel,fxroles.getText());
             us.ajouterUtilisateur2(p);
             Alert a = new Alert(Alert.AlertType.INFORMATION, "Utilisateur ajouté(e) avec succes !", ButtonType.OK);
             a.showAndWait();
@@ -139,4 +142,18 @@ public class AjouterController implements Initializable {
         stage.close();
     }
 
+    
+      public String hashMotDePasse(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = md.digest(password.getBytes());
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashBytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

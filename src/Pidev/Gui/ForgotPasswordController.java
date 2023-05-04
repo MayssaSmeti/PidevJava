@@ -11,6 +11,7 @@ import Pidev.Utilis.SessionManager;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Properties;
 import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,7 +28,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javax.mail.Authenticator;
+import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /**
  * FXML Controller class
@@ -90,25 +100,136 @@ public class ForgotPasswordController implements Initializable {
         return 100000 + random.nextInt(900000);
     }
 
+     private String fromEmail = "4.roues.assurances@gmail.com";
+    private String password = "eauvsyslukyzjceq";
     private boolean sendVerificationCodeByEmail(String email, int code) {
         // TODO: Implement email sending logic to send code to user's email
-        String message = "  Votre  code de rénitialisation : " + code;
-        Mail emailsend = new Mail("4.roues.assurances@gmail.com", "eauvsyslukyzjceq", email, "Rénitialisation Code ", message);
-
+        
         try {
-            emailsend.sendEmail();
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Code Enovoyé ");
-            alert.setHeaderText("Un Code de vérification est envoyé vers votre email.");
-            alert.showAndWait();
-            return true;
-        } catch (MessagingException ex) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur");
-            alert.setHeaderText("Un erreur s'est produit .");
-            alert.showAndWait();
-            return false;
-        }
+         Properties props = new Properties();
+                props.put("mail.smtp.auth", "true");
+                props.put("mail.smtp.starttls.enable", "true");
+                props.put("mail.smtp.ssl.trust", "*");
+                props.put("mail.smtp.host", "smtp.gmail.com");
+                props.put("mail.smtp.port", "587");
+
+                // Configuration de l'authentification
+                Session session = Session.getInstance(props,
+                        new Authenticator() {
+
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(fromEmail, password);
+                    }
+                });
+                String toEmail = fxemail.getText(); 
+             
+                    // Création du message
+                    Message e_message = new MimeMessage(session);
+                    e_message.setFrom(new InternetAddress(fromEmail));
+                    e_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+                    e_message.setSubject("Confirmation d'inscription");
+                    MimeMultipart multipart = new MimeMultipart("related");
+                    String htmlBody = "<html>"
+                            + "<head>"
+                            + "<style>"
+                            + "/* Google Fonts */"
+                            + "@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');"
+                            + "/* Global Styles */"
+                            + "body {"
+                            + "  font-family: 'Montserrat', sans-serif;"
+                            + "  font-size: 16px;"
+                            + "  line-height: 1.6;"
+                            + "  color: #333;"
+                            + "  background-color: #f6f6f6;"
+                            + "}"
+                            + "/* Container Styles */"
+                            + ".container {"
+                            + "  max-width: 600px;"
+                            + "  margin: 0 auto;"
+                            + "  padding: 20px;"
+                            + "}"
+                            + "/* Card Styles */"
+                            + ".card {"
+                            + "  background-color: #000;"
+                            + "  border-radius: 10px;"
+                            + "  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);"
+                            + "  margin: 20px auto;"
+                            + "  padding: 30px;"
+                            + "  color: #fff;"
+                            + "}"
+                            + "/* Button Styles */"
+                            + ".button {"
+                            + "  display: inline-block;"
+                            + "  font-size: 18px;"
+                            + "  font-weight: 600;"
+                            + "  text-align: center;"
+                            + "  text-decoration: none;"
+                            + "  color: #f6f6f6;"
+                            + "  background-color: #ff8c00;"
+                            + "  border-radius: 30px;"
+                            + "  padding: 12px 30px;"
+                            + "  margin-top: 30px;"
+                            + "}"
+                            + "/* Image Styles */"
+                            + ".image {"
+                            + "  display: block;"
+                            + "  margin: 0 auto;"
+                            + "  max-width: 100%;"
+                            + "}"
+                            + "</style>"
+                            + "</head>"
+                            + "<body>"
+                            + "<div class='container'>"
+                            + "<div class='card'>"
+                            + "<h1>Bonjour " +fxemail.getText()+ ",</h1>"
+                            + "<p>Merci d'avoir choisi nos services. Veuillez trouver ci-joint le code de rénisialisation  ." + code+ "</p>"
+                            + "<p>Si vous avez des questions ou des préoccupations, n'hésitez pas à nous contacter.</p>"
+                            + "<a href='https://www.youtube.com/' class='button'>Visitez Notre Site Web</a>"
+                            + "<p>Cordialement,</p>"
+                            + "<p>" + "</p>"
+                            + "</div>"
+                            + "<p style='text-align:center;font-size:12px;color:gray;'>"
+                            + "Cet e-mail a été envoyé par 4RouesAssurances. &copy; 2023"
+                            + "</p>"
+                            + "</div>"
+                            + "</body>"
+                            + "</html>";
+
+                    // ajouter le contenu HTML et le logo au message électronique
+                    MimeBodyPart htmlPart = new MimeBodyPart();
+                    htmlPart.setContent(htmlBody, "text/html; charset=utf-8");
+
+                    // créer une partie de message pour le pied de page
+                    MimeBodyPart footerPart = new MimeBodyPart();
+                    footerPart.setText("\n"
+                            + "Cet e-mail et ses pièces jointes sont confidentiels et destinés exclusivement à la personne ou à l'entité à qui ils sont adressés. "
+                            + "Si vous avez reçu cet e-mail par erreur, veuillez en informer immédiatement l'expéditeur et supprimer l'e-mail de votre système. "
+                            + "La divulgation ou l'utilisation non autorisée des informations contenues dans cet e-mail est strictement interdite. "
+                            + "(C) 2023 Mecanicien. Tous droits réservés.");
+
+                    // create a multipart object and add the parts
+                    multipart.addBodyPart(htmlPart);
+
+                    multipart.addBodyPart(footerPart);
+
+                    // set the message content
+                    e_message.setContent(multipart);
+
+                    // send the email message
+                    Transport.send(e_message);
+
+                    System.out.println("Email sent successfully.");}
+            catch (MessagingException e){
+                throw new RuntimeException("Failed to send email: " + e.getMessage()); 
+            }
+
+        // emailsend.sendEmail();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Code Enovoyé ");
+        alert.setHeaderText("Un Code de vérification est envoyé vers votre email.");
+        alert.showAndWait();
+        return true;
 
     }
 
