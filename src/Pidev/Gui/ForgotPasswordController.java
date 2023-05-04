@@ -128,7 +128,7 @@ public class ForgotPasswordController implements Initializable {
                     Message e_message = new MimeMessage(session);
                     e_message.setFrom(new InternetAddress(fromEmail));
                     e_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-                    e_message.setSubject("Confirmation d'inscription");
+                    e_message.setSubject(" Code de récuperation de Mot Passe ");
                     MimeMultipart multipart = new MimeMultipart("related");
                     String htmlBody = "<html>"
                             + "<head>"
