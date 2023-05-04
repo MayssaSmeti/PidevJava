@@ -5,10 +5,15 @@
  */
 package Pidev.Services;
 
+import Pidev.Entities.User;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author Mayssa
  */
-public interface IService {
+public interface IService <U> {
+    public List<User> getAll() ;
     
 }
