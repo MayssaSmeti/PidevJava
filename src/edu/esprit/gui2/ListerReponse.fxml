@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.esprit.gui2.ListerReponseController">
+   <children>
+      <Label layoutX="85.0" layoutY="45.0" text="Lister d'une réponse" textFill="#26474e">
+         <font>
+            <Font name="Century Schoolbook Bold Italic" size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="tfDesc" layoutX="135.0" layoutY="186.0" text="Description :" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfdesc" layoutX="292.0" layoutY="186.0" prefHeight="118.0" prefWidth="236.0" />
+   </children>
+</AnchorPane>
