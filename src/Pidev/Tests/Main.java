@@ -37,8 +37,8 @@ public class Main {
       // pcd.selectEmail("mayssa.smeeti@gmail.com");
 
        // System.out.println(pcd.afficherUtilisateurs());
-      // Mail test = new  Mail(); 
-        //test.sendEmail();
+       Mail test = new  Mail(); 
+        test.sendEmail();
         //sendSMS test= new sendSMS();
         //test.sendSms(); 
         

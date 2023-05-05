@@ -7,6 +7,9 @@ package API;
 
 import java.sql.Date;
 import java.util.Properties;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -63,10 +66,15 @@ public class Mail {
         try{
         // Création du message
         Message e_message = new MimeMessage(session);
-        e_message.setFrom(new InternetAddress(fromEmail));
-        e_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+        e_message.setFrom(new InternetAddress("mayssa.smeti@esprit.tn"));
+        e_message.setRecipients(Message.RecipientType.TO, InternetAddress.parse("mayssa.smeeti@gmail.com"));
         e_message.setSubject(subject);
         MimeMultipart multipart = new MimeMultipart("related");
+         // add logo image to the email body
+                    MimeBodyPart logoPart = new MimeBodyPart();
+                    DataSource logoSource = new FileDataSource("C:\\Users\\Mayssa\\Desktop\\PidevJava\\src\\Pidev\\Img\\Logo.png");
+                    logoPart.setDataHandler(new DataHandler(logoSource));
+                    logoPart.setHeader("Content-ID", "<logo>");
                 String htmlBody = "<html>"
                         + "<head>"
                         + "<style>"
@@ -121,7 +129,7 @@ public class Mail {
                         + "<div class='card'>"
                         + "<h1>Bonjour " + ",</h1>"
                         + "<p>Merci d'avoir choisi nos services. Veuillez trouver ci-joint le code Confirmation d'inscription ." + "</p>"
-                        
+                         + "<img src='cid:logo' class='image' style='max-width: 200px; height: auto;'/>" // insert logo
                         + "<p>Si vous avez des questions ou des préoccupations, n'hésitez pas à nous contacter.</p>"
                         + "<a href='https://www.youtube.com/' class='button'>Visitez Notre Site Web</a>"
                         + "<p>Cordialement,</p>"

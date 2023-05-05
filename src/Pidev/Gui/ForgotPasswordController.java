@@ -183,7 +183,7 @@ public class ForgotPasswordController implements Initializable {
                             + "<div class='container'>"
                             + "<div class='card'>"
                             + "<h1>Bonjour " +fxemail.getText()+ ",</h1>"
-                            + "<p>Merci d'avoir choisi nos services. Veuillez trouver ci-joint le code de rénisialisation  ." + code+ "</p>"
+                            + "<p>Merci d'avoir choisi nos services. Veuillez trouver ci-joint le code de rénisialisation  " + code+ ".</p>"
                             + "<p>Si vous avez des questions ou des préoccupations, n'hésitez pas à nous contacter.</p>"
                             + "<a href='https://www.youtube.com/' class='button'>Visitez Notre Site Web</a>"
                             + "<p>Cordialement,</p>"
