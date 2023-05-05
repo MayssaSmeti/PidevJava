@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="526.0" prefWidth="931.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AfficherRapportController">
+    <stylesheets>
+        <URL value="@afficherrapport.css" />
+    </stylesheets>
+   <children>
+      <TableView fx:id="tableRapport" layoutX="8.0" layoutY="10.0" prefHeight="430.0" prefWidth="779.0">
+        <columns>
+          <TableColumn fx:id="idColomun" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="descriptionColomun" prefWidth="165.60003662109375" text="Description" />
+            <TableColumn fx:id="rapportpreColomun" prefWidth="160.8000030517578" text="Rapport_pre" />
+            <TableColumn fx:id="RapportexColomun" prefWidth="140.79998779296875" text="Rapport_ex" />
+            <TableColumn fx:id="imageColomun" prefWidth="139.20001220703125" text="Image" />
+            <TableColumn fx:id="actionColomun" prefWidth="91.2000732421875" text="Action" />
+        </columns>
+      </TableView>
+      <Button fx:id="deleteBtn" layoutX="801.0" layoutY="394.0" mnemonicParsing="false" onAction="#deleteRapport" styleClass="product__add-new-productBtn" stylesheets="@../assets/Style/offreStyle.css" text="Supprimer" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="117.0" prefWidth="900.0" styleClass="product-card" stylesheets="@../assets/Style/offreStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.OneReponseListController">
+    <children>
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="210.0" styleClass="product__list-imgContainer">
+         <children>
+            <ImageView fx:id="img" fitHeight="130.0" fitWidth="286.0" pickOnBounds="true" preserveRatio="true" translateX="36.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="599.0" translateY="2.0">
+         <HBox.margin>
+            <Insets left="20.0" />
+         </HBox.margin>
+         <children>
+            <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="125.0" prefWidth="607.0" styleClass="product__card-stock" stylesheets="@../assets/Style/offreStyle.css">
+               <children>
+                  <Text fx:id="description" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="product__card-stock" text="Description    :" translateX="10.0" translateY="-33.0" wrappingWidth="607.57421875">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="671.0" layoutY="32.0" prefHeight="0.0" prefWidth="0.0" styleClass="product__card-btns" stylesheets="@../assets/Style/offreStyle.css" />
+        <HBox fx:id="editOffre" alignment="CENTER" layoutX="777.0" layoutY="38.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="48.0" styleClass="product__card-btn" stylesheets="@../assets/Style/offreStyle.css">
+         <children>
+      <ImageView fitHeight="48.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+      <Image url="@../assets/Img/to-do-list.png" />
+      </image>
+      </ImageView>
+         </children>
+</HBox>
+      <HBox fx:id="deleteOffre" alignment="CENTER" layoutX="816.0" layoutY="38.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="43.0" styleClass="product__card-btn" stylesheets="@../assets/style/offreStyle.css">
+         <children>
+            <ImageView fitHeight="37.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/Img/supprimer.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+          
+                  <HBox fx:id="detailsOffre" alignment="CENTER" layoutX="734.0" layoutY="38.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="43.0" styleClass="product__card-btn" stylesheets="@../assets/Style/offreStyle.css">
+         <children>
+                  <ImageView fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Img/vision.png" />
+                     </image>
+                  </ImageView>
+         </children>
+            </HBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="839.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.DetailsConstatsController">
+   <children>
+      <Label layoutX="343.0" layoutY="14.0" styleClass="product__card-title" stylesheets="@../assets/Style/offreStyle.css" text="Détails Constat" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="64.0" />
+         </font>
+      </Label>
+      <Label layoutX="351.0" layoutY="46.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Nom :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="597.0" layoutY="46.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Prénom :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="345.0" layoutY="96.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Véhicule:" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="339.0" layoutY="152.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Assurance:" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="350.0" layoutY="234.0" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="613.0" layoutY="152.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Adresse:" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="328.0" layoutY="208.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Emplacement Accident :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="337.0" layoutY="269.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Photo Accident :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="345.0" layoutY="368.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Description :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="344.0" layoutY="415.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Observations :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="344.0" layoutY="462.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Num_contrat :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="372.0" layoutY="501.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Mail :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="643.0" layoutY="462.0" styleClass="product__add-input-label" stylesheets="@../assets/Style/offreStyle.css" text="Date :" textFill="#383838">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfnom" layoutX="414.0" layoutY="39.0" prefHeight="43.0" prefWidth="167.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" />
+      <TextField fx:id="tfprenom" layoutX="691.0" layoutY="39.0" prefHeight="43.0" prefWidth="167.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" />
+      <TextField fx:id="tfassurance" layoutX="430.0" layoutY="145.0" prefHeight="43.0" prefWidth="167.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" />
+      <TextField fx:id="tfadresse" layoutX="687.0" layoutY="145.0" prefHeight="43.0" prefWidth="176.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" />
+      <TextField fx:id="tfemplacement" layoutX="537.0" layoutY="201.0" prefHeight="43.0" prefWidth="327.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" />
+      <TextField fx:id="tfdescription" layoutX="491.0" layoutY="361.0" prefHeight="43.0" prefWidth="371.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" />
+      <TextField fx:id="tfobservations" layoutX="491.0" layoutY="419.0" prefHeight="43.0" prefWidth="371.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" translateY="-12.0" />
+      <TextField fx:id="tfnum" layoutX="491.0" layoutY="469.0" prefHeight="43.0" prefWidth="140.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" translateY="-15.0" />
+      <TextField fx:id="tfmail" layoutX="491.0" layoutY="524.0" prefHeight="43.0" prefWidth="371.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" translateY="-23.0" />
+      <TextField fx:id="tfdate" layoutX="705.0" layoutY="454.0" prefHeight="43.0" prefWidth="158.0" styleClass="product__add-input" stylesheets="@../assets/Style/offreStyle.css" />
+      <Button fx:id="btnModif" layoutX="495.0" layoutY="586.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="68.0" prefWidth="70.0" styleClass="btn_modif" stylesheets="@../assets/style/offreStyle.css" textFill="#0d0d0d" />
+      <Button fx:id="btnSupp" layoutX="594.0" layoutY="586.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="68.0" prefWidth="70.0" styleClass="btn_Supp" stylesheets="@../assets/style/offreStyle.css" textFill="#0d0d0d" />
+      <Button fx:id="btnMail" layoutX="868.0" layoutY="496.0" mnemonicParsing="false" onAction="#mail" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: #FEFEE2;" styleClass="btn_mail" stylesheets="@../assets/style/offreStyle.css" />
+      <Button layoutX="691.0" layoutY="586.0" mnemonicParsing="false" onAction="#PDF" prefHeight="68.0" prefWidth="70.0" styleClass="btn_pdf" stylesheets="@../assets/style/offreStyle.css" textFill="#0d0d0d" />
+      <Button layoutX="790.0" layoutY="586.0" mnemonicParsing="false" onAction="#Localiser" prefHeight="68.0" prefWidth="70.0" styleClass="btn_map" stylesheets="@../assets/style/offreStyle.css" />
+      <ImageView fx:id="tfphoto" fitHeight="86.0" fitWidth="158.0" layoutX="498.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" />
+      <ComboBox fx:id="experts" layoutX="523.0" layoutY="546.0" prefHeight="43.0" prefWidth="308.0" styleClass="product__add-comboBox" stylesheets="@../assets/Style/offreStyle.css" />
+      <ComboBox fx:id="tftype" layoutX="418.0" layoutY="89.0" prefHeight="43.0" prefWidth="204.0" styleClass="product__add-comboBox" stylesheets="@../assets/Style/offreStyle.css" />
+      <ComboBox fx:id="tfmarque" layoutX="645.0" layoutY="89.0" prefHeight="43.0" prefWidth="220.0" styleClass="product__add-comboBox" stylesheets="@../assets/Style/offreStyle.css" />
+      <Button fx:id="tfimage" layoutX="701.0" layoutY="273.0" mnemonicParsing="false" onAction="#ChoisirFichier" prefHeight="43.0" prefWidth="167.0" styleClass="product__add-new-productBtn" stylesheets="@../assets/Style/offreStyle.css" text="Choisir une image" />
+   </children>
+</AnchorPane>

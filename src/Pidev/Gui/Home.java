@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Pidev.Gui;
+package edu.esprit.gui;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -22,12 +22,12 @@ public class Home extends Application {
     @Override
     public void start(Stage primaryStage) {
         Button btn = new Button();
-        btn.setText("Bienvenue à 4 roues assurances !'");
+        btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Bienvenue à 4 roues assurances !");
+                System.out.println("Hello World!");
             }
         });
         

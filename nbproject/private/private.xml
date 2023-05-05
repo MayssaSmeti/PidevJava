@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/LiReclamationController.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/ListerReponseController.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/AdminDashboardControlerRec.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/ListeReclamationController.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/ReponseController.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/oneReclamationList.fxml</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/LiReclamation.fxml</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/ReclamationController.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/Connexion.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/DetailsWindowController.java</file>
+            <file>file:/C:/Users/msi/Documents/NetBeansProjects/Integration/src/Pidev/Gui/OneReclamationListController.java</file>
+        </group>
     </open-files>
 </project-private>

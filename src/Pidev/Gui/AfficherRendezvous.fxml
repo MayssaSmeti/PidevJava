@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="466.0" prefWidth="754.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AfficherRendezvousController">
+    <stylesheets>
+        <URL value="@afficherrendezvous.css" />
+    </stylesheets>
+    
+   <children>
+       <Label layoutX="20.0" layoutY="30.0" text="Lieu:">
+         <stylesheets>
+            <URL value="@../assets/Style/offreStyle.css" />
+            <URL value="@../assets/Style/offreStyle.css" />
+         </stylesheets></Label>
+<TextField fx:id="searchLieuField" layoutX="80.0" layoutY="25.0" onAction="#searchLieu" prefHeight="31.0" prefWidth="490.0" promptText="Enter lieu to search" stylesheets="@../assets/Style/offreStyle.css">
+         <styleClass>
+            <String fx:value="radius" />
+            <String fx:value="shadow" />
+            <String fx:value="white-bg" />
+         </styleClass></TextField>
+
+      <ListView fx:id="list_rdv" layoutX="20.0" layoutY="84.0" prefHeight="344.0" prefWidth="552.0" stylesheets="@../assets/Style/offreStyle.css" />
+      <ImageView fx:id="qrCodeImageView" fitHeight="89.0" fitWidth="106.0" layoutX="620.0" layoutY="144.0" />
+
+      <Button fx:id="deleteBtn" layoutX="588.0" layoutY="239.0" mnemonicParsing="false" onAction="#delete" styleClass="product__add-new-productBtn" stylesheets="@../assets/Style/offreStyle.css" text="Supprimer" />
+      <Button fx:id="deleteBtn1" layoutX="599.0" layoutY="177.0" mnemonicParsing="false" onAction="#generateQRCode" styleClass="product__add-new-productBtn" stylesheets="@../assets/Style/offreStyle.css" text="QrCode" />
+   </children>
+</AnchorPane>

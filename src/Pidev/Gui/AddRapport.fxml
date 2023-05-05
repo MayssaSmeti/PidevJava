@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<Pane fx:id="content_area" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="1134.0" styleClass="dash__container-card" stylesheets="@../assets/style/offreStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.AddRapportController">
+   <children>
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" layoutX="24.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1052.0" styleClass="product-card-scrollPane">
+         <content>
+            <GridPane fx:id="AddOffreContainer">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+         <stylesheets>
+            <URL value="@../assets/style/offreStyle.css" />
+            <URL value="@../assets/Style/offreStyle.css" />
+         </stylesheets></ScrollPane>
+   </children>
+</Pane>

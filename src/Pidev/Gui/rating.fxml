@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="edu.esprit.gui2.RatingController">
+   <children>
+      <Button layoutX="256.0" layoutY="246.0" mnemonicParsing="false" onAction="#evaluer" text="evaluer" />
+      <ImageView fx:id="rating1" fitHeight="48.0" fitWidth="68.0" layoutX="89.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating2" fitHeight="48.0" fitWidth="68.0" layoutX="164.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating3" fitHeight="48.0" fitWidth="68.0" layoutX="243.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating4" fitHeight="48.0" fitWidth="68.0" layoutX="320.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating5" fitHeight="48.0" fitWidth="68.0" layoutX="395.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/etoile.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

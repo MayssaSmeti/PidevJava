@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="725.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.MapController">
+   <children>
+      <Label layoutX="491.0" layoutY="48.0" text="Localisation" textFill="#ff8521">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+      <WebView fx:id="webview" layoutX="280.0" layoutY="120.0" prefHeight="505.0" prefWidth="600.0" />
+   </children>
+</AnchorPane>

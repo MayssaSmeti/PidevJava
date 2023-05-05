@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="menu_gridPane" prefHeight="667.0" prefWidth="957.0" translateX="-181.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pidev.Gui.ReclamationController">
+   <children>
+      <Label fx:id="tfDescription" alignment="CENTER" layoutX="250.0" layoutY="167.0" text="Description :" textAlignment="CENTER" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="tfObjet" contentDisplay="CENTER" layoutX="278.0" layoutY="224.0" text="Objet :" textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="tfNote" contentDisplay="CENTER" layoutX="278.0" layoutY="296.0" text="Note : " textFill="#76cdcd">
+         <font>
+            <Font name="Arial Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnEnvoyer" alignment="CENTER" contentDisplay="CENTER" layoutX="518.0" layoutY="377.0" mnemonicParsing="false" onAction="#saveReclamation" prefHeight="40.0" prefWidth="123.0" style="-fx-background-color: F9968B;" text="Envoyer" textAlignment="CENTER" textFill="#101010">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tfdescription" layoutX="405.0" layoutY="168.0" prefHeight="26.0" prefWidth="349.0" />
+      <TextField fx:id="tfobjet" layoutX="401.0" layoutY="225.0" prefHeight="26.0" prefWidth="350.0" />
+      <Label layoutX="187.0" layoutY="51.0" prefHeight="62.0" prefWidth="646.0" text="Envoyer une réclamation" textAlignment="CENTER" textFill="#26474e" translateY="26.0" underline="true">
+         <font>
+            <Font name="Century Schoolbook Bold Italic" size="48.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfnote" layoutX="647.0" layoutY="297.0" prefHeight="26.0" prefWidth="110.0" />
+      <Button layoutX="496.0" layoutY="442.0" mnemonicParsing="false" onAction="#sms" prefHeight="40.0" prefWidth="166.0" style="-fx-background-color: F9968B;" text="Envoyer SMS">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="39.0" fitWidth="48.0" layoutX="491.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/sms.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="31.0" layoutX="518.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/envoi-en-cours.png" />
+         </image>
+      </ImageView>
+      <ButtonBar layoutX="132.0" layoutY="423.0" prefHeight="40.0" prefWidth="200.0" />
+      <Label fx:id="msg" layoutX="82.0" layoutY="119.0" />
+      <ImageView fx:id="rating1" fitHeight="48.0" fitWidth="68.0" layoutX="399.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating2" fitHeight="48.0" fitWidth="68.0" layoutX="447.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating3" fitHeight="48.0" fitWidth="68.0" layoutX="496.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating4" fitHeight="48.0" fitWidth="68.0" layoutX="544.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/etoile.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rating5" fitHeight="48.0" fitWidth="68.0" layoutX="592.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/Img/etoile.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="672.0" layoutY="36.0" minWidth="39.0" mnemonicParsing="false" onAction="#feedback" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: F9968B;">
+         <graphic>
+            <Text onMouseClicked="#feedback" strokeType="OUTSIDE" strokeWidth="0.0" text="Mes Reclamations">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </graphic></Button>
+
+   </children>
+</AnchorPane>

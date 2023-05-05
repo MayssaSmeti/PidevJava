@@ -7,8 +7,15 @@ package Pidev.Entities;
 
 /**
  *
- * @author Mayssa
+ * @author msi
  */
-public class Assureur extends User  {
+public class Assureur extends User {
+
+    public Assureur() {
+    }
+
+    public Assureur(int id) {
+        super(id);
+    }
     
 }
